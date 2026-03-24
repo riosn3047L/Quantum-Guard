@@ -1,4 +1,4 @@
-# Compliance Tab - Excel Implementation Guide
+﻿# Compliance Tab - Excel Implementation Guide
 
 ## Overview
 This guide provides specific instructions for implementing the Compliance tab in Excel, translating the web-based mockup into Excel features.
@@ -35,7 +35,7 @@ This guide provides specific instructions for implementing the Compliance tab in
   - Explains: 1.0 = Direct Match, 0.8 = Strong Match, etc.
 - **Row 30**: Column headers for mapping table
 - **Rows 31-50**: Scrollable mapping data
-  - Columns: QRAMM Practice | Framework Control | Relevance (?) | Your Score | Coverage | Gap Priority
+  - Columns: QuantumGuard Practice | Framework Control | Relevance (?) | Your Score | Coverage | Gap Priority
   - Use conditional formatting for gap priority colors
   - Relevance column shows decimal values (1.0, 0.8, etc.)
 
@@ -74,7 +74,7 @@ Format as decimal with 1 decimal place (1.0, 0.8, etc.)
 =SUMPRODUCT(
     (MappingTable[Framework]=SelectedFramework) * 
     MappingTable[Relevance] * 
-    VLOOKUP(MappingTable[QRAMM_ID], AssessmentScores, 2, FALSE)
+    VLOOKUP(MappingTable[QuantumGuard_ID], AssessmentScores, 2, FALSE)
 ) / 
 SUMIF(MappingTable[Framework], SelectedFramework, MappingTable[Relevance])
 ```

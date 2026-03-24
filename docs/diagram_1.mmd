@@ -1,0 +1,43 @@
+flowchart TD
+    subgraph Platform [QuantumGuard Platform]
+        direction LR
+        Web["<b>Frontend Web App</b><br/>Assessment Interface"]
+        Engine["<b>Assessment Engine</b><br/>120 Questions<br/>Automated Scoring"]
+        Excel["<b>Toolkit (Excel)</b><br/>Offline Assessment"]
+        CLI["<b>Open Source CLI Tools</b><br/>CryptoScan<br/>TLS Analyzer<br/>CryptoDeps"]
+    end
+
+    subgraph Docs [Framework Documentation Layer]
+        direction LR
+        D1["Overview"] --- D2["Maturity Levels"] --- D3["Scoring"] --- D4["Compliance"] --- D5["Questions"]
+    end
+
+    subgraph Resources [Templates & Guides]
+        direction LR
+        R1["Executive Report"] --- R2["Asset Inventory"] --- R3["Vendor Questionnaire"]
+        R4["Evidence Collection"] --- R5["Getting Started Guide"]
+    end
+
+    Platform === Docs
+    Docs === Resources
+
+    style Platform fill:#f8fafc,stroke:#cbd5e1,stroke-width:2px,color:#0f172a
+    style Docs fill:#eff6ff,stroke:#bfdbfe,stroke-width:2px,color:#1e293b
+    style Resources fill:#fffbeb,stroke:#fde68a,stroke-width:2px,color:#1e293b
+    
+    style Web fill:#fff,stroke:#e2e8f0,color:#334155
+    style Engine fill:#fff,stroke:#e2e8f0,color:#334155
+    style Excel fill:#fff,stroke:#e2e8f0,color:#334155
+    style CLI fill:#fff,stroke:#e2e8f0,color:#334155
+    
+    style D1 fill:none,stroke:none
+    style D2 fill:none,stroke:none
+    style D3 fill:none,stroke:none
+    style D4 fill:none,stroke:none
+    style D5 fill:none,stroke:none
+    
+    style R1 fill:none,stroke:none
+    style R2 fill:none,stroke:none
+    style R3 fill:none,stroke:none
+    style R4 fill:none,stroke:none
+    style R5 fill:none,stroke:none

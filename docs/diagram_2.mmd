@@ -1,0 +1,30 @@
+flowchart TD
+    %% Nodes
+    User([User / Organization])
+    
+    Web["<b>Web Frontend</b><br/>Quick Assess (12 Qs)<br/>Instant Results"]
+    Excel["<b>Excel Toolkit</b><br/>Full Assess (120 Qs)<br/>Scoring & Charts<br/>Compliance"]
+    CLI["<b>CLI Tools</b><br/>CryptoScan, TLS Analyzer, CryptoDeps<br/>Automated Discovery<br/>SARIF & CBOM Output"]
+    
+    Core{{"<b>QuantumGuard Framework Core</b>"}}
+    
+    CoreDetails["• 4 Dimensions × 3 Practices = 12 Practices<br/>• 120 Assessment Questions<br/>• 5-Level Maturity Model<br/>• Weighted Scoring Engine<br/>• 8-Framework Compliance Mapping"]
+    
+    %% Connections
+    User -->|Uses| Web
+    User -->|Downloads| Excel
+    User -->|Runs| CLI
+
+    Web ===>|Powers Assessment| Core
+    Excel ===>|Underpins Engine| Core
+    CLI ===>|Informs Inventory| Core
+    
+    Core -.- CoreDetails
+    
+    %% Styling
+    style User fill:#0f172a,stroke:#334155,stroke-width:2px,color:#fff
+    style Web fill:#eff6ff,stroke:#3b82f6,stroke-width:2px
+    style Excel fill:#f0fdf4,stroke:#22c55e,stroke-width:2px
+    style CLI fill:#fdf4ff,stroke:#d946ef,stroke-width:2px
+    style Core fill:#1e293b,stroke:#cbd5e1,stroke-width:2px,color:#fff
+    style CoreDetails fill:#f8fafc,stroke:#94a3b8,stroke-dasharray: 5 5

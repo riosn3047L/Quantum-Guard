@@ -1,9 +1,9 @@
-# QRAMM Compliance Mapping Framework
-**Mapping QRAMM Practices to Federal Compliance Requirements**
+﻿# QuantumGuard Compliance Mapping Framework
+**Mapping QuantumGuard Practices to Federal Compliance Requirements**
 
 ## Overview
 
-This document provides comprehensive mapping between QRAMM practices and key federal compliance frameworks, enabling organizations to understand how QRAMM implementation supports regulatory compliance for post-quantum cryptography readiness.
+This document provides comprehensive mapping between QuantumGuard practices and key federal compliance frameworks, enabling organizations to understand how QuantumGuard implementation supports regulatory compliance for post-quantum cryptography readiness.
 
 ## Phase 1 Compliance Frameworks
 
@@ -39,7 +39,7 @@ This document provides comprehensive mapping between QRAMM practices and key fed
 
 **Compliance Mappings:**
 
-| QRAMM Question | NIST PQC | CMMC 2.0 | FedRAMP | FISMA |
+| QuantumGuard Question | NIST PQC | CMMC 2.0 | FedRAMP | FISMA |
 |----------------|----------|----------|---------|--------|
 | **Q1.1.1**: How does your organization identify cryptographic assets? | NIST IR 8547 Section 3.1 "Inventory Systems" | CM.L2-3.4.1 "Establish baseline configurations" | CM-8 "Information System Component Inventory" | NIST SP 800-53 CM-8 |
 | **Q1.1.2**: How does your organization document cryptographic assets? | NIST IR 8547 Section 3.2 "Document Dependencies" | CM.L2-3.4.2 "Maintain inventory of organizational systems" | CM-8(1) "Updates During Installations" | NIST SP 800-53 CM-8(1) |
@@ -56,7 +56,7 @@ This document provides comprehensive mapping between QRAMM practices and key fed
 
 **Compliance Mappings:**
 
-| QRAMM Question | NIST PQC | CMMC 2.0 | FedRAMP | FISMA |
+| QuantumGuard Question | NIST PQC | CMMC 2.0 | FedRAMP | FISMA |
 |----------------|----------|----------|---------|--------|
 | **Q1.2.1**: How does your organization identify quantum-vulnerable cryptographic algorithms? | NIST SP 800-131A Table 1 "Deprecated Algorithms" | RA.L2-3.11.1 "Identify and evaluate risk" | RA-5 "Vulnerability Scanning" | NIST SP 800-53 RA-5 |
 | **Q1.2.2**: How are quantum-vulnerable systems classified based on their criticality? | FIPS 199 "Security Categorization" | RA.L2-3.11.3 "Remediate vulnerabilities" | RA-2 "Security Categorization" | NIST SP 800-53 RA-2 |
@@ -73,7 +73,7 @@ This document provides comprehensive mapping between QRAMM practices and key fed
 
 **Compliance Mappings:**
 
-| QRAMM Question | NIST PQC | CMMC 2.0 | FedRAMP | FISMA |
+| QuantumGuard Question | NIST PQC | CMMC 2.0 | FedRAMP | FISMA |
 |----------------|----------|----------|---------|--------|
 | **Q1.3.1**: How does your organization identify cryptographic dependencies? | NIST IR 8547 Section 3.2 | CM.L2-3.4.9 "Control configuration changes" | CM-4 "Security Impact Analysis" | NIST SP 800-53 CM-4 |
 | **Q1.3.2**: How does your organization document cryptographic dependencies? | NIST SP 800-160 Vol. 1 | SA.L2-3.14.2 "Develop supply chain risk plan" | SA-14 "Supply Chain Protection" | NIST SP 800-53 SA-14 |
@@ -94,7 +94,7 @@ This document provides comprehensive mapping between QRAMM practices and key fed
 
 **Compliance Mappings:**
 
-| QRAMM Question | NIST PQC | CMMC 2.0 | FedRAMP | FISMA |
+| QuantumGuard Question | NIST PQC | CMMC 2.0 | FedRAMP | FISMA |
 |----------------|----------|----------|---------|--------|
 | **Q2.1.1**: How is quantum risk oversight structured at the executive level? | M-23-02 Section 1 "Leadership" | PM.L2-3.11.1 "Assess security risks" | PM-2 "Senior Information Security Officer" | NIST SP 800-53 PM-2 |
 | **Q2.1.2**: How comprehensive is your quantum risk policy framework? | NIST IR 8547 Section 7 "Policy" | PL.L2-3.12.1 "Develop security plans" | PL-1 "Security Planning Policy" | NIST SP 800-53 PL-1 |
@@ -111,7 +111,7 @@ This document provides comprehensive mapping between QRAMM practices and key fed
 
 **Compliance Mappings:**
 
-| QRAMM Question | NIST PQC | CMMC 2.0 | FedRAMP | FISMA |
+| QuantumGuard Question | NIST PQC | CMMC 2.0 | FedRAMP | FISMA |
 |----------------|----------|----------|---------|--------|
 | **Q2.2.1**: How does your organization assess quantum computing risk? | NIST IR 8547 Section 2 | RA.L2-3.11.1 "Identify and evaluate risk" | RA-3 "Risk Assessment" | NIST SP 800-53 RA-3 |
 | **Q2.2.2**: How does your organization manage quantum compliance requirements? | M-23-02 Compliance Timeline | CA.L2-3.12.1 "Conduct assessments" | CA-1 "Assessment Policy" | NIST SP 800-53 CA-1 |
@@ -128,7 +128,7 @@ This document provides comprehensive mapping between QRAMM practices and key fed
 
 **Compliance Mappings:**
 
-| QRAMM Question | NIST PQC | CMMC 2.0 | FedRAMP | FISMA |
+| QuantumGuard Question | NIST PQC | CMMC 2.0 | FedRAMP | FISMA |
 |----------------|----------|----------|---------|--------|
 | **Q2.3.1**: How does your organization assess third-party quantum risk? | NIST SP 800-161 Rev. 1 | SR.L2-3.14.1 "Identify supply chain elements" | SR-1 "Supply Chain Policy" | NIST SP 800-53 SR-1 |
 | **Q2.3.2**: How does your organization incorporate quantum security into contracts? | M-23-02 Section 5 "Contracts" | SR.L2-3.14.2 "Supply chain risk plan" | SR-5 "Acquisition Strategies" | NIST SP 800-53 SR-5 |
@@ -149,7 +149,7 @@ This document provides comprehensive mapping between QRAMM practices and key fed
 
 **Compliance Mappings:**
 
-| QRAMM Question | NIST PQC | CMMC 2.0 | FedRAMP | FISMA |
+| QuantumGuard Question | NIST PQC | CMMC 2.0 | FedRAMP | FISMA |
 |----------------|----------|----------|---------|--------|
 | **Q3.1.1**: How does your organization classify data based on quantum risk? | FIPS 199 + Quantum Timeline | SC.L2-3.13.1 "Information protection" | SC-28 "Protection at Rest" | NIST SP 800-53 SC-28 |
 | **Q3.1.2**: How does your organization define quantum protection requirements? | FIPS 203/204/205 Requirements | SC.L2-3.13.8 "Cryptographic mechanisms" | SC-13 "Cryptographic Protection" | NIST SP 800-53 SC-13 |
@@ -166,7 +166,7 @@ This document provides comprehensive mapping between QRAMM practices and key fed
 
 **Compliance Mappings:**
 
-| QRAMM Question | NIST PQC | CMMC 2.0 | FedRAMP | FISMA |
+| QuantumGuard Question | NIST PQC | CMMC 2.0 | FedRAMP | FISMA |
 |----------------|----------|----------|---------|--------|
 | **Q3.2.1**: How does your organization protect data at rest from quantum threats? | FIPS 203 ML-KEM | SC.L2-3.13.16 "Protect CUI at rest" | SC-28 "Protection at Rest" | NIST SP 800-53 SC-28 |
 | **Q3.2.2**: How does your organization manage encryption keys? | NIST SP 800-57 Part 1 | SC.L2-3.13.10 "Key management" | SC-12 "Key Management" | NIST SP 800-53 SC-12 |
@@ -183,7 +183,7 @@ This document provides comprehensive mapping between QRAMM practices and key fed
 
 **Compliance Mappings:**
 
-| QRAMM Question | NIST PQC | CMMC 2.0 | FedRAMP | FISMA |
+| QuantumGuard Question | NIST PQC | CMMC 2.0 | FedRAMP | FISMA |
 |----------------|----------|----------|---------|--------|
 | **Q3.3.1**: How does your organization protect data in transit? | FIPS 203/204 Transit | SC.L2-3.13.8 "Implement crypto" | SC-8 "Transmission Protection" | NIST SP 800-53 SC-8 |
 | **Q3.3.2**: How does your organization manage secure protocols? | NIST SP 800-52 Rev. 2 | SC.L2-3.13.11 "FIPS crypto" | SC-23 "Session Authenticity" | NIST SP 800-53 SC-23 |
@@ -204,7 +204,7 @@ This document provides comprehensive mapping between QRAMM practices and key fed
 
 **Compliance Mappings:**
 
-| QRAMM Question | NIST PQC | CMMC 2.0 | FedRAMP | FISMA |
+| QuantumGuard Question | NIST PQC | CMMC 2.0 | FedRAMP | FISMA |
 |----------------|----------|----------|---------|--------|
 | **Q4.1.1**: How does your organization assess infrastructure readiness? | NIST IR 8547 Section 3 | CM.L2-3.4.1 "Baseline configurations" | CM-2 "Baseline Configuration" | NIST SP 800-53 CM-2 |
 | **Q4.1.2**: How does your organization plan infrastructure upgrades? | NIST PQC Migration Guide | CM.L2-3.4.2 "Configuration management" | CM-3 "Configuration Changes" | NIST SP 800-53 CM-3 |
@@ -221,7 +221,7 @@ This document provides comprehensive mapping between QRAMM practices and key fed
 
 **Compliance Mappings:**
 
-| QRAMM Question | NIST PQC | CMMC 2.0 | FedRAMP | FISMA |
+| QuantumGuard Question | NIST PQC | CMMC 2.0 | FedRAMP | FISMA |
 |----------------|----------|----------|---------|--------|
 | **Q4.2.1**: How does your organization build implementation skills? | NIST Training Resources | AT.L2-3.2.1 "Security awareness" | AT-3 "Security Training" | NIST SP 800-53 AT-3 |
 | **Q4.2.2**: How does your organization develop implementation processes? | NIST SDLC Integration | SA.L2-3.14.1 "Development lifecycle" | SA-3 "Lifecycle Development" | NIST SP 800-53 SA-3 |
@@ -238,7 +238,7 @@ This document provides comprehensive mapping between QRAMM practices and key fed
 
 **Compliance Mappings:**
 
-| QRAMM Question | NIST PQC | CMMC 2.0 | FedRAMP | FISMA |
+| QuantumGuard Question | NIST PQC | CMMC 2.0 | FedRAMP | FISMA |
 |----------------|----------|----------|---------|--------|
 | **Q4.3.1**: How does your organization test implementations? | NIST SP 800-115 | CA.L2-3.12.1 "Security testing" | CA-8 "Penetration Testing" | NIST SP 800-53 CA-8 |
 | **Q4.3.2**: How does your organization validate correctness? | FIPS 140-3 CAVP | SC.L2-3.13.11 "FIPS validation" | SC-13(1) "FIPS Validated" | NIST SP 800-53 SC-13(1) |
@@ -257,12 +257,12 @@ This document provides comprehensive mapping between QRAMM practices and key fed
 
 ### Mapping Strength Indicators
 
-Each QRAMM practice question is mapped to compliance requirements using the following strength indicators:
+Each QuantumGuard practice question is mapped to compliance requirements using the following strength indicators:
 
-- **Direct Mapping** (●●●): QRAMM practice directly satisfies the compliance requirement
-- **Strong Mapping** (●●○): QRAMM practice substantially addresses the requirement with minor gaps
-- **Partial Mapping** (●○○): QRAMM practice partially addresses the requirement
-- **Supporting** (○○○): QRAMM practice provides supporting evidence but doesn't directly satisfy
+- **Direct Mapping** (●●●): QuantumGuard practice directly satisfies the compliance requirement
+- **Strong Mapping** (●●○): QuantumGuard practice substantially addresses the requirement with minor gaps
+- **Partial Mapping** (●○○): QuantumGuard practice partially addresses the requirement
+- **Supporting** (○○○): QuantumGuard practice provides supporting evidence but doesn't directly satisfy
 
 ### Compliance Coverage Calculation
 
@@ -283,20 +283,20 @@ For each mapped requirement, organizations should collect:
 ## Using This Mapping
 
 ### For Compliance Teams
-1. Use mappings to identify which QRAMM practices support specific compliance requirements
-2. Generate compliance-specific reports using QRAMM assessment results
+1. Use mappings to identify which QuantumGuard practices support specific compliance requirements
+2. Generate compliance-specific reports using QuantumGuard assessment results
 3. Identify gaps where additional controls may be needed
 
 ### For Implementation Teams
-1. Prioritize QRAMM practices that satisfy multiple compliance requirements
+1. Prioritize QuantumGuard practices that satisfy multiple compliance requirements
 2. Use evidence requirements to guide documentation efforts
 3. Align technical implementations with compliance needs
 
 ### For Auditors
-1. Reference mappings to understand how QRAMM supports compliance objectives
-2. Use QRAMM maturity scores as indicators of control effectiveness
+1. Reference mappings to understand how QuantumGuard supports compliance objectives
+2. Use QuantumGuard maturity scores as indicators of control effectiveness
 3. Review evidence collection aligned with mapped requirements
 
 ---
 
-*This compliance mapping is maintained by the QRAMM team and updated as standards evolve. For the latest version, visit [qramm.org](https://qramm.org)*
+*This compliance mapping is maintained by the QuantumGuard team and updated as standards evolve. For the latest version, visit [QuantumGuard.org](https://QuantumGuard.org)*

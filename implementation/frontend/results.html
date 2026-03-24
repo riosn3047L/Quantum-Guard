@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QuantumGuard | Results Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&amp;family=Space+Grotesk:wght@500&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="shared.css" rel="stylesheet"/>
+<script src="data.js"></script>
+<script src="engine.js"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary-fixed": "#25005a", "on-error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#5a00c6", "tertiary-fixed-dim": "#ffba3d",
+                        "surface-tint": "#3cd7ff", "error": "#ffb4ab",
+                        "inverse-on-surface": "#233148", "on-surface": "#d6e3ff",
+                        "surface-bright": "#2c3951", "secondary-container": "#6001d1",
+                        "tertiary-fixed": "#ffdeae", "surface-variant": "#27354c",
+                        "on-surface-variant": "#bbc9cf", "secondary-fixed": "#eaddff",
+                        "surface-container-high": "#1c2a41", "on-tertiary": "#432c00",
+                        "on-primary-fixed": "#001f27", "on-primary-container": "#00586b",
+                        "surface-container-lowest": "#010e24", "on-tertiary-container": "#6c4900",
+                        "on-tertiary-fixed": "#281900", "surface-dim": "#041329",
+                        "secondary-fixed-dim": "#d2bbff", "on-secondary": "#3f008e",
+                        "surface": "#041329", "inverse-surface": "#d6e3ff",
+                        "background": "#041329", "on-background": "#d6e3ff",
+                        "tertiary": "#ffd9a1", "on-secondary-container": "#c9aeff",
+                        "primary-container": "#00d4ff", "tertiary-container": "#feb528",
+                        "on-error": "#690005", "on-primary": "#003642",
+                        "secondary": "#d2bbff", "primary": "#a8e8ff",
+                        "surface-container": "#112036", "outline": "#859398",
+                        "primary-fixed-dim": "#3cd7ff", "primary-fixed": "#b4ebff",
+                        "on-tertiary-fixed-variant": "#604100", "inverse-primary": "#00677e",
+                        "error-container": "#93000a", "surface-container-highest": "#27354c",
+                        "outline-variant": "#3c494e", "on-primary-fixed-variant": "#004e5f",
+                        "surface-container-low": "#0d1c32"
+                    },
+                    fontFamily: { "headline": ["Inter"], "body": ["Inter"], "label": ["Space Grotesk"] },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { background-color: #041329; color: #d6e3ff; font-family: 'Inter', sans-serif; }
+        .glass-panel { background: rgba(39, 53, 76, 0.6); backdrop-filter: blur(20px); border: 1px solid rgba(60, 73, 78, 0.15); }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#041329]/60 backdrop-blur-xl border-b border-[#3C494E]/15 shadow-[0_8px_32px_0_rgba(0,212,255,0.08)] flex justify-between items-center px-8 h-20 max-w-none">
+<div class="flex items-center gap-8">
+<a href="index.html" class="text-2xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-[#A8E8FF] to-[#00D4FF] font-headline">QuantumGuard</a>
+<div class="hidden md:flex gap-6 font-['Inter'] tracking-tight text-[#D6E3FF]">
+<a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors duration-300" href="quick-assessment.html">Assessment</a>
+<a class="text-[#00D4FF] border-b-2 border-[#00D4FF] pb-1 font-bold" href="results.html">Results</a>
+<a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors duration-300" href="compliance.html">Compliance</a>
+<a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors duration-300" href="tools.html">Tools</a>
+<a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors duration-300" href="docs.html">Docs</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-[#27354C]/50 transition-all duration-200 rounded-full">
+<span class="material-symbols-outlined text-[#00D4FF]">notifications</span>
+</button>
+<button class="p-2 hover:bg-[#27354C]/50 transition-all duration-200 rounded-full">
+<span class="material-symbols-outlined text-[#00D4FF]">account_circle</span>
+</button>
+</div>
+</nav>
+<main class="pt-28 pb-20 px-8 max-w-7xl mx-auto space-y-8">
+<!-- Hero Section: Overall Score -->
+<header class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<div class="lg:col-span-7 space-y-4">
+<div class="flex items-center gap-3">
+<span class="bg-primary-container text-on-primary-container px-4 py-1 rounded-full text-xs font-bold tracking-widest uppercase font-label">Security Posture 2026</span>
+<span id="maturityBadge" class="bg-secondary-container text-on-secondary-container px-4 py-1 rounded-full text-xs font-bold tracking-widest uppercase font-label">—</span>
+</div>
+<h1 class="text-5xl font-black tracking-tight font-headline">Assessment <span class="text-primary">Results</span></h1>
+<p id="overallDesc" class="text-on-surface-variant max-w-2xl leading-relaxed">Complete the assessment to see your results here.</p>
+<div class="flex gap-4 pt-2">
+<a href="quick-assessment.html" id="retakeBtn" class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-6 py-3 rounded-lg font-bold flex items-center gap-2 hover:shadow-[0_0_20px_rgba(0,212,255,0.4)] transition-all">
+<span class="material-symbols-outlined">replay</span> Retake Assessment
+</a>
+<a href="compliance.html" class="glass-panel text-on-surface px-6 py-3 rounded-lg font-bold flex items-center gap-2 hover:bg-surface-container-highest transition-all">
+<span class="material-symbols-outlined">verified_user</span> Compliance Map
+</a>
+<button onclick="exportResults()" class="glass-panel text-on-surface px-6 py-3 rounded-lg font-bold flex items-center gap-2 hover:bg-surface-container-highest transition-all">
+<span class="material-symbols-outlined">download</span> Export Report (JSON)
+</button>
+</div>
+</div>
+<div class="lg:col-span-5 relative flex flex-col items-center justify-center py-12">
+<div class="absolute inset-0 bg-secondary-container/20 rounded-full blur-[80px]"></div>
+<div class="relative z-10 flex flex-col items-center">
+<div id="overallScore" class="text-[8rem] font-black font-['JetBrains_Mono'] leading-none text-transparent bg-clip-text bg-gradient-to-b from-primary to-primary-container">—</div>
+<div class="font-label tracking-[0.2em] text-sm uppercase text-on-surface-variant -mt-4">Overall Score (1.0 - 4.0)</div>
+</div>
+</div>
+</header>
+<!-- Dimension Score Cards -->
+<section id="dimCards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Filled by JS -->
+</section>
+<!-- Main Analytics Bento Grid -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Practice Breakdown -->
+<div class="lg:col-span-8 bg-surface-container-low rounded-2xl p-8 relative overflow-hidden">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h4 class="text-xl font-bold font-headline">Practice-Level Breakdown</h4>
+<p class="text-sm text-on-surface-variant">Scores across all 12 practices (3 per dimension)</p>
+</div>
+<div class="flex gap-4">
+<div class="flex items-center gap-2 text-xs font-label"><span class="w-3 h-3 bg-primary rounded-sm"></span> Your Score</div>
+<div class="flex items-center gap-2 text-xs font-label"><span class="w-3 h-3 bg-outline-variant rounded-sm"></span> Benchmark</div>
+</div>
+</div>
+<div id="practiceBreakdown" class="space-y-4">
+<!-- Filled by JS -->
+</div>
+</div>
+<!-- Maturity Distribution Donut -->
+<div class="lg:col-span-4 bg-surface-container-low rounded-2xl p-8 flex flex-col items-center justify-between">
+<h4 class="text-xl font-bold font-headline self-start">Maturity Spread</h4>
+<div class="relative w-48 h-48 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
+<circle cx="18" cy="18" fill="none" r="16" stroke="#27354C" stroke-width="3"></circle>
+<circle id="donutRing1" cx="18" cy="18" fill="none" r="16" stroke="#00D4FF" stroke-dasharray="0, 100" stroke-linecap="round" stroke-width="3"></circle>
+<circle id="donutRing2" cx="18" cy="18" fill="none" r="16" stroke="#D2BBFF" stroke-dasharray="0, 100" stroke-dashoffset="0" stroke-linecap="round" stroke-width="3"></circle>
+<circle id="donutRing3" cx="18" cy="18" fill="none" r="16" stroke="#FF8A65" stroke-dasharray="0, 100" stroke-dashoffset="0" stroke-linecap="round" stroke-width="3"></circle>
+</svg>
+<div class="absolute flex flex-col items-center">
+<span id="donutPct" class="text-3xl font-black font-['JetBrains_Mono']">—</span>
+<span id="donutLabel" class="text-[10px] font-label text-on-surface-variant uppercase">Completion</span>
+</div>
+</div>
+<div id="maturityList" class="w-full space-y-3 mt-8">
+<!-- Filled by JS -->
+</div>
+</div>
+<!-- Practice Heatmap -->
+<div class="lg:col-span-12 bg-surface-container-low rounded-2xl p-8">
+<div class="flex justify-between items-center mb-6">
+<div>
+<h4 class="text-xl font-bold font-headline">Practice Heatmap</h4>
+<p class="text-sm text-on-surface-variant">Score intensity across all 12 practices</p>
+</div>
+<div class="flex items-center gap-2 text-xs font-mono">
+<span>Basic</span>
+<div class="flex h-3 w-32 rounded-full overflow-hidden">
+<div class="flex-1 bg-[#FF5252]/30"></div>
+<div class="flex-1 bg-[#FFB74D]/50"></div>
+<div class="flex-1 bg-[#4FC3F7]/60"></div>
+<div class="flex-1 bg-[#81C784]"></div>
+</div>
+<span>Optimizing</span>
+</div>
+</div>
+<div id="heatmapGrid" class="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 gap-2">
+<!-- Filled by JS -->
+</div>
+</div>
+<!-- Strengths & Improvements -->
+<div class="lg:col-span-6 space-y-4">
+<div class="bg-surface-container-low rounded-2xl p-6 border-t-2 border-primary">
+<h4 class="text-lg font-bold font-headline flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary">verified</span> Major Strengths
+</h4>
+<ul id="strengthsList" class="space-y-4">
+<!-- Filled by JS -->
+</ul>
+</div>
+</div>
+<div class="lg:col-span-6 space-y-4">
+<div class="bg-surface-container-low rounded-2xl p-6 border-t-2 border-secondary">
+<h4 class="text-lg font-bold font-headline flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-secondary">trending_up</span> Priority Improvements
+</h4>
+<ul id="improvementsList" class="space-y-4">
+<!-- Filled by JS -->
+</ul>
+</div>
+</div>
+<!-- Compliance Summary -->
+<div class="lg:col-span-12">
+<h4 class="text-xl font-bold font-headline mb-6">Compliance Coverage</h4>
+<div id="complianceCards" class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<!-- Filled by JS -->
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 bg-[#0D1C32] border-t border-[#3C494E]/15 flex flex-col md:flex-row justify-between items-center px-12">
+<p class="font-['JetBrains_Mono'] text-xs tracking-widest uppercase text-[#D6E3FF]/50">© 2026 PSB Hackathon — QuantumGuard by IravoVoid</p>
+<div class="flex gap-8 mt-6 md:mt-0 font-['JetBrains_Mono'] text-xs tracking-widest uppercase">
+<a class="text-[#D6E3FF]/40 hover:text-[#A8E8FF] transition-colors" href="#">Privacy Policy</a>
+<a class="text-[#D6E3FF]/40 hover:text-[#A8E8FF] transition-colors" href="#">Terms of Service</a>
+<a class="text-[#D6E3FF]/40 hover:text-[#A8E8FF] transition-colors" href="#">Security Disclosure</a>
+</div>
+</footer>
+
+<script>
+(function() {
+  // Determine source & get answers
+  const params = new URLSearchParams(window.location.search);
+  const source = params.get('source') || 'quick';
+  const answers = Engine.getAnswers(source);
+  const questions = source === 'quick' ? QG.QUICK_QUESTIONS : QG.QUESTIONS;
+  const profile = Engine.getOrgProfile();
+
+  const dimIcons = { CVI: 'verified_user', SGRM: 'shield_with_heart', DPE: 'data_thresholding', ITR: 'bolt' };
+  const dimColors = { CVI: '#00D4FF', SGRM: '#D2BBFF', DPE: '#FFD9A1', ITR: '#FF8A65' };
+
+  // Check if any answers exist
+  const hasAnswers = Object.keys(answers).length > 0;
+  if (!hasAnswers) {
+    document.getElementById('overallScore').textContent = '—';
+    document.getElementById('overallDesc').textContent = 'No assessment data found. Complete an assessment to see your results.';
+    document.getElementById('retakeBtn').innerHTML = '<span class="material-symbols-outlined">play_arrow</span> Start Assessment';
+    return;
+  }
+
+  // Calculate scores
+  const breakdown = Engine.getFullScoreBreakdown(answers, questions);
+  const maturity = breakdown.maturityLevel;
+  const benchmark = Engine.getNearestBenchmark(profile);
+
+  // ── Hero ──
+  document.getElementById('overallScore').textContent = breakdown.overall.toFixed(1);
+  document.getElementById('maturityBadge').textContent = maturity.name;
+  document.getElementById('maturityBadge').style.background = maturity.color;
+  document.getElementById('maturityBadge').style.color = '#041329';
+  document.getElementById('overallDesc').textContent = Engine.getRecommendation(breakdown.overall, 'overall');
+
+  // ── Dimension Cards ──
+  const dimCardsEl = document.getElementById('dimCards');
+  dimCardsEl.innerHTML = '';
+  QG.DIMENSIONS.forEach(dim => {
+    const d = breakdown.dimensions[dim.id];
+    const pct = Math.round((d.score / 4) * 100);
+    const dimMaturity = Engine.getMaturityLevel(d.score);
+    dimCardsEl.innerHTML += `
+      <div class="bg-surface-container-low p-6 rounded-xl border-l-4 hover:bg-surface-container-high transition-colors group" style="border-color: ${dim.color}">
+        <div class="flex justify-between items-start mb-4">
+          <span class="material-symbols-outlined text-3xl" style="color: ${dim.color}">${dimIcons[dim.id]}</span>
+          <span class="font-['JetBrains_Mono'] text-2xl font-bold">${d.score.toFixed(1)}</span>
+        </div>
+        <h3 class="font-headline font-bold text-lg mb-1">${dim.id}</h3>
+        <p class="text-xs text-on-surface-variant uppercase tracking-wider mb-4 font-label">${dim.name}</p>
+        <div class="h-1.5 w-full bg-surface-container-lowest rounded-full overflow-hidden">
+          <div class="h-full rounded-full transition-all duration-700" style="width: ${pct}%; background: ${dim.color}"></div>
+        </div>
+        <div class="flex justify-between mt-2 text-[10px] font-mono text-on-surface-variant/60">
+          <span>MATURITY: ${dimMaturity.name}</span>
+          <span>${pct}%</span>
+        </div>
+      </div>`;
+  });
+
+  // ── Practice Breakdown Bars ──
+  const practiceEl = document.getElementById('practiceBreakdown');
+  practiceEl.innerHTML = '';
+  QG.PRACTICES.forEach(p => {
+    const dim = QG.DIMENSIONS.find(d => d.id === p.dimension);
+    const score = breakdown.dimensions[p.dimension].practices[p.id].score;
+    const pct = Math.round((score / 4) * 100);
+    const benchPct = benchmark ? Math.round((benchmark[p.dimension] / 4) * 100) : 0;
+    practiceEl.innerHTML += `
+      <div class="space-y-2">
+        <div class="flex justify-between text-xs font-label uppercase">
+          <span>${p.name}</span>
+          <span style="color: ${dim.color}">${score.toFixed(1)}</span>
+        </div>
+        <div class="flex gap-1 h-6 relative">
+          <div class="rounded-l-sm transition-all duration-700" style="width: ${pct}%; background: ${dim.color}"></div>
+          <div class="bg-surface-container-highest flex-1 rounded-r-sm"></div>
+          ${benchmark ? `<div class="absolute top-0 h-full w-0.5 bg-outline-variant/60" style="left: ${benchPct}%" title="Benchmark: ${benchmark[p.dimension]}"></div>` : ''}
+        </div>
+      </div>`;
+  });
+
+  // ── Maturity Spread Donut ──
+  const progress = Engine.getProgress(answers, questions);
+  document.getElementById('donutPct').textContent = progress.percent + '%';
+  document.getElementById('donutLabel').textContent = progress.answered + '/' + progress.total + ' answered';
+
+  // Approximate donut segments by counting answers per maturity level
+  const levelCounts = { Basic: 0, Developing: 0, Established: 0, Advanced: 0, Optimizing: 0 };
+  Object.values(answers).forEach(score => {
+    if (score === 1) levelCounts.Basic++;
+    else if (score === 2) levelCounts.Developing++;
+    else if (score === 3) { levelCounts.Established++; levelCounts.Advanced++; }
+    else if (score === 4) levelCounts.Optimizing++;
+  });
+  const total = Object.values(levelCounts).reduce((s, v) => s + v, 0) || 1;
+  const advPct = Math.round(((levelCounts.Advanced + levelCounts.Optimizing) / total) * 100);
+  const devPct = Math.round((levelCounts.Developing / total) * 100);
+  const basicPct = Math.round((levelCounts.Basic / total) * 100);
+  document.getElementById('donutRing1').setAttribute('stroke-dasharray', `${advPct}, 100`);
+  document.getElementById('donutRing2').setAttribute('stroke-dasharray', `${devPct}, 100`);
+  document.getElementById('donutRing2').setAttribute('stroke-dashoffset', `-${advPct}`);
+  document.getElementById('donutRing3').setAttribute('stroke-dasharray', `${basicPct}, 100`);
+  document.getElementById('donutRing3').setAttribute('stroke-dashoffset', `-${advPct + devPct}`);
+
+  const matList = document.getElementById('maturityList');
+  matList.innerHTML = `
+    <div class="flex items-center justify-between text-sm"><div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-[#00D4FF]"></div> Advanced/Optimizing</div><span class="font-mono">${advPct}%</span></div>
+    <div class="flex items-center justify-between text-sm"><div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-[#D2BBFF]"></div> Developing/Established</div><span class="font-mono">${devPct + Math.round((levelCounts.Established / total) * 100)}%</span></div>
+    <div class="flex items-center justify-between text-sm"><div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-[#FF8A65]"></div> Basic</div><span class="font-mono">${basicPct}%</span></div>`;
+
+  // ── Practice Heatmap ──
+  const heatEl = document.getElementById('heatmapGrid');
+  heatEl.innerHTML = '';
+  QG.PRACTICES.forEach(p => {
+    const score = breakdown.dimensions[p.dimension].practices[p.id].score;
+    const dim = QG.DIMENSIONS.find(d => d.id === p.dimension);
+    const alpha = score <= 0 ? 0.1 : score <= 1.5 ? 0.25 : score <= 2.5 ? 0.5 : score <= 3.5 ? 0.75 : 1.0;
+    heatEl.innerHTML += `
+      <div class="aspect-square rounded-lg flex items-center justify-center group hover:scale-105 transition-all cursor-help relative" style="background: ${dim.color}; opacity: ${alpha}">
+        <div class="hidden group-hover:block absolute -top-14 left-1/2 -translate-x-1/2 bg-surface-container-highest text-[10px] px-3 py-2 rounded whitespace-nowrap z-20 border border-outline-variant/20">
+          ${p.name}<br><strong>${score.toFixed(1)}</strong>
+        </div>
+        <span class="text-[10px] font-mono font-bold" style="color: ${dim.color}">${p.id}</span>
+      </div>`;
+  });
+
+  // ── Strengths & Improvements ──
+  const sorted = QG.PRACTICES.map(p => ({
+    ...p,
+    score: breakdown.dimensions[p.dimension].practices[p.id].score,
+    dimColor: QG.DIMENSIONS.find(d => d.id === p.dimension).color
+  })).sort((a, b) => b.score - a.score);
+
+  const strengthsEl = document.getElementById('strengthsList');
+  strengthsEl.innerHTML = '';
+  sorted.slice(0, 3).forEach(p => {
+    strengthsEl.innerHTML += `
+      <li class="flex gap-4 items-start">
+        <div class="w-8 h-8 rounded-full flex items-center justify-center shrink-0" style="background: ${p.dimColor}15">
+          <span class="material-symbols-outlined text-sm" style="color: ${p.dimColor}">check</span>
+        </div>
+        <div>
+          <h5 class="text-sm font-bold">${p.name} <span class="text-xs font-mono" style="color: ${p.dimColor}">(${p.score.toFixed(1)})</span></h5>
+          <p class="text-xs text-on-surface-variant">${Engine.getRecommendation(p.score, p.dimension)}</p>
+        </div>
+      </li>`;
+  });
+
+  const improvEl = document.getElementById('improvementsList');
+  improvEl.innerHTML = '';
+  sorted.slice(-3).reverse().forEach(p => {
+    improvEl.innerHTML += `
+      <li class="flex gap-4 items-start">
+        <div class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center shrink-0">
+          <span class="material-symbols-outlined text-secondary text-sm">priority_high</span>
+        </div>
+        <div>
+          <h5 class="text-sm font-bold">${p.name} <span class="text-xs font-mono text-secondary">(${p.score.toFixed(1)})</span></h5>
+          <p class="text-xs text-on-surface-variant">${Engine.getRecommendation(p.score, p.dimension)}</p>
+        </div>
+      </li>`;
+  });
+
+  // ── Compliance Coverage (per-framework using mapped practices) ──
+  const compEl = document.getElementById('complianceCards');
+  compEl.innerHTML = '';
+  QG.COMPLIANCE_FRAMEWORKS.forEach(fw => {
+    // Calculate coverage based on practices mapped to this framework
+    const mappedPractices = fw.mappedPractices || [];
+    let coverage = 0;
+    if (mappedPractices.length > 0) {
+      const practiceScores = mappedPractices.map(pid => {
+        const pd = breakdown.dimensions;
+        for (const dimId in pd) {
+          if (pd[dimId].practices[pid]) return pd[dimId].practices[pid].score;
+        }
+        return 0;
+      }).filter(s => s > 0);
+      if (practiceScores.length > 0) {
+        const avgScore = practiceScores.reduce((s, v) => s + v, 0) / practiceScores.length;
+        coverage = Math.round((avgScore / 4) * 100);
+      }
+    } else {
+      // Fallback: use overall score
+      coverage = Math.round((breakdown.overall / 4) * 100);
+    }
+    const color = coverage >= 80 ? '#00D4FF' : coverage >= 50 ? '#D2BBFF' : '#bbc9cf';
+    compEl.innerHTML += `
+      <div class="bg-surface-container-low p-4 rounded-xl flex flex-col items-center text-center">
+        <span class="text-xs font-label uppercase text-on-surface-variant mb-2">${fw.name}</span>
+        <span class="text-lg font-black font-['JetBrains_Mono']" style="color: ${color}">${coverage}%</span>
+        <span class="text-[9px] text-on-surface-variant/50 mt-1">${fw.fullName}</span>
+      </div>`;
+  });
+
+  // ── Export Results Function ──
+  window.exportResults = function() {
+    const report = {
+      generatedAt: new Date().toISOString(),
+      generator: 'QuantumGuard Assessment v1.0',
+      source: source,
+      organization: profile.orgName || 'Not specified',
+      overallScore: breakdown.overall,
+      maturityLevel: maturity.name,
+      dimensions: {},
+      recommendations: Engine.getRecommendation(breakdown.overall, 'overall'),
+      progress: Engine.getProgress(answers, questions)
+    };
+    QG.DIMENSIONS.forEach(dim => {
+      const d = breakdown.dimensions[dim.id];
+      report.dimensions[dim.id] = {
+        name: dim.name,
+        score: d.score,
+        maturity: Engine.getMaturityLevel(d.score).name,
+        practices: {}
+      };
+      QG.PRACTICES.filter(p => p.dimension === dim.id).forEach(p => {
+        report.dimensions[dim.id].practices[p.id] = {
+          name: p.name,
+          score: d.practices[p.id].score
+        };
+      });
+    });
+    const blob = new Blob([JSON.stringify(report, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'quantumguard-assessment-' + new Date().toISOString().slice(0, 10) + '.json';
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(() => { document.body.removeChild(a); URL.revokeObjectURL(url); }, 1000);
+  };
+})();
+</script>
+</body></html>

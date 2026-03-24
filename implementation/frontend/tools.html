@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QuantumGuard | Quantum Cryptography Scanner</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&amp;family=JetBrains+Mono:wght@400;700&amp;family=Space+Grotesk:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="shared.css" rel="stylesheet"/>
+<script src="scanner-engine.js"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-secondary-fixed":"#25005a","on-error-container":"#ffdad6","on-secondary-fixed-variant":"#5a00c6","tertiary-fixed-dim":"#ffba3d","surface-tint":"#3cd7ff","error":"#ffb4ab","inverse-on-surface":"#233148","on-surface":"#d6e3ff","surface-bright":"#2c3951","secondary-container":"#6001d1","tertiary-fixed":"#ffdeae","surface-variant":"#27354c","on-surface-variant":"#bbc9cf","secondary-fixed":"#eaddff","surface-container-high":"#1c2a41","on-tertiary":"#432c00","on-primary-fixed":"#001f27","on-primary-container":"#00586b","surface-container-lowest":"#010e24","on-tertiary-container":"#6c4900","on-tertiary-fixed":"#281900","surface-dim":"#041329","secondary-fixed-dim":"#d2bbff","on-secondary":"#3f008e","surface":"#041329","inverse-surface":"#d6e3ff","background":"#041329","on-background":"#d6e3ff","tertiary":"#ffd9a1","on-secondary-container":"#c9aeff","primary-container":"#00d4ff","tertiary-container":"#feb528","on-error":"#690005","on-primary":"#003642","secondary":"#d2bbff","primary":"#a8e8ff","surface-container":"#112036","outline":"#859398","primary-fixed-dim":"#3cd7ff","primary-fixed":"#b4ebff","on-tertiary-fixed-variant":"#604100","surface-container-highest":"#27354c","outline-variant":"#3c494e","on-primary-fixed-variant":"#004e5f","inverse-primary":"#00677e","error-container":"#93000a","surface-container-low":"#0d1c32"
+          },
+          fontFamily: { "headline":["Inter"],"body":["Inter"],"label":["Space Grotesk"] },
+          borderRadius: {"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},
+        },
+      },
+    }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+  .glass-card { background: rgba(39,53,76,0.6); backdrop-filter: blur(20px); border: 1px solid rgba(60,73,78,0.15); }
+  .glow-border:hover { border-color: #00D4FF; box-shadow: 0 0 20px rgba(0,212,255,0.15); }
+  .drop-zone { border: 2px dashed rgba(60,73,78,0.4); transition: all 0.3s; }
+  .drop-zone.dragover { border-color: #00D4FF; background: rgba(0,212,255,0.05); }
+  .scan-pulse { animation: pulse 1.5s infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
+  .finding-row { animation: slideIn 0.2s ease; }
+  @keyframes slideIn { from { opacity:0; transform:translateX(-10px); } to { opacity:1; transform:translateX(0); } }
+  .tab-active { background: linear-gradient(135deg, #00D4FF, #00a8cc); color: #003642; font-weight: 800; }
+</style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#041329]/60 backdrop-blur-xl border-b border-[#3C494E]/15 shadow-[0_8px_32px_0_rgba(0,212,255,0.08)] flex justify-between items-center px-8 h-20 max-w-none">
+<div class="flex items-center gap-8">
+<a href="index.html" class="text-2xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-[#A8E8FF] to-[#00D4FF] font-headline">QuantumGuard</a>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors duration-300" href="quick-assessment.html">Assessment</a>
+<a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors duration-300" href="results.html">Results</a>
+<a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors duration-300" href="compliance.html">Compliance</a>
+<a class="text-[#00D4FF] border-b-2 border-[#00D4FF] pb-1 font-bold" href="tools.html">Scanner</a>
+<a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors duration-300" href="docs.html">Docs</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-[#27354C]/50 transition-all"><span class="material-symbols-outlined text-[#00D4FF]">notifications</span></button>
+<button class="p-2 rounded-full hover:bg-[#27354C]/50 transition-all"><span class="material-symbols-outlined text-[#00D4FF]">account_circle</span></button>
+</div>
+</nav>
+
+<main class="pt-28 pb-20 px-6 max-w-7xl mx-auto">
+<!-- Hero -->
+<header class="mb-10">
+<div class="inline-flex items-center px-3 py-1 rounded-full bg-primary-container/10 border border-primary-container/20 mb-4">
+<span class="relative flex h-2 w-2 mr-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-[#10B981]"></span></span>
+<span class="text-primary-container text-xs font-label tracking-widest uppercase">PQC Scanner Active</span>
+</div>
+<h1 class="text-5xl md:text-6xl font-black font-headline tracking-tighter mb-4 bg-gradient-to-br from-on-surface to-primary bg-clip-text text-transparent">Quantum Cryptography<br/>Scanner</h1>
+<p class="text-on-surface-variant text-lg max-w-2xl font-light leading-relaxed">Validate quantum-proof cipher deployment, generate cryptographic bill of materials (CBOM), and earn PQC Ready certification.</p>
+</header>
+
+<!-- Tool Tabs -->
+<div class="flex gap-2 mb-8 overflow-x-auto no-scrollbar">
+<button onclick="switchTab('cryptoscan')" id="tab-cryptoscan" class="tab-active whitespace-nowrap px-6 py-3 rounded-full text-sm font-bold transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">terminal</span> CryptoScan
+</button>
+<button onclick="switchTab('tls')" id="tab-tls" class="whitespace-nowrap px-6 py-3 rounded-full bg-surface-container-highest text-on-surface/70 text-sm font-bold transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">shield_with_heart</span> TLS Analyzer
+</button>
+<button onclick="switchTab('deps')" id="tab-deps" class="whitespace-nowrap px-6 py-3 rounded-full bg-surface-container-highest text-on-surface/70 text-sm font-bold transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">hub</span> CryptoDeps
+</button>
+</div>
+
+<!-- ═══ CryptoScan Panel ═══ -->
+<div id="panel-cryptoscan" class="space-y-6">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Upload Area -->
+<div class="lg:col-span-5 glass-card rounded-xl p-6">
+<h3 class="text-lg font-bold mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-primary">upload_file</span> Upload Source Files</h3>
+<div id="dropZone" class="drop-zone rounded-xl p-8 text-center cursor-pointer hover:border-primary/60">
+<span class="material-symbols-outlined text-5xl text-outline mb-4 block">cloud_upload</span>
+<p class="text-on-surface-variant text-sm mb-2">Drag & drop source files here</p>
+<p class="text-on-surface-variant/50 text-xs">Supports: .js .py .java .go .rs .c .cpp .cs .rb .php .ts</p>
+<input type="file" id="fileInput" multiple accept=".js,.py,.java,.go,.rs,.c,.cpp,.h,.hpp,.cs,.rb,.php,.ts,.tsx,.jsx,.cfg,.conf,.yaml,.yml,.toml,.xml,.json" class="hidden"/>
+</div>
+<div id="fileList" class="mt-4 space-y-2 max-h-32 overflow-y-auto"></div>
+<button onclick="runCryptoScan()" id="scanBtn" class="mt-4 w-full py-3 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-lg font-bold flex items-center justify-center gap-2 hover:shadow-[0_0_20px_rgba(0,212,255,0.4)] transition-all disabled:opacity-30" disabled>
+<span class="material-symbols-outlined">search</span> SCAN FOR VULNERABILITIES
+</button>
+</div>
+<!-- Results Area -->
+<div class="lg:col-span-7 space-y-4">
+<div id="cryptoResults" class="glass-card rounded-xl overflow-hidden" style="display:none;">
+<!-- Stats Bar -->
+<div id="cryptoStats" class="grid grid-cols-4 gap-px bg-outline-variant/10"></div>
+<!-- Findings Table -->
+<div class="max-h-[400px] overflow-y-auto">
+<table class="w-full text-left">
+<thead class="sticky top-0 bg-surface-container-high/90 backdrop-blur-sm">
+<tr>
+<th class="px-4 py-3 text-[10px] font-label uppercase tracking-widest text-on-surface-variant">Severity</th>
+<th class="px-4 py-3 text-[10px] font-label uppercase tracking-widest text-on-surface-variant">Algorithm</th>
+<th class="px-4 py-3 text-[10px] font-label uppercase tracking-widest text-on-surface-variant">Location</th>
+<th class="px-4 py-3 text-[10px] font-label uppercase tracking-widest text-on-surface-variant">PQC Alternative</th>
+</tr>
+</thead>
+<tbody id="cryptoFindings" class="divide-y divide-outline-variant/10"></tbody>
+</table>
+</div>
+</div>
+<!-- Empty state -->
+<div id="cryptoEmpty" class="glass-card rounded-xl p-12 text-center">
+<div class="bg-surface-container-highest rounded-xl p-6 inline-block mb-4">
+<span class="material-symbols-outlined text-5xl text-outline">search_insights</span>
+</div>
+<h3 class="text-lg font-bold mb-2">No Files Scanned</h3>
+<p class="text-on-surface-variant text-sm max-w-sm mx-auto">Upload source code files to detect quantum-vulnerable cryptographic algorithms and generate a CBOM report.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ═══ TLS Analyzer Panel ═══ -->
+<div id="panel-tls" class="space-y-6" style="display:none;">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<div class="lg:col-span-5 space-y-4">
+<!-- Hostname Input -->
+<div class="glass-card rounded-xl p-6">
+<h3 class="text-lg font-bold mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-secondary">language</span> Scan Endpoint</h3>
+<div class="flex gap-2 mb-4">
+<input id="tlsHost" type="text" placeholder="e.g. www.example.com" class="flex-1 bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 text-sm text-on-surface focus:outline-none focus:border-primary"/>
+<button onclick="runTLSScan()" class="bg-gradient-to-r from-secondary to-secondary-container text-on-secondary px-6 py-3 rounded-lg font-bold text-sm hover:shadow-[0_0_20px_rgba(124,58,237,0.3)]">SCAN</button>
+</div>
+<p class="text-[10px] text-on-surface-variant/50">Checks HTTPS, security headers, and observable TLS properties. For full cipher suite analysis, paste OpenSSL output below.</p>
+</div>
+<!-- OpenSSL Paste Area -->
+<div class="glass-card rounded-xl p-6">
+<h3 class="text-sm font-bold mb-3 flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-lg">terminal</span> Advanced: Paste OpenSSL Output</h3>
+<textarea id="opensslInput" rows="6" placeholder="Paste output of: openssl s_client -connect host:443 -tls1_3" class="w-full bg-surface-container-lowest border border-outline-variant/20 rounded-lg px-4 py-3 text-xs font-mono text-on-surface-variant focus:outline-none focus:border-secondary resize-none"></textarea>
+<button onclick="parseOpenSSL()" class="mt-2 w-full py-2 bg-surface-container-highest text-secondary border border-secondary/30 rounded-lg font-bold text-xs hover:bg-surface-container-high transition-all">PARSE CIPHER SUITES</button>
+</div>
+</div>
+<!-- TLS Results -->
+<div class="lg:col-span-7">
+<div id="tlsResults" class="space-y-4" style="display:none;"></div>
+<div id="tlsEmpty" class="glass-card rounded-xl p-12 text-center">
+<div class="bg-surface-container-highest rounded-xl p-6 inline-block mb-4"><span class="material-symbols-outlined text-5xl text-outline">vpn_lock</span></div>
+<h3 class="text-lg font-bold mb-2">Enter a Hostname</h3>
+<p class="text-on-surface-variant text-sm max-w-sm mx-auto">Scan a public-facing web server, API, or system to evaluate its TLS configuration and quantum readiness.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ═══ CryptoDeps Panel ═══ -->
+<div id="panel-deps" class="space-y-6" style="display:none;">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<div class="lg:col-span-5 glass-card rounded-xl p-6">
+<h3 class="text-lg font-bold mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-tertiary">inventory_2</span> Upload Dependency File</h3>
+<div id="depDropZone" class="drop-zone rounded-xl p-8 text-center cursor-pointer hover:border-tertiary/60">
+<span class="material-symbols-outlined text-5xl text-outline mb-4 block">description</span>
+<p class="text-on-surface-variant text-sm mb-2">Drag & drop dependency manifest</p>
+<p class="text-on-surface-variant/50 text-xs">package.json • requirements.txt • pom.xml • go.mod • Cargo.toml • Gemfile</p>
+<input type="file" id="depFileInput" accept=".json,.txt,.xml,.mod,.toml,.gemfile,.lock,.csproj" class="hidden"/>
+</div>
+<button onclick="runDepScan()" id="depScanBtn" class="mt-4 w-full py-3 bg-gradient-to-r from-tertiary-container to-tertiary text-on-tertiary rounded-lg font-bold flex items-center justify-center gap-2 transition-all disabled:opacity-30" disabled>
+<span class="material-symbols-outlined">security_update_warning</span> SCAN DEPENDENCIES
+</button>
+</div>
+<div class="lg:col-span-7">
+<div id="depResults" class="glass-card rounded-xl overflow-hidden" style="display:none;"></div>
+<div id="depEmpty" class="glass-card rounded-xl p-12 text-center">
+<div class="bg-surface-container-highest rounded-xl p-6 inline-block mb-4"><span class="material-symbols-outlined text-5xl text-outline">account_tree</span></div>
+<h3 class="text-lg font-bold mb-2">No Dependency File</h3>
+<p class="text-on-surface-variant text-sm max-w-sm mx-auto">Upload a dependency manifest to identify quantum-vulnerable cryptographic libraries in your supply chain.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ═══ CBOM & PQC Label Section ═══ -->
+<section id="cbomSection" class="mt-12 space-y-6" style="display:none;">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- PQC Label Badge -->
+<div class="lg:col-span-4 glass-card rounded-2xl p-8 flex flex-col items-center justify-center text-center relative overflow-hidden">
+<div class="absolute inset-0 opacity-10" id="labelGlow"></div>
+<div class="relative z-10">
+<div id="pqcBadge" class="w-28 h-28 rounded-full border-4 flex items-center justify-center mb-6 mx-auto">
+<span id="pqcIcon" class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 1;"></span>
+</div>
+<h3 id="pqcLabel" class="text-2xl font-black font-headline mb-2"></h3>
+<p id="pqcDesc" class="text-sm text-on-surface-variant leading-relaxed mb-6"></p>
+<div class="text-[10px] font-mono text-on-surface-variant/50 uppercase tracking-widest">
+<div>Generated: <span id="pqcDate"></span></div>
+<div class="mt-1">QuantumGuard Scanner v1.0</div>
+</div>
+</div>
+</div>
+<!-- CBOM Summary -->
+<div class="lg:col-span-8 glass-card rounded-2xl p-8">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="text-xl font-bold font-headline">Cryptographic Bill of Materials</h3>
+<p class="text-sm text-on-surface-variant">Complete inventory of all detected cryptographic assets</p>
+</div>
+<button onclick="exportCBOM()" class="flex items-center gap-2 px-4 py-2 bg-primary-container text-on-primary rounded-lg font-bold text-xs hover:shadow-[0_0_15px_rgba(0,212,255,0.3)]">
+<span class="material-symbols-outlined text-sm">download</span> EXPORT CBOM (JSON)
+</button>
+</div>
+<div id="cbomStats" class="grid grid-cols-4 gap-4 mb-6"></div>
+<div id="cbomTable" class="max-h-64 overflow-y-auto rounded-lg border border-outline-variant/10"></div>
+</div>
+</div>
+</section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-[#0D1C32] border-t border-[#3C494E]/15 w-full py-12 flex flex-col md:flex-row justify-between items-center px-12">
+<span class="font-['JetBrains_Mono'] text-xs tracking-widest uppercase text-[#D6E3FF]/50">© 2026 PSB Hackathon — QuantumGuard by IravoVoid</span>
+<div class="flex gap-8 mt-6 md:mt-0">
+<a class="font-['JetBrains_Mono'] text-xs tracking-widest uppercase text-[#D6E3FF]/40 hover:text-[#A8E8FF] transition-colors" href="#">Privacy Policy</a>
+<a class="font-['JetBrains_Mono'] text-xs tracking-widest uppercase text-[#D6E3FF]/40 hover:text-[#A8E8FF] transition-colors" href="#">Terms of Service</a>
+<a class="font-['JetBrains_Mono'] text-xs tracking-widest uppercase text-[#D6E3FF]/40 hover:text-[#A8E8FF] transition-colors" href="#">Security Disclosure</a>
+</div>
+</footer>
+
+<script>
+// ═══ STATE ═══
+let uploadedFiles = [];
+let depFile = null;
+let lastCryptoResult = null;
+let lastTLSResult = null;
+let lastDepResult = null;
+
+// ═══ TAB SWITCHING ═══
+function switchTab(tab) {
+  ['cryptoscan','tls','deps'].forEach(t => {
+    document.getElementById('panel-' + t).style.display = t === tab ? '' : 'none';
+    const btn = document.getElementById('tab-' + t);
+    btn.className = t === tab
+      ? 'tab-active whitespace-nowrap px-6 py-3 rounded-full text-sm font-bold transition-all flex items-center gap-2'
+      : 'whitespace-nowrap px-6 py-3 rounded-full bg-surface-container-highest text-on-surface/70 text-sm font-bold transition-all flex items-center gap-2';
+  });
+}
+
+// ═══ FILE UPLOAD ═══
+const dropZone = document.getElementById('dropZone');
+const fileInput = document.getElementById('fileInput');
+dropZone.addEventListener('click', () => fileInput.click());
+dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('dragover'); });
+dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+dropZone.addEventListener('drop', e => { e.preventDefault(); dropZone.classList.remove('dragover'); handleFiles(e.dataTransfer.files); });
+fileInput.addEventListener('change', e => handleFiles(e.target.files));
+
+function handleFiles(files) {
+  Array.from(files).forEach(file => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      uploadedFiles.push({ name: file.name, content: reader.result, size: file.size });
+      renderFileList();
+    };
+    reader.readAsText(file);
+  });
+}
+
+function renderFileList() {
+  const list = document.getElementById('fileList');
+  list.innerHTML = uploadedFiles.map((f, i) => `
+    <div class="flex items-center justify-between bg-surface-container-high/40 px-3 py-2 rounded text-xs">
+      <span class="flex items-center gap-2 text-on-surface-variant"><span class="material-symbols-outlined text-sm text-primary">description</span> ${f.name} <span class="text-on-surface-variant/40">(${(f.size/1024).toFixed(1)}KB)</span></span>
+      <button onclick="uploadedFiles.splice(${i},1);renderFileList();" class="text-error/60 hover:text-error"><span class="material-symbols-outlined text-sm">close</span></button>
+    </div>`).join('');
+  document.getElementById('scanBtn').disabled = uploadedFiles.length === 0;
+}
+
+// ═══ CRYPTOSCAN ═══
+function runCryptoScan() {
+  lastCryptoResult = Scanner.scanMultipleFiles(uploadedFiles);
+  const s = lastCryptoResult.summary;
+  document.getElementById('cryptoEmpty').style.display = 'none';
+  document.getElementById('cryptoResults').style.display = '';
+
+  // Stats bar
+  document.getElementById('cryptoStats').innerHTML = [
+    { label: 'Total Findings', value: s.totalFindings, color: '#d6e3ff' },
+    { label: 'Critical', value: s.critical, color: '#F43F5E' },
+    { label: 'Quantum Vulnerable', value: s.quantumVulnerable, color: '#F59E0B' },
+    { label: 'PQC Safe', value: s.totalSafe, color: '#10B981' },
+  ].map(st => `<div class="bg-surface-container-high/60 p-4 text-center"><div class="text-2xl font-black font-['JetBrains_Mono']" style="color:${st.color}">${st.value}</div><div class="text-[9px] font-label uppercase tracking-widest text-on-surface-variant mt-1">${st.label}</div></div>`).join('');
+
+  // Findings table
+  const sevColors = { critical: '#F43F5E', high: '#F59E0B', warning: '#FBBF24', info: '#859398' };
+  document.getElementById('cryptoFindings').innerHTML = lastCryptoResult.findings.map(f => `
+    <tr class="finding-row hover:bg-surface-container-high/30">
+      <td class="px-4 py-3"><span class="inline-flex items-center px-2 py-0.5 rounded text-[9px] font-bold uppercase" style="background:${sevColors[f.severity]}20;color:${sevColors[f.severity]}">${f.severity}</span></td>
+      <td class="px-4 py-3"><span class="font-bold text-sm">${f.algorithm}</span><span class="text-[10px] text-on-surface-variant ml-2">${f.type}</span></td>
+      <td class="px-4 py-3 font-mono text-xs text-on-surface-variant">${f.file}:${f.line}</td>
+      <td class="px-4 py-3 text-xs text-primary font-bold">${f.pqcAlternative}</td>
+    </tr>`).join('');
+
+  updateCBOM();
+}
+
+// ═══ TLS ANALYZER ═══
+async function runTLSScan() {
+  const host = document.getElementById('tlsHost').value.trim();
+  if (!host) return;
+
+  document.getElementById('tlsEmpty').style.display = 'none';
+  const el = document.getElementById('tlsResults');
+  el.style.display = '';
+  el.innerHTML = '<div class="glass-card rounded-xl p-12 text-center"><span class="material-symbols-outlined text-5xl text-primary scan-pulse">radar</span><p class="mt-4 text-on-surface-variant">Scanning ' + host + '...</p></div>';
+
+  lastTLSResult = await Scanner.analyzeTLS(host);
+
+  const scoreColor = lastTLSResult.score >= 70 ? '#10B981' : lastTLSResult.score >= 40 ? '#F59E0B' : '#F43F5E';
+  el.innerHTML = `
+    <div class="glass-card rounded-xl p-6">
+      <div class="flex justify-between items-start mb-6">
+        <div><h3 class="text-lg font-bold">${lastTLSResult.hostname}</h3><p class="text-xs text-on-surface-variant">${lastTLSResult.timestamp}</p></div>
+        <div class="text-right"><div class="text-3xl font-black font-['JetBrains_Mono']" style="color:${scoreColor}">${lastTLSResult.score}</div><div class="text-[9px] font-label uppercase">/ 100</div></div>
+      </div>
+      <div class="h-2 bg-surface-container-lowest rounded-full mb-6"><div class="h-full rounded-full transition-all" style="width:${lastTLSResult.score}%;background:${scoreColor}"></div></div>
+      <div class="space-y-2">
+        ${lastTLSResult.recommendations.map(r => `<div class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="shrink-0">${r.startsWith('✅') ? '✅' : r.startsWith('❌') ? '❌' : '⚠️'}</span><span>${r.replace(/^[✅❌⚠️]\s*/, '')}</span></div>`).join('')}
+      </div>
+      ${Object.keys(lastTLSResult.headers).length > 0 ? `
+        <div class="mt-6 pt-4 border-t border-outline-variant/10">
+          <h4 class="text-xs font-label uppercase tracking-widest text-on-surface-variant mb-3">Security Headers</h4>
+          ${Object.entries(lastTLSResult.headers).map(([k,v]) => `<div class="flex items-center gap-2 text-xs mb-1"><span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings:'FILL' 1">check_circle</span><span class="font-mono text-on-surface-variant">${k}</span></div>`).join('')}
+        </div>` : ''}
+    </div>`;
+
+  updateCBOM();
+}
+
+function parseOpenSSL() {
+  const raw = document.getElementById('opensslInput').value;
+  if (!raw.trim()) return;
+
+  const parsed = Scanner.parseOpenSSLOutput(raw);
+  const el = document.getElementById('tlsResults');
+  el.style.display = '';
+  document.getElementById('tlsEmpty').style.display = 'none';
+
+  const scoreColor = parsed.score >= 70 ? '#10B981' : parsed.score >= 40 ? '#F59E0B' : '#F43F5E';
+  el.innerHTML = `
+    <div class="glass-card rounded-xl p-6">
+      <div class="flex justify-between items-start mb-4">
+        <h3 class="text-lg font-bold">OpenSSL Analysis</h3>
+        <div class="text-right"><div class="text-3xl font-black font-['JetBrains_Mono']" style="color:${scoreColor}">${parsed.score}</div><div class="text-[9px] font-label uppercase">/ 100</div></div>
+      </div>
+      <div class="grid grid-cols-2 gap-3 mb-4">
+        ${parsed.protocol ? `<div class="bg-surface-container-high/40 p-3 rounded-lg"><div class="text-[9px] font-label uppercase text-on-surface-variant">Protocol</div><div class="font-mono text-sm font-bold">${parsed.protocol}</div></div>` : ''}
+        ${parsed.cipher ? `<div class="bg-surface-container-high/40 p-3 rounded-lg"><div class="text-[9px] font-label uppercase text-on-surface-variant">Cipher</div><div class="font-mono text-xs font-bold">${parsed.cipher}</div></div>` : ''}
+        ${parsed.keyExchange ? `<div class="bg-surface-container-high/40 p-3 rounded-lg"><div class="text-[9px] font-label uppercase text-on-surface-variant">Key Exchange</div><div class="font-mono text-xs font-bold">${parsed.keyExchange}</div></div>` : ''}
+        ${parsed.certKeySize ? `<div class="bg-surface-container-high/40 p-3 rounded-lg"><div class="text-[9px] font-label uppercase text-on-surface-variant">Cert Key Size</div><div class="font-mono text-sm font-bold">${parsed.certKeySize} bit</div></div>` : ''}
+      </div>
+      ${parsed.issues.length > 0 ? `<div class="space-y-1 mb-3">${parsed.issues.map(i => `<div class="flex items-start gap-2 text-xs"><span class="material-symbols-outlined text-error text-sm">warning</span><span class="text-on-surface-variant">${i}</span></div>`).join('')}</div>` : ''}
+      ${parsed.safe.length > 0 ? `<div class="space-y-1">${parsed.safe.map(s => `<div class="flex items-start gap-2 text-xs"><span class="material-symbols-outlined text-[#10B981] text-sm" style="font-variation-settings:'FILL' 1">check_circle</span><span class="text-on-surface-variant">${s}</span></div>`).join('')}</div>` : ''}
+      <div class="mt-4 pt-3 border-t border-outline-variant/10">
+        <span class="text-[10px] font-label uppercase tracking-widest ${parsed.cnsa2.compliant ? 'text-[#10B981]' : 'text-error'}">CNSA 2.0: ${parsed.cnsa2.compliant ? 'COMPLIANT' : 'NOT COMPLIANT'}</span>
+      </div>
+    </div>`;
+
+  // Update lastTLSResult for CBOM
+  lastTLSResult = { hostname: 'openssl-analysis', score: parsed.score, tlsInfo: { cipher: parsed.cipher }, recommendations: [...parsed.issues, ...parsed.safe], timestamp: new Date().toISOString() };
+  updateCBOM();
+}
+
+// ═══ CRYPTODEPS ═══
+const depDropZone = document.getElementById('depDropZone');
+const depFileInput = document.getElementById('depFileInput');
+depDropZone.addEventListener('click', () => depFileInput.click());
+depDropZone.addEventListener('dragover', e => { e.preventDefault(); depDropZone.classList.add('dragover'); });
+depDropZone.addEventListener('dragleave', () => depDropZone.classList.remove('dragover'));
+depDropZone.addEventListener('drop', e => { e.preventDefault(); depDropZone.classList.remove('dragover'); handleDepFile(e.dataTransfer.files[0]); });
+depFileInput.addEventListener('change', e => handleDepFile(e.target.files[0]));
+
+function handleDepFile(file) {
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    depFile = { name: file.name, content: reader.result };
+    document.getElementById('depScanBtn').disabled = false;
+    depDropZone.innerHTML = `<span class="material-symbols-outlined text-3xl text-tertiary mb-2 block">task</span><p class="text-on-surface font-bold text-sm">${file.name}</p><p class="text-on-surface-variant/50 text-xs mt-1">Click to replace</p>`;
+  };
+  reader.readAsText(file);
+}
+
+function runDepScan() {
+  if (!depFile) return;
+  lastDepResult = Scanner.scanDependencies(depFile.name, depFile.content);
+  const s = lastDepResult.summary;
+
+  document.getElementById('depEmpty').style.display = 'none';
+  const el = document.getElementById('depResults');
+  el.style.display = '';
+
+  const sevColors = { critical: '#F43F5E', high: '#F59E0B', warning: '#FBBF24', info: '#859398' };
+
+  el.innerHTML = `
+    <div class="grid grid-cols-4 gap-px bg-outline-variant/10">
+      <div class="bg-surface-container-high/60 p-4 text-center"><div class="text-2xl font-black font-['JetBrains_Mono']">${s.totalDependencies}</div><div class="text-[9px] font-label uppercase text-on-surface-variant mt-1">Total Deps</div></div>
+      <div class="bg-surface-container-high/60 p-4 text-center"><div class="text-2xl font-black font-['JetBrains_Mono'] text-error">${s.vulnerableCount}</div><div class="text-[9px] font-label uppercase text-on-surface-variant mt-1">Vulnerable</div></div>
+      <div class="bg-surface-container-high/60 p-4 text-center"><div class="text-2xl font-black font-['JetBrains_Mono'] text-[#F43F5E]">${s.critical}</div><div class="text-[9px] font-label uppercase text-on-surface-variant mt-1">Critical</div></div>
+      <div class="bg-surface-container-high/60 p-4 text-center"><div class="text-2xl font-black font-['JetBrains_Mono'] text-[#10B981]">${s.totalDependencies - s.vulnerableCount}</div><div class="text-[9px] font-label uppercase text-on-surface-variant mt-1">Clean</div></div>
+    </div>
+    <div class="p-2 text-[10px] font-label text-on-surface-variant bg-surface-container-high/30 px-4">Format: ${lastDepResult.format}</div>
+    <div class="max-h-[300px] overflow-y-auto">
+      <table class="w-full text-left">
+        <thead class="sticky top-0 bg-surface-container-high/90"><tr>
+          <th class="px-4 py-3 text-[10px] font-label uppercase text-on-surface-variant">Package</th>
+          <th class="px-4 py-3 text-[10px] font-label uppercase text-on-surface-variant">Algorithm</th>
+          <th class="px-4 py-3 text-[10px] font-label uppercase text-on-surface-variant">Severity</th>
+          <th class="px-4 py-3 text-[10px] font-label uppercase text-on-surface-variant">PQC Alternative</th>
+        </tr></thead>
+        <tbody class="divide-y divide-outline-variant/10">
+          ${lastDepResult.vulnerable.map(v => `
+            <tr class="finding-row hover:bg-surface-container-high/30">
+              <td class="px-4 py-3 font-mono text-sm font-bold">${v.name}<span class="text-on-surface-variant/40 text-xs ml-1">@${v.version}</span></td>
+              <td class="px-4 py-3 text-xs text-on-surface-variant">${v.algorithm}</td>
+              <td class="px-4 py-3"><span class="inline-flex items-center px-2 py-0.5 rounded text-[9px] font-bold uppercase" style="background:${sevColors[v.severity]}20;color:${sevColors[v.severity]}">${v.severity}</span></td>
+              <td class="px-4 py-3 text-xs text-primary font-bold">${v.alternative}</td>
+            </tr>`).join('')}
+          ${lastDepResult.vulnerable.length === 0 ? '<tr><td colspan="4" class="px-4 py-8 text-center text-on-surface-variant">✅ No quantum-vulnerable dependencies found!</td></tr>' : ''}
+        </tbody>
+      </table>
+    </div>`;
+
+  updateCBOM();
+}
+
+// ═══ CBOM & PQC LABEL ═══
+function updateCBOM() {
+  const cbom = Scanner.generateCBOM(lastCryptoResult, lastTLSResult, lastDepResult, 'Scanned Organization');
+  const section = document.getElementById('cbomSection');
+  section.style.display = '';
+
+  // PQC Label
+  const labelInfo = Scanner.getPQCLabelDetails(cbom.summary.pqcLabel);
+  document.getElementById('pqcBadge').style.borderColor = labelInfo.color;
+  document.getElementById('pqcIcon').textContent = labelInfo.icon;
+  document.getElementById('pqcIcon').style.color = labelInfo.color;
+  document.getElementById('pqcLabel').textContent = cbom.summary.pqcLabel;
+  document.getElementById('pqcLabel').style.color = labelInfo.color;
+  document.getElementById('pqcDesc').textContent = labelInfo.desc;
+  document.getElementById('pqcDate').textContent = new Date().toLocaleDateString();
+  document.getElementById('labelGlow').style.background = `radial-gradient(circle, ${labelInfo.bg} 0%, transparent 70%)`;
+
+  // CBOM Stats
+  document.getElementById('cbomStats').innerHTML = [
+    { l: 'Total Assets', v: cbom.summary.totalAssets, c: '#d6e3ff' },
+    { l: 'Vulnerable', v: cbom.summary.quantumVulnerable, c: '#F43F5E' },
+    { l: 'Quantum Safe', v: cbom.summary.quantumSafe, c: '#10B981' },
+    { l: 'Label', v: cbom.summary.pqcLabel, c: labelInfo.color },
+  ].map(s => `<div class="bg-surface-container-high/40 p-4 rounded-lg text-center"><div class="text-lg font-black font-['JetBrains_Mono']" style="color:${s.c}">${s.v}</div><div class="text-[9px] font-label uppercase text-on-surface-variant mt-1">${s.l}</div></div>`).join('');
+
+  // CBOM Table
+  const sevColors = { critical: '#F43F5E', high: '#F59E0B', warning: '#FBBF24', info: '#859398', safe: '#10B981' };
+  document.getElementById('cbomTable').innerHTML = `<table class="w-full text-left"><thead class="sticky top-0 bg-surface-container-high/90"><tr>
+    <th class="px-3 py-2 text-[9px] font-label uppercase text-on-surface-variant">Type</th>
+    <th class="px-3 py-2 text-[9px] font-label uppercase text-on-surface-variant">Algorithm</th>
+    <th class="px-3 py-2 text-[9px] font-label uppercase text-on-surface-variant">Location</th>
+    <th class="px-3 py-2 text-[9px] font-label uppercase text-on-surface-variant">Status</th>
+  </tr></thead><tbody class="divide-y divide-outline-variant/10 text-xs">
+    ${cbom.assets.map(a => `<tr class="hover:bg-surface-container-high/20"><td class="px-3 py-2 font-mono text-on-surface-variant">${a.type}</td><td class="px-3 py-2 font-bold">${a.algorithm}</td><td class="px-3 py-2 font-mono text-on-surface-variant/70 truncate max-w-[200px]">${a.location}</td><td class="px-3 py-2"><span style="color:${a.quantumSafe ? '#10B981' : sevColors[a.severity]}">${a.quantumSafe ? '✅ Safe' : '❌ Vulnerable'}</span></td></tr>`).join('')}
+  </tbody></table>`;
+
+  // Store for export
+  window._lastCBOM = cbom;
+}
+
+function exportCBOM() {
+  if (!window._lastCBOM) { alert('No scan data to export. Run a scan first.'); return; }
+  try {
+    const jsonStr = JSON.stringify(window._lastCBOM, null, 2);
+    const blob = new Blob([jsonStr], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'quantumguard-cbom-' + new Date().toISOString().slice(0, 10) + '.json';
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    // Delay cleanup so the download can start
+    setTimeout(() => {
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }, 1000);
+  } catch (e) {
+    alert('Export failed: ' + e.message);
+  }
+}
+</script>
+</body></html>

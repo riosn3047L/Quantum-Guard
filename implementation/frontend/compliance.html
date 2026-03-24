@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QuantumGuard | Compliance Mapping</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&amp;family=JetBrains+Mono:wght@400;700&amp;family=Space+Grotesk:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="shared.css" rel="stylesheet"/>
+<script src="data.js"></script>
+<script src="engine.js"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed": "#25005a", "on-error-container": "#ffdad6",
+              "on-secondary-fixed-variant": "#5a00c6", "tertiary-fixed-dim": "#ffba3d",
+              "surface-tint": "#3cd7ff", "error": "#ffb4ab",
+              "inverse-on-surface": "#233148", "on-surface": "#d6e3ff",
+              "surface-bright": "#2c3951", "secondary-container": "#6001d1",
+              "tertiary-fixed": "#ffdeae", "surface-variant": "#27354c",
+              "on-surface-variant": "#bbc9cf", "secondary-fixed": "#eaddff",
+              "surface-container-high": "#1c2a41", "on-tertiary": "#432c00",
+              "on-primary-fixed": "#001f27", "on-primary-container": "#00586b",
+              "surface-container-lowest": "#010e24", "on-tertiary-container": "#6c4900",
+              "on-tertiary-fixed": "#281900", "surface-dim": "#041329",
+              "secondary-fixed-dim": "#d2bbff", "on-secondary": "#3f008e",
+              "surface": "#041329", "inverse-surface": "#d6e3ff",
+              "background": "#041329", "on-background": "#d6e3ff",
+              "tertiary": "#ffd9a1", "on-secondary-container": "#c9aeff",
+              "primary-container": "#00d4ff", "tertiary-container": "#feb528",
+              "on-error": "#690005", "on-primary": "#003642",
+              "secondary": "#d2bbff", "primary": "#a8e8ff",
+              "surface-container": "#112036", "outline": "#859398",
+              "primary-fixed-dim": "#3cd7ff", "primary-fixed": "#b4ebff",
+              "on-tertiary-fixed-variant": "#604100", "surface-container-highest": "#27354c",
+              "outline-variant": "#3c494e", "on-primary-fixed-variant": "#004e5f",
+              "inverse-primary": "#00677e", "error-container": "#93000a",
+              "surface-container-low": "#0d1c32"
+            },
+            fontFamily: { "headline": ["Inter"], "body": ["Inter"], "label": ["Space Grotesk"] },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .glass-card { background: rgba(39, 53, 76, 0.6); backdrop-filter: blur(20px); }
+      .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+      .gradient-text { background: linear-gradient(135deg, #A8E8FF 0%, #00D4FF 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+      .kinetic-shadow { box-shadow: 0 8px 32px 0 rgba(0, 212, 255, 0.08); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-8 h-20 max-w-none bg-[#041329]/60 backdrop-blur-xl border-b border-[#3C494E]/15 shadow-[0_8px_32px_0_rgba(0,212,255,0.08)]">
+<a href="index.html" class="text-2xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-[#A8E8FF] to-[#00D4FF] font-headline">QuantumGuard</a>
+<div class="hidden md:flex gap-8 items-center font-['Inter'] tracking-tight text-[#D6E3FF]">
+<a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors duration-300" href="quick-assessment.html">Assessment</a>
+<a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors duration-300" href="results.html">Results</a>
+<a class="text-[#00D4FF] border-b-2 border-[#00D4FF] pb-1 font-bold" href="compliance.html">Compliance</a>
+<a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors duration-300" href="tools.html">Tools</a>
+<a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors duration-300" href="docs.html">Docs</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-[#27354C]/50 rounded-full transition-all duration-200"><span class="material-symbols-outlined text-[#00D4FF]">notifications</span></button>
+<button class="p-2 hover:bg-[#27354C]/50 rounded-full transition-all duration-200"><span class="material-symbols-outlined text-[#00D4FF]">account_circle</span></button>
+</div>
+</nav>
+<main class="pt-28 pb-12 px-8 max-w-7xl mx-auto space-y-10">
+<!-- Hero Header -->
+<header class="flex flex-col md:flex-row justify-between items-end gap-6">
+<div>
+<h1 class="text-5xl font-black tracking-tighter gradient-text font-headline mb-2">Compliance Mapping</h1>
+<p class="text-on-surface-variant max-w-2xl font-body">Cross-framework verification of post-quantum readiness against federal security standards.</p>
+</div>
+<a href="results.html" class="bg-gradient-to-r from-primary to-primary-container text-on-primary px-6 py-3 rounded-xl font-bold flex items-center gap-2 hover:shadow-[0_0_20px_rgba(0,212,255,0.4)] transition-all">
+<span class="material-symbols-outlined">assessment</span>
+                VIEW RESULTS
+            </a>
+</header>
+<!-- Stats Overview -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<div class="md:col-span-2 glass-card rounded-xl p-8 border border-outline-variant/15 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -mr-16 -mt-16"></div>
+<div class="flex justify-between items-start mb-6">
+<h3 class="font-label text-sm uppercase tracking-widest text-on-surface-variant">Global Readiness Score</h3>
+<span id="liveBadge" class="text-xs font-mono text-primary px-2 py-1 bg-primary/10 rounded">LIVE FEED</span>
+</div>
+<div class="flex items-baseline gap-4">
+<span id="globalScore" class="text-7xl font-bold font-['JetBrains_Mono'] gradient-text">—</span>
+<span class="text-on-surface-variant font-mono text-xl">/ 100</span>
+</div>
+<div class="mt-8 w-full bg-surface-container-lowest h-2 rounded-full overflow-hidden">
+<div id="globalBar" class="bg-gradient-to-r from-primary to-primary-container h-full transition-all duration-700" style="width: 0%"></div>
+</div>
+</div>
+<div class="glass-card rounded-xl p-6 border border-outline-variant/15">
+<h3 class="font-label text-sm uppercase tracking-widest text-on-surface-variant mb-4">Frameworks Tracked</h3>
+<div id="fwCount" class="text-4xl font-bold text-primary mb-2">4</div>
+<div class="text-xs text-on-surface-variant">NIST PQC • CMMC 2.0 • FedRAMP • FISMA</div>
+</div>
+<div class="glass-card rounded-xl p-6 border border-outline-variant/15">
+<h3 class="font-label text-sm uppercase tracking-widest text-on-surface-variant mb-4">Maturity Level</h3>
+<div id="matLevel" class="text-4xl font-bold text-tertiary-container mb-2">—</div>
+<div id="matDesc" class="text-xs text-on-surface-variant">Complete assessment to see</div>
+</div>
+</div>
+<!-- Framework Selector Tabs -->
+<div id="frameworkTabs" class="flex overflow-x-auto gap-4 no-scrollbar pb-2">
+<!-- Filled by JS -->
+</div>
+<!-- Mapping Table -->
+<div class="glass-card rounded-xl overflow-hidden border border-outline-variant/15">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high/50">
+<th class="px-6 py-4 font-label text-xs uppercase tracking-widest text-on-surface-variant">QuantumGuard Practice</th>
+<th class="px-6 py-4 font-label text-xs uppercase tracking-widest text-on-surface-variant">Dimension</th>
+<th class="px-6 py-4 font-label text-xs uppercase tracking-widest text-on-surface-variant">Score</th>
+<th class="px-6 py-4 font-label text-xs uppercase tracking-widest text-on-surface-variant">Strength</th>
+<th class="px-6 py-4 font-label text-xs uppercase tracking-widest text-on-surface-variant text-right">Status</th>
+</tr>
+</thead>
+<tbody id="mappingTable" class="divide-y divide-outline-variant/10">
+<!-- Filled by JS -->
+</tbody>
+</table>
+</div>
+<!-- Gap Analysis Section -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<div class="lg:col-span-2 space-y-6">
+<h2 class="text-2xl font-bold font-headline flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">analytics</span>
+                    Strategic Gap Analysis
+                </h2>
+<div id="gapCards" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Filled by JS -->
+</div>
+</div>
+<div class="glass-card p-8 rounded-xl border border-outline-variant/15 flex flex-col justify-center items-center text-center space-y-4">
+<div class="w-24 h-24 rounded-full border-4 border-primary/20 flex items-center justify-center relative">
+<div class="absolute inset-0 rounded-full border-4 border-primary border-t-transparent animate-spin" style="animation-duration: 3s;"></div>
+<span class="material-symbols-outlined text-4xl text-primary" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<h3 class="font-bold text-xl">Compliance Engine</h3>
+<p id="scanStatus" class="text-sm text-on-surface-variant">Complete an assessment to see compliance mapping.</p>
+<div class="pt-4 flex gap-4 w-full">
+<a href="quick-assessment.html" class="flex-1 py-2 bg-primary text-on-primary rounded-lg text-xs font-bold shadow-[0_4px_12px_rgba(0,212,255,0.2)] text-center">START ASSESSMENT</a>
+<a href="results.html" class="flex-1 py-2 bg-surface-container-highest rounded-lg text-xs font-bold hover:bg-surface-container-high transition-all text-center">VIEW RESULTS</a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#0D1C32] w-full py-12 border-t border-[#3C494E]/15 mt-20">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 w-full gap-8">
+<div class="font-['JetBrains_Mono'] text-xs tracking-widest uppercase text-[#D6E3FF]/50">
+                © 2026 PSB Hackathon — QuantumGuard by IravoVoid
+            </div>
+<div class="flex gap-8">
+<a class="font-['JetBrains_Mono'] text-xs tracking-widest uppercase text-[#D6E3FF]/40 hover:text-[#A8E8FF] transition-colors" href="#">Privacy Policy</a>
+<a class="font-['JetBrains_Mono'] text-xs tracking-widest uppercase text-[#D6E3FF]/40 hover:text-[#A8E8FF] transition-colors" href="#">Terms of Service</a>
+<a class="font-['JetBrains_Mono'] text-xs tracking-widest uppercase text-[#D6E3FF]/40 hover:text-[#A8E8FF] transition-colors" href="#">Security Disclosure</a>
+</div>
+</div>
+</footer>
+
+<script>
+(function() {
+  const answers = Engine.getAnswers('quick') || Engine.getAnswers('comprehensive') || {};
+  const questions = Object.keys(Engine.getAnswers('comprehensive') || {}).length > 0 ? QG.QUESTIONS : QG.QUICK_QUESTIONS;
+  const hasAnswers = Object.keys(answers).length > 0;
+
+  const dimColors = { CVI: '#00D4FF', SGRM: '#D2BBFF', DPE: '#FFD9A1', ITR: '#FF8A65' };
+
+  // ── Stats Overview ──
+  if (hasAnswers) {
+    const breakdown = Engine.getFullScoreBreakdown(answers, questions);
+    const globalPct = Math.round((breakdown.overall / 4) * 100);
+    document.getElementById('globalScore').textContent = globalPct;
+    document.getElementById('globalBar').style.width = globalPct + '%';
+    document.getElementById('matLevel').textContent = 'L' + breakdown.maturityLevel.level;
+    document.getElementById('matDesc').textContent = breakdown.maturityLevel.name + ' — ' + breakdown.maturityLevel.description.split('.')[0];
+    document.getElementById('scanStatus').textContent = 'Mapping ' + QG.PRACTICES.length + ' practices across ' + QG.COMPLIANCE_FRAMEWORKS.length + ' frameworks.';
+  }
+
+  // ── Framework Tabs ──
+  const tabsEl = document.getElementById('frameworkTabs');
+  let activeFramework = 0;
+  QG.COMPLIANCE_FRAMEWORKS.forEach((fw, i) => {
+    const btn = document.createElement('button');
+    btn.className = `whitespace-nowrap px-6 py-3 rounded-full font-medium transition-all ${i === 0 ? 'bg-primary-container text-on-primary-container font-bold border border-primary/20' : 'bg-surface-container-highest text-on-surface/70 hover:bg-surface-container-high'}`;
+    btn.textContent = fw.name;
+    btn.addEventListener('click', () => {
+      activeFramework = i;
+      tabsEl.querySelectorAll('button').forEach((b, j) => {
+        b.className = `whitespace-nowrap px-6 py-3 rounded-full font-medium transition-all ${j === i ? 'bg-primary-container text-on-primary-container font-bold border border-primary/20' : 'bg-surface-container-highest text-on-surface/70 hover:bg-surface-container-high'}`;
+      });
+      renderTable();
+    });
+    tabsEl.appendChild(btn);
+  });
+
+  // ── Mapping Table ──
+  function renderTable() {
+    const tbody = document.getElementById('mappingTable');
+    tbody.innerHTML = '';
+    const breakdown = hasAnswers ? Engine.getFullScoreBreakdown(answers, questions) : null;
+
+    QG.PRACTICES.forEach(p => {
+      const dim = QG.DIMENSIONS.find(d => d.id === p.dimension);
+      const score = breakdown ? breakdown.dimensions[p.dimension].practices[p.id].score : 0;
+      const scoreNorm = (score / 4).toFixed(2);
+      const filled = Math.round(score);
+
+      let statusClass, statusText;
+      if (score >= 3) { statusClass = 'bg-primary/10 text-primary border-primary/20'; statusText = 'Compliant'; }
+      else if (score >= 2) { statusClass = 'bg-tertiary-container/10 text-tertiary-container border-tertiary-container/20'; statusText = 'Partial'; }
+      else if (score > 0) { statusClass = 'bg-error/10 text-error border-error/20'; statusText = 'Gap'; }
+      else { statusClass = 'bg-surface-container-highest/50 text-on-surface-variant border-outline-variant/20'; statusText = 'Not Assessed'; }
+
+      const dots = Array.from({length: 4}, (_, i) =>
+        `<div class="w-2 h-2 rounded-full ${i < filled ? '' : 'bg-outline-variant/30'}" style="${i < filled ? 'background:' + dim.color : ''}"></div>`
+      ).join('');
+
+      tbody.innerHTML += `
+        <tr class="hover:bg-surface-container-high/30 transition-colors group">
+          <td class="px-6 py-6">
+            <div class="font-bold text-on-surface group-hover:text-primary transition-colors">${p.name}</div>
+            <div class="text-xs text-on-surface-variant mt-1">Practice ${p.id}</div>
+          </td>
+          <td class="px-6 py-6">
+            <span class="inline-flex items-center px-2 py-1 rounded text-[10px] font-bold font-mono" style="background: ${dim.color}15; color: ${dim.color}">${dim.id}</span>
+          </td>
+          <td class="px-6 py-6 font-mono font-bold" style="color: ${dim.color}">${score > 0 ? scoreNorm : '—'}</td>
+          <td class="px-6 py-6"><div class="flex gap-1">${dots}</div></td>
+          <td class="px-6 py-6 text-right">
+            <span class="inline-flex items-center px-3 py-1 rounded-full ${statusClass} text-[10px] font-bold uppercase tracking-wider border">${statusText}</span>
+          </td>
+        </tr>`;
+    });
+  }
+
+  renderTable();
+
+  // ── Gap Analysis Cards ──
+  const gapEl = document.getElementById('gapCards');
+  if (hasAnswers) {
+    const breakdown = Engine.getFullScoreBreakdown(answers, questions);
+    const gaps = QG.PRACTICES.map(p => ({
+      ...p,
+      score: breakdown.dimensions[p.dimension].practices[p.id].score,
+      dimColor: dimColors[p.dimension]
+    })).filter(p => p.score < 3).sort((a, b) => a.score - b.score);
+
+    gaps.slice(0, 4).forEach(p => {
+      const priority = p.score < 1.5 ? 'HIGH PRIORITY' : p.score < 2.5 ? 'MEDIUM' : 'LOW';
+      const prioColor = p.score < 1.5 ? '#ffb4ab' : p.score < 2.5 ? '#feb528' : '#bbc9cf';
+      gapEl.innerHTML += `
+        <div class="glass-card p-6 rounded-xl border-l-4" style="border-color: ${p.dimColor}">
+          <div class="flex justify-between items-start mb-3">
+            <span class="font-bold text-on-surface">${p.name}</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded" style="background: ${prioColor}20; color: ${prioColor}">${priority}</span>
+          </div>
+          <p class="text-sm text-on-surface-variant leading-relaxed">
+            Score: ${p.score.toFixed(1)}/4.0. ${Engine.getRecommendation(p.score, p.dimension)}
+          </p>
+          <a href="results.html" class="mt-4 text-xs font-bold text-primary flex items-center gap-1 hover:underline">VIEW DETAILS <span class="material-symbols-outlined text-[14px]">arrow_forward</span></a>
+        </div>`;
+    });
+  } else {
+    gapEl.innerHTML = '<div class="glass-card p-6 rounded-xl col-span-2 text-center text-on-surface-variant">Complete an assessment to see gap analysis.</div>';
+  }
+})();
+</script>
+</body></html>

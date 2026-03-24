@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QuantumGuard | Comprehensive Assessment</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&amp;family=Space+Grotesk:wght@300;500;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="shared.css" rel="stylesheet"/>
+<script src="data.js"></script>
+<script src="engine.js"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary-fixed": "#25005a", "on-error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#5a00c6", "tertiary-fixed-dim": "#ffba3d",
+                        "surface-tint": "#3cd7ff", "error": "#ffb4ab",
+                        "inverse-on-surface": "#233148", "on-surface": "#d6e3ff",
+                        "surface-bright": "#2c3951", "secondary-container": "#6001d1",
+                        "tertiary-fixed": "#ffdeae", "surface-variant": "#27354c",
+                        "on-surface-variant": "#bbc9cf", "secondary-fixed": "#eaddff",
+                        "surface-container-high": "#1c2a41", "on-tertiary": "#432c00",
+                        "on-primary-fixed": "#001f27", "on-primary-container": "#00586b",
+                        "surface-container-lowest": "#010e24", "on-tertiary-container": "#6c4900",
+                        "on-tertiary-fixed": "#281900", "surface-dim": "#041329",
+                        "secondary-fixed-dim": "#d2bbff", "on-secondary": "#3f008e",
+                        "surface": "#041329", "inverse-surface": "#d6e3ff",
+                        "background": "#041329", "on-background": "#d6e3ff",
+                        "tertiary": "#ffd9a1", "on-secondary-container": "#c9aeff",
+                        "primary-container": "#00d4ff", "tertiary-container": "#feb528",
+                        "on-error": "#690005", "on-primary": "#003642",
+                        "secondary": "#d2bbff", "primary": "#a8e8ff",
+                        "surface-container": "#112036", "outline": "#859398",
+                        "primary-fixed-dim": "#3cd7ff", "primary-fixed": "#b4ebff",
+                        "on-tertiary-fixed-variant": "#604100", "surface-container-highest": "#27354c",
+                        "outline-variant": "#3c494e", "on-primary-fixed-variant": "#004e5f",
+                        "inverse-primary": "#00677e", "error-container": "#93000a",
+                        "surface-container-low": "#0d1c32"
+                    },
+                    fontFamily: { "headline": ["Inter"], "body": ["Inter"], "label": ["Space Grotesk"], "mono": ["JetBrains Mono"] },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-panel { background: rgba(39, 53, 76, 0.6); backdrop-filter: blur(20px); }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #3c494e; border-radius: 10px; }
+        .q-fade { animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#041329]/60 backdrop-blur-xl border-b border-[#3C494E]/15 shadow-[0_8px_32px_0_rgba(0,212,255,0.08)] flex justify-between items-center px-8 h-20 max-w-none">
+<a href="index.html" class="text-2xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-[#A8E8FF] to-[#00D4FF] font-headline">QuantumGuard</a>
+<div class="hidden md:flex items-center space-x-8 font-headline tracking-tight text-[#D6E3FF]">
+<a class="text-[#00D4FF] border-b-2 border-[#00D4FF] pb-1 font-bold font-['Inter'] tracking-tight" href="quick-assessment.html">Assessment</a>
+<a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors duration-300 font-['Inter'] tracking-tight" href="results.html">Results</a>
+<a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors duration-300 font-['Inter'] tracking-tight" href="compliance.html">Compliance</a>
+<a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors duration-300 font-['Inter'] tracking-tight" href="tools.html">Tools</a>
+<a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors duration-300 font-['Inter'] tracking-tight" href="docs.html">Docs</a>
+</div>
+<div class="flex items-center space-x-6">
+<button class="material-symbols-outlined text-[#D6E3FF]/70 hover:bg-[#27354C]/50 p-2 rounded-full transition-all">notifications</button>
+<button class="material-symbols-outlined text-[#D6E3FF]/70 hover:bg-[#27354C]/50 p-2 rounded-full transition-all">account_circle</button>
+</div>
+</nav>
+<div class="flex h-screen pt-20 overflow-hidden">
+<!-- Sidebar -->
+<aside class="w-80 bg-surface-container-low border-r border-outline-variant/15 flex flex-col hidden lg:flex">
+<div class="p-6 border-b border-outline-variant/10">
+<h2 class="font-label text-xs uppercase tracking-[0.2em] text-on-surface-variant font-bold">Assessment Roadmap</h2>
+</div>
+<nav id="sidebarNav" class="flex-1 overflow-y-auto custom-scrollbar p-4 space-y-4">
+<!-- Filled by JS -->
+</nav>
+<div class="p-6 bg-surface-container-lowest/50">
+<div class="flex items-center justify-between mb-2">
+<span class="text-[10px] font-label font-bold text-on-surface-variant uppercase tracking-widest">Global Progress</span>
+<span id="globalPct" class="text-xs font-mono text-primary-fixed-dim">0%</span>
+</div>
+<div class="h-1.5 w-full bg-outline-variant/20 rounded-full overflow-hidden">
+<div id="globalBar" class="h-full bg-gradient-to-r from-primary to-primary-container transition-all duration-500" style="width: 0%"></div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 overflow-y-auto custom-scrollbar bg-surface px-6 md:px-12 py-10">
+<!-- Dimension Progress Header -->
+<div id="dimProgress" class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-10">
+<!-- Filled by JS -->
+</div>
+<!-- Page Title Area -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+<div>
+<h1 id="practiceTitle" class="text-4xl font-black tracking-tight mb-2 font-headline">Loading...</h1>
+<p id="practiceDesc" class="text-on-surface-variant max-w-2xl leading-relaxed"></p>
+</div>
+<div class="flex items-center gap-4">
+<button id="saveBtn" class="px-6 py-3 rounded-full bg-surface-container-highest border border-outline-variant/30 font-label text-sm font-bold text-on-surface hover:bg-surface-container-high transition-all">Save &amp; Resume Later</button>
+<button id="submitBtn" class="px-6 py-3 rounded-full bg-gradient-to-r from-primary to-primary-container text-on-primary font-label text-sm font-bold shadow-[0_0_20px_rgba(0,212,255,0.3)] hover:scale-[1.02] active:scale-95 transition-all">Submit Practice</button>
+</div>
+</div>
+<!-- Question Cards -->
+<div id="questionsContainer" class="space-y-8">
+<!-- Filled by JS -->
+</div>
+<!-- Pagination -->
+<div class="mt-16 flex flex-col md:flex-row items-center justify-between gap-8 pt-8 border-t border-outline-variant/15">
+<div class="flex items-center gap-2">
+<span id="pageInfo" class="text-xs font-mono text-on-surface-variant">Practice 1 of 12</span>
+<div id="pageDots" class="flex gap-1 ml-4">
+<!-- Filled by JS -->
+</div>
+</div>
+<div class="flex gap-4">
+<button id="prevPractice" class="px-8 py-3 rounded-xl bg-surface-container border border-outline-variant/20 text-on-surface-variant hover:text-on-surface transition-all">Previous Practice</button>
+<button id="nextPractice" class="px-8 py-3 rounded-xl bg-surface-container-highest text-primary border border-primary/20 hover:border-primary/50 transition-all">Next Practice</button>
+</div>
+</div>
+<!-- Submit Full Assessment -->
+<div class="mt-20 flex justify-center">
+<button id="submitAll" class="flex items-center gap-3 px-10 py-5 bg-gradient-to-br from-[#00D4FF] to-[#6001D1] text-white rounded-full font-bold shadow-[0_12px_40px_rgba(0,212,255,0.25)] hover:shadow-[0_12px_60px_rgba(0,212,255,0.4)] transition-all hover:-translate-y-1">
+<span class="material-symbols-outlined">rocket_launch</span>
+                    SUBMIT FULL ASSESSMENT
+                 </button>
+</div>
+<footer class="mt-20 flex flex-col md:flex-row justify-between items-center px-12 py-12 w-full border-t border-[#3C494E]/15 bg-[#0D1C32]">
+<div class="font-mono text-xs tracking-widest uppercase text-[#D6E3FF]/50 mb-4 md:mb-0">
+                    © 2026 PSB HACKATHON - QUANTUMGUARD SECURITY
+                </div>
+<div class="flex gap-8">
+<a class="font-mono text-xs tracking-widest uppercase text-[#D6E3FF]/40 hover:text-[#A8E8FF] transition-colors" href="#">Privacy Policy</a>
+<a class="font-mono text-xs tracking-widest uppercase text-[#D6E3FF]/40 hover:text-[#A8E8FF] transition-colors" href="#">Terms of Service</a>
+<a class="font-mono text-xs tracking-widest uppercase text-[#D6E3FF]/40 hover:text-[#A8E8FF] transition-colors" href="#">Security Disclosure</a>
+</div>
+</footer>
+</main>
+</div>
+
+<script>
+(function() {
+  const questions = QG.QUESTIONS;
+  const practices = QG.PRACTICES;
+  const dimensions = QG.DIMENSIONS;
+  const answers = Engine.getAnswers('comprehensive') || {};
+  const dimColors = { CVI: '#00D4FF', SGRM: '#D2BBFF', DPE: '#FFD9A1', ITR: '#FF8A65' };
+  const dimIcons = { CVI: 'security', SGRM: 'shield', DPE: 'hub', ITR: 'policy' };
+
+  let currentPracticeIdx = 0;
+
+  // ── Build Sidebar ──
+  function buildSidebar() {
+    const nav = document.getElementById('sidebarNav');
+    nav.innerHTML = '';
+    dimensions.forEach(dim => {
+      const dimPractices = practices.filter(p => p.dimension === dim.id);
+      const dimQs = questions.filter(q => q.dimension === dim.id);
+      const dimAnswered = dimQs.filter(q => answers[q.id] > 0).length;
+      const isActive = practices[currentPracticeIdx].dimension === dim.id;
+
+      let html = `<div class="space-y-1">
+        <button class="w-full flex items-center justify-between p-2 rounded-lg ${isActive ? 'bg-surface-container-highest/40' : 'hover:bg-surface-container-highest/40'} transition-all" style="color: ${isActive ? dim.color : '#bbc9cf'}; font-weight: ${isActive ? 'bold' : 'normal'}">
+          <span class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-sm" ${isActive ? 'style="font-variation-settings: \'FILL\' 1;"' : ''}>${dimIcons[dim.id]}</span>
+            ${dim.name.split('(')[0].trim()}
+          </span>
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded-full" style="background: ${dim.color}20">${dimAnswered}/${dimQs.length}</span>
+        </button>
+        <div class="ml-4 pl-4 border-l border-outline-variant/20 space-y-2 py-2">`;
+
+      dimPractices.forEach((p, pIdx) => {
+        const practiceIdx = practices.indexOf(p);
+        const pQs = questions.filter(q => q.practice === p.id);
+        const pAnswered = pQs.filter(q => answers[q.id] > 0).length;
+        const isCurrent = practiceIdx === currentPracticeIdx;
+        const isDone = pAnswered === pQs.length && pQs.length > 0;
+
+        html += `<a class="flex items-center justify-between text-xs cursor-pointer ${isCurrent ? 'text-primary font-bold' : 'text-on-surface-variant hover:text-on-surface'} transition-colors group" data-practice-idx="${practiceIdx}">
+          <span class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-[14px]">${isDone ? 'check_circle' : isCurrent ? 'radio_button_checked' : 'radio_button_unchecked'}</span>
+            ${p.id} ${p.name.split('&')[0].trim().substring(0, 25)}${p.name.length > 25 ? '…' : ''}
+          </span>
+          <span class="text-[9px] font-mono ${isDone ? 'text-primary' : 'text-on-surface-variant/50'}">${pAnswered}/${pQs.length}</span>
+        </a>`;
+      });
+
+      html += `</div></div>`;
+      nav.insertAdjacentHTML('beforeend', html);
+    });
+
+    // Click handlers
+    nav.querySelectorAll('[data-practice-idx]').forEach(a => {
+      a.addEventListener('click', () => {
+        currentPracticeIdx = parseInt(a.dataset.practiceIdx);
+        renderAll();
+      });
+    });
+  }
+
+  // ── Build Dimension Progress ──
+  function buildDimProgress() {
+    const container = document.getElementById('dimProgress');
+    container.innerHTML = '';
+    dimensions.forEach(dim => {
+      const dimQs = questions.filter(q => q.dimension === dim.id);
+      const dimAnswered = dimQs.filter(q => answers[q.id] > 0).length;
+      const pct = dimQs.length > 0 ? Math.round((dimAnswered / dimQs.length) * 100) : 0;
+      container.innerHTML += `
+        <div class="bg-surface-container-high/40 p-4 rounded-xl border border-outline-variant/10">
+          <p class="text-[10px] font-label font-bold uppercase mb-2" style="color: ${dim.color}">${dim.id}</p>
+          <div class="flex items-center gap-3">
+            <div class="flex-1 h-1 bg-outline-variant/20 rounded-full overflow-hidden">
+              <div class="h-full transition-all duration-500" style="width: ${pct}%; background: ${dim.color}"></div>
+            </div>
+            <span class="text-[10px] font-mono" style="color: ${pct > 0 ? dim.color : '#bbc9cf'}">${pct}%</span>
+          </div>
+        </div>`;
+    });
+  }
+
+  // ── Render Questions ──
+  function renderQuestions() {
+    const practice = practices[currentPracticeIdx];
+    const dim = dimensions.find(d => d.id === practice.dimension);
+    const practiceQs = questions.filter(q => q.practice === practice.id);
+
+    document.getElementById('practiceTitle').textContent = `Practice ${practice.id}: ${practice.name}`;
+    document.getElementById('practiceDesc').textContent = dim.description;
+
+    const container = document.getElementById('questionsContainer');
+    container.innerHTML = '';
+
+    practiceQs.forEach((q, idx) => {
+      const saved = answers[q.id] || 0;
+      let optHtml = '';
+      q.options.forEach((opt, oi) => {
+        const isChecked = saved === opt.score;
+        optHtml += `
+          <label class="flex items-center gap-4 p-4 rounded-xl border ${isChecked ? 'border-primary-container/40 bg-primary-container/5' : 'border-outline-variant/20 bg-surface-container-lowest/40 hover:bg-surface-container-highest/60'} cursor-pointer transition-all">
+            <input ${isChecked ? 'checked' : ''} class="w-4 h-4 text-primary bg-surface border-outline-variant focus:ring-primary" name="cq_${q.id}" type="radio" value="${opt.score}" data-qid="${q.id}">
+            <div class="flex flex-col">
+              <span class="text-[10px] font-label uppercase tracking-wider mb-0.5" style="color: ${dim.color}80">${opt.label}</span>
+              <span class="font-label text-sm font-medium ${isChecked ? 'text-on-surface' : 'text-on-surface-variant'}">${opt.text}</span>
+            </div>
+          </label>`;
+      });
+
+      container.innerHTML += `
+        <div class="bg-surface-container-high/60 backdrop-blur-md rounded-2xl p-8 border border-outline-variant/15 relative overflow-hidden group q-fade">
+          <div class="absolute top-0 left-0 w-1 h-full transition-colors" style="background: ${saved > 0 ? dim.color : '#3c494e33'}"></div>
+          <div class="flex flex-col md:flex-row gap-8">
+            <div class="shrink-0">
+              <span class="w-12 h-12 flex items-center justify-center rounded-xl border font-mono font-bold text-xl ${saved > 0 ? 'bg-primary-container/10 border-primary-container/20' : 'bg-surface-container-lowest border-outline-variant/20 text-on-surface-variant'}" style="${saved > 0 ? 'color:' + dim.color : ''}">${String(idx + 1).padStart(2, '0')}</span>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-xl font-bold mb-6 text-on-surface leading-snug">${q.question}</h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">${optHtml}</div>
+            </div>
+          </div>
+        </div>`;
+    });
+
+    // Attach radio change listeners
+    container.querySelectorAll('input[type="radio"]').forEach(radio => {
+      radio.addEventListener('change', function() {
+        const qid = parseInt(this.dataset.qid);
+        answers[qid] = parseInt(this.value);
+        Engine.saveAnswers(answers, 'comprehensive');
+        updateProgress();
+        buildSidebar();
+      });
+    });
+
+    // Update pagination
+    document.getElementById('pageInfo').textContent = `Practice ${currentPracticeIdx + 1} of ${practices.length}`;
+    const dots = document.getElementById('pageDots');
+    dots.innerHTML = practices.map((_, i) => `<div class="w-8 h-1 rounded-full ${i === currentPracticeIdx ? 'bg-primary' : i < currentPracticeIdx ? 'bg-primary/40' : 'bg-outline-variant/30'}"></div>`).join('');
+
+    // Next/Prev labels
+    document.getElementById('prevPractice').disabled = currentPracticeIdx === 0;
+    document.getElementById('prevPractice').style.opacity = currentPracticeIdx === 0 ? '0.3' : '1';
+    const nextP = practices[currentPracticeIdx + 1];
+    document.getElementById('nextPractice').textContent = nextP ? `Next: ${nextP.name.substring(0, 30)}…` : 'View Results';
+  }
+
+  function updateProgress() {
+    const total = questions.length;
+    const answered = Object.keys(answers).filter(k => answers[k] > 0).length;
+    const pct = Math.round((answered / total) * 100);
+    document.getElementById('globalPct').textContent = pct + '%';
+    document.getElementById('globalBar').style.width = pct + '%';
+    buildDimProgress();
+  }
+
+  function renderAll() {
+    buildSidebar();
+    buildDimProgress();
+    renderQuestions();
+    updateProgress();
+    document.querySelector('main').scrollTo(0, 0);
+  }
+
+  // Navigation
+  document.getElementById('prevPractice').addEventListener('click', () => {
+    if (currentPracticeIdx > 0) { currentPracticeIdx--; renderAll(); }
+  });
+  document.getElementById('nextPractice').addEventListener('click', () => {
+    if (currentPracticeIdx < practices.length - 1) { currentPracticeIdx++; renderAll(); }
+    else { window.location.href = 'results.html?source=comprehensive'; }
+  });
+  document.getElementById('submitBtn').addEventListener('click', () => {
+    if (currentPracticeIdx < practices.length - 1) { currentPracticeIdx++; renderAll(); }
+    else { window.location.href = 'results.html?source=comprehensive'; }
+  });
+  document.getElementById('saveBtn').addEventListener('click', () => {
+    Engine.saveAnswers(answers, 'comprehensive');
+    alert('Progress saved! You can resume later.');
+  });
+  document.getElementById('submitAll').addEventListener('click', () => {
+    Engine.saveAnswers(answers, 'comprehensive');
+    window.location.href = 'results.html?source=comprehensive';
+  });
+
+  // Initial render
+  renderAll();
+})();
+</script>
+</body></html>

@@ -1,0 +1,91 @@
+/* QuantumGuard | Shared Styles — The Kinetic Shield Design System */
+
+/* Material Symbols */
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    vertical-align: middle;
+}
+
+/* Glass Card */
+.glass-card {
+    background: rgba(39, 53, 76, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+/* Glass Panel (alias) */
+.glass-panel {
+    background: rgba(39, 53, 76, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(60, 73, 78, 0.15);
+}
+
+/* Text Gradient */
+.text-gradient {
+    background: linear-gradient(135deg, #a8e8ff 0%, #00d4ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Gradient Text (alias) */
+.gradient-text {
+    background: linear-gradient(135deg, #A8E8FF 0%, #00D4FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Quantum Glow */
+.quantum-glow {
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+}
+
+/* Kinetic Shadow */
+.kinetic-shadow {
+    box-shadow: 0 8px 32px 0 rgba(0, 212, 255, 0.08);
+}
+
+/* Glow Border */
+.glow-border:hover {
+    border-color: #00D4FF;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.15);
+}
+
+/* Light Pipe */
+.light-pipe {
+    background: linear-gradient(to bottom, #a8e8ff, transparent);
+}
+
+/* Shimmer */
+.shimmer {
+    background: linear-gradient(90deg, transparent, rgba(168, 232, 255, 0.05), transparent);
+    background-size: 200% 100%;
+}
+
+/* Custom Radio (Quick Assessment) */
+.custom-radio:checked + label {
+    background-color: #1c2a41;
+    border-color: #00d4ff;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #3c494e;
+    border-radius: 10px;
+}
+
+/* No Scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}

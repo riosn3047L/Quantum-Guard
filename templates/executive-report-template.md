@@ -1,4 +1,4 @@
-# QRAMM Executive Reporting Template
+﻿# QuantumGuard Executive Reporting Template
 
 **Purpose**: This template provides a structured format for presenting quantum readiness assessment results and recommendations to executive leadership.
 
@@ -11,7 +11,7 @@
 **Organization**: _____________________
 **Assessment Date**: _____________________
 **Assessment Scope**: _____________________
-**Overall QRAMM Score**: _____ / 4.0
+**Overall QuantumGuard Score**: _____ / 4.0
 
 ### Key Findings
 
@@ -267,4 +267,4 @@ _(Attach supporting research and data)_
 
 ---
 
-*This report template is part of the QRAMM (Quantum Readiness Assurance Maturity Model) framework. For more information, visit https://qramm.org*
+*This report template is part of the QuantumGuard (Quantum Readiness Assurance Maturity Model) framework. For more information, visit https://QuantumGuard.org*

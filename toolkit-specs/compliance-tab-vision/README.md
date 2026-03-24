@@ -1,6 +1,6 @@
-# Compliance Tab Vision & Requirements
+﻿# Compliance Tab Vision & Requirements
 
-This folder contains the complete vision and specifications for the QRAMM Toolkit Compliance Tab.
+This folder contains the complete vision and specifications for the QuantumGuard Toolkit Compliance Tab.
 
 ## Files in this folder:
 1. **compliance-tab-mockup.html** - Visual mockup showing the desired UI/UX
@@ -10,7 +10,7 @@ This folder contains the complete vision and specifications for the QRAMM Toolki
 ## Quick Summary for Developer
 
 The Compliance tab needs to:
-1. Map QRAMM assessment scores to 8 compliance frameworks
+1. Map QuantumGuard assessment scores to 8 compliance frameworks
 2. Show compliance gaps and coverage percentages
 3. Allow users to adjust mapping weights
 4. Generate actionable insights for improvement
@@ -21,8 +21,8 @@ The core innovation is making compliance mapping dynamic and actionable rather t
 ## Key Implementation Points
 
 ### Data Structure
-- Use the mapping table from Document 4 (4_QRAMM_Compliance_Mapping_Details.md)
-- Each QRAMM question maps to multiple framework controls with weights (0.0-1.0)
+- Use the mapping table from Document 4 (4_QuantumGuard_Compliance_Mapping_Details.md)
+- Each QuantumGuard question maps to multiple framework controls with weights (0.0-1.0)
 - Store mappings in hidden Data tab for lookup
 
 ### User Interface

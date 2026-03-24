@@ -1,9 +1,9 @@
-# QRAMM Compliance Mapping Template
+﻿# QuantumGuard Compliance Mapping Template
 **Structure for Adding New Compliance Framework Mappings**
 
 ## Overview
 
-This template provides the structure for mapping QRAMM practices to additional compliance frameworks. Use this template when adding Phase 2 (FFIEC, HIPAA, ISO 27001) or Phase 3 (PCI-DSS, SOC 2, GDPR/NIS2) frameworks.
+This template provides the structure for mapping QuantumGuard practices to additional compliance frameworks. Use this template when adding Phase 2 (FFIEC, HIPAA, ISO 27001) or Phase 3 (PCI-DSS, SOC 2, GDPR/NIS2) frameworks.
 
 ## Template Structure
 
@@ -20,14 +20,14 @@ This template provides the structure for mapping QRAMM practices to additional c
 ### Practice Mapping Table
 
 ```markdown
-| QRAMM Question | [Framework Section] | Requirement ID | Requirement Description | Mapping Strength |
+| QuantumGuard Question | [Framework Section] | Requirement ID | Requirement Description | Mapping Strength |
 |----------------|-------------------|----------------|------------------------|------------------|
 | **Q#.#.#**: [Question text] | [Section name] | [ID] | [Brief description] | ●●● Direct |
 ```
 
 ### Mapping Strength Legend
 
-- **●●● Direct**: QRAMM practice directly satisfies the requirement
+- **●●● Direct**: QuantumGuard practice directly satisfies the requirement
 - **●●○ Strong**: Substantially addresses with minor gaps  
 - **●○○ Partial**: Partially addresses the requirement
 - **○○○ Supporting**: Provides supporting evidence only
@@ -42,7 +42,7 @@ This template provides the structure for mapping QRAMM practices to additional c
 
 #### Practice 1.1: Cryptographic Discovery & Inventory Management
 
-| QRAMM Question | HIPAA Section | Requirement ID | Requirement Description | Mapping Strength |
+| QuantumGuard Question | HIPAA Section | Requirement ID | Requirement Description | Mapping Strength |
 |----------------|---------------|----------------|------------------------|------------------|
 | **Q1.1.1**: How does your organization identify cryptographic assets? | Technical Safeguards | §164.312(a)(2)(iv) | Encryption and decryption | ●●○ Strong |
 | **Q1.1.2**: How does your organization document cryptographic assets? | Administrative Safeguards | §164.316(b)(1) | Documentation | ●●● Direct |
@@ -55,8 +55,8 @@ This template provides the structure for mapping QRAMM practices to additional c
 3. Note quantum-specific guidance (if any)
 4. Identify evidence requirements
 
-### Step 2: Map to QRAMM Practices
-1. Match framework requirements to QRAMM questions
+### Step 2: Map to QuantumGuard Practices
+1. Match framework requirements to QuantumGuard questions
 2. Determine mapping strength
 3. Note any gaps or additional requirements
 4. Document evidence needs
@@ -94,7 +94,7 @@ This template provides the structure for mapping QRAMM practices to additional c
 ```markdown
 ### Evidence Requirements for [Framework]
 
-| QRAMM Practice | Required Evidence | Framework Requirement | Collection Method |
+| QuantumGuard Practice | Required Evidence | Framework Requirement | Collection Method |
 |----------------|-------------------|----------------------|-------------------|
 | Practice #.# | [Evidence type] | [Requirement ID] | [How to collect] |
 ```
@@ -102,7 +102,7 @@ This template provides the structure for mapping QRAMM practices to additional c
 ## Compliance Report Template
 
 ```markdown
-# [Framework] Compliance Assessment via QRAMM
+# [Framework] Compliance Assessment via QuantumGuard
 
 ## Executive Summary
 - Overall compliance score: [%]
@@ -133,7 +133,7 @@ This template provides the structure for mapping QRAMM practices to additional c
 - Industry feedback incorporation
 - Tool integration updates
 
-## Integration with QRAMM Toolkit
+## Integration with QuantumGuard Toolkit
 
 When adding new framework mappings:
 
@@ -145,4 +145,4 @@ When adding new framework mappings:
 
 ---
 
-*For questions about adding new compliance mappings, contact: qramm@csnp.org*
+*For questions about adding new compliance mappings, contact: QuantumGuard@csnp.org*

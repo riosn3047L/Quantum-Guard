@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Organization Profile | QuantumGuard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&amp;family=JetBrains+Mono:wght@400;700&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="shared.css" rel="stylesheet"/>
+<script src="data.js"></script>
+<script src="engine.js"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed": "#25005a",
+              "on-error-container": "#ffdad6",
+              "on-secondary-fixed-variant": "#5a00c6",
+              "tertiary-fixed-dim": "#ffba3d",
+              "surface-tint": "#3cd7ff",
+              "error": "#ffb4ab",
+              "inverse-on-surface": "#233148",
+              "on-surface": "#d6e3ff",
+              "surface-bright": "#2c3951",
+              "secondary-container": "#6001d1",
+              "tertiary-fixed": "#ffdeae",
+              "surface-variant": "#27354c",
+              "on-surface-variant": "#bbc9cf",
+              "secondary-fixed": "#eaddff",
+              "surface-container-high": "#1c2a41",
+              "on-tertiary": "#432c00",
+              "on-primary-fixed": "#001f27",
+              "on-primary-container": "#00586b",
+              "surface-container-lowest": "#010e24",
+              "on-tertiary-container": "#6c4900",
+              "on-tertiary-fixed": "#281900",
+              "surface-dim": "#041329",
+              "secondary-fixed-dim": "#d2bbff",
+              "on-secondary": "#3f008e",
+              "surface": "#041329",
+              "inverse-surface": "#d6e3ff",
+              "background": "#041329",
+              "on-background": "#d6e3ff",
+              "tertiary": "#ffd9a1",
+              "on-secondary-container": "#c9aeff",
+              "primary-container": "#00d4ff",
+              "tertiary-container": "#feb528",
+              "on-error": "#690005",
+              "on-primary": "#003642",
+              "secondary": "#d2bbff",
+              "primary": "#a8e8ff",
+              "surface-container": "#112036",
+              "outline": "#859398",
+              "primary-fixed-dim": "#3cd7ff",
+              "primary-fixed": "#b4ebff",
+              "on-tertiary-fixed-variant": "#604100",
+              "surface-container-highest": "#27354c",
+              "outline-variant": "#3c494e",
+              "on-primary-fixed-variant": "#004e5f",
+              "inverse-primary": "#00677e",
+              "error-container": "#93000a",
+              "surface-container-low": "#0d1c32"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Space Grotesk"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(39, 53, 76, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .light-pipe {
+            background: linear-gradient(to bottom, #a8e8ff, transparent);
+        }
+        .shimmer {
+            background: linear-gradient(90deg, transparent, rgba(168, 232, 255, 0.05), transparent);
+            background-size: 200% 100%;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container/30">
+<!-- Top Navigation Shell -->
+<nav class="fixed top-0 w-full z-50 bg-[#041329]/60 backdrop-blur-xl border-b border-[#3C494E]/15 shadow-[0_8px_32px_0_rgba(0,212,255,0.08)] flex justify-between items-center px-8 h-20">
+<div class="flex items-center gap-8">
+<a href="index.html" class="text-2xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-[#A8E8FF] to-[#00D4FF] font-headline">QuantumGuard</a>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-[#00D4FF] border-b-2 border-[#00D4FF] pb-1 font-bold font-['Inter'] tracking-tight" href="quick-assessment.html">Assessment</a>
+<a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors duration-300 font-['Inter'] tracking-tight" href="results.html">Results</a>
+<a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors duration-300 font-['Inter'] tracking-tight" href="compliance.html">Compliance</a>
+<a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors duration-300 font-['Inter'] tracking-tight" href="tools.html">Tools</a>
+<a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors duration-300 font-['Inter'] tracking-tight" href="docs.html">Docs</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-[#27354C]/50 rounded-full transition-all duration-200">
+<span class="material-symbols-outlined text-[#D6E3FF]">notifications</span>
+</button>
+<button class="p-2 hover:bg-[#27354C]/50 rounded-full transition-all duration-200">
+<span class="material-symbols-outlined text-[#D6E3FF]">account_circle</span>
+</button>
+</div>
+</nav>
+<main class="pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto">
+<!-- Hero Section -->
+<header class="mb-12">
+<h1 class="font-headline font-black text-5xl md:text-6xl tracking-tighter text-on-surface mb-4">
+                Define Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-container">Security DNA</span>
+</h1>
+<p class="text-on-surface-variant text-lg max-w-2xl font-label leading-relaxed">
+                Before we begin the Post-Quantum Cryptography (PQC) assessment, help us calibrate the Kinetic Shield to your organization's unique threat profile.
+            </p>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Form Section -->
+<div class="lg:col-span-8 space-y-8">
+<section class="glass-card p-10 rounded-xl border border-outline-variant/15 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 blur-3xl -z-10"></div>
+<form id="profileForm" class="space-y-10">
+<!-- Basic Context -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-2">
+<label class="block font-label text-xs uppercase tracking-widest text-primary font-bold">Organization Name</label>
+<input id="orgName" class="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-lg p-4 text-on-surface focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all outline-none" placeholder="e.g. Nebula Corp Systems" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="block font-label text-xs uppercase tracking-widest text-primary font-bold">Industry Vertical</label>
+<select id="industry" class="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-lg p-4 text-on-surface focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all outline-none appearance-none">
+</select>
+</div>
+</div>
+<!-- Organization Size -->
+<div class="space-y-4">
+<label class="block font-label text-xs uppercase tracking-widest text-primary font-bold">Organizational Scale</label>
+<div id="orgSizeContainer" class="grid grid-cols-2 md:grid-cols-4 gap-4">
+</div>
+</div>
+<!-- Geographic Scope -->
+<div class="space-y-4">
+<label class="block font-label text-xs uppercase tracking-widest text-primary font-bold">Geographic Scope</label>
+<div id="geoScopeContainer" class="grid grid-cols-2 md:grid-cols-4 gap-4">
+</div>
+</div>
+<!-- Data Sensitivity and Regulatory -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10 pt-4">
+<div class="space-y-4">
+<label class="block font-label text-xs uppercase tracking-widest text-primary font-bold">Data Sensitivity Level</label>
+<div id="sensitivityContainer" class="flex flex-col gap-2">
+</div>
+</div>
+<div class="space-y-4">
+<label class="block font-label text-xs uppercase tracking-widest text-primary font-bold">Regulatory Requirements</label>
+<div id="regulatoryContainer" class="flex flex-col gap-2">
+</div>
+</div>
+</div>
+<div class="pt-6 border-t border-outline-variant/10 flex justify-between items-center">
+<span id="statusMsg" class="text-sm text-on-surface-variant/60 font-label"></span>
+<button id="proceedBtn" class="group relative px-8 py-4 bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold rounded-lg overflow-hidden transition-all hover:scale-[1.02] active:scale-95 shadow-[0_0_20px_rgba(0,212,255,0.3)]" type="button">
+<span class="relative z-10 flex items-center gap-2">
+                                    Proceed to Assessment
+                                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</span>
+<div class="absolute inset-0 shimmer opacity-30 group-hover:animate-[shimmer_2s_infinite]"></div>
+</button>
+</div>
+</form>
+</section>
+</div>
+<!-- Dashboard / Calculator Sidebar -->
+<aside class="lg:col-span-4 space-y-6">
+<!-- Multiplier Real-time Display -->
+<div class="glass-card p-8 rounded-xl border border-outline-variant/15 flex flex-col items-center text-center relative">
+<div class="absolute inset-0 overflow-hidden pointer-events-none rounded-xl">
+<div class="absolute -top-10 -left-10 w-40 h-40 bg-secondary-container/10 blur-[60px]"></div>
+</div>
+<h3 class="font-label text-xs tracking-widest text-on-surface-variant uppercase mb-8">Assessment Profile Multiplier</h3>
+<div class="relative mb-6">
+<div class="absolute inset-0 bg-secondary-container/20 rounded-full blur-3xl animate-pulse"></div>
+<div class="w-48 h-48 rounded-full border-4 border-surface-container-highest flex items-center justify-center relative">
+<!-- Circular SVG Meter background -->
+<svg class="absolute inset-0 w-full h-full -rotate-90">
+<circle class="text-surface-container-lowest" cx="96" cy="96" fill="none" r="88" stroke="currentColor" stroke-width="4"></circle>
+<circle id="meterCircle" class="text-primary-container drop-shadow-[0_0_8px_rgba(0,212,255,0.6)]" cx="96" cy="96" fill="none" r="88" stroke="currentColor" stroke-dasharray="552.9" stroke-dashoffset="552.9" stroke-width="8" style="transition: stroke-dashoffset 0.8s ease;"></circle>
+</svg>
+<div class="flex flex-col items-center">
+<span id="multiplierValue" class="text-5xl font-black font-headline text-on-surface leading-none">1.00<span class="text-xl text-primary">x</span></span>
+<span id="multiplierLabel" class="text-[10px] font-mono tracking-widest text-on-surface-variant mt-2">CONFIGURE PROFILE</span>
+</div>
+</div>
+</div>
+<p id="multiplierDesc" class="text-sm text-on-surface-variant mb-6 px-4">
+                        Select your organization details to calculate your personalized risk multiplier.
+                    </p>
+<div class="w-full space-y-3">
+<div class="flex justify-between text-[10px] font-mono uppercase tracking-tighter">
+<span class="text-on-surface-variant/60">Industry Risk</span>
+<span id="indRisk" class="text-secondary">+0%</span>
+</div>
+<div class="w-full h-1 bg-surface-container-lowest rounded-full overflow-hidden">
+<div id="indRiskBar" class="h-full bg-secondary-fixed-dim transition-all duration-500" style="width: 0%"></div>
+</div>
+<div class="flex justify-between text-[10px] font-mono uppercase tracking-tighter">
+<span class="text-on-surface-variant/60">Data Sensitivity</span>
+<span id="dataRisk" class="text-primary">+0%</span>
+</div>
+<div class="w-full h-1 bg-surface-container-lowest rounded-full overflow-hidden">
+<div id="dataRiskBar" class="h-full bg-primary transition-all duration-500" style="width: 0%"></div>
+</div>
+<div class="flex justify-between text-[10px] font-mono uppercase tracking-tighter">
+<span class="text-on-surface-variant/60">Regulatory Burden</span>
+<span id="regRisk" class="text-tertiary">+0%</span>
+</div>
+<div class="w-full h-1 bg-surface-container-lowest rounded-full overflow-hidden">
+<div id="regRiskBar" class="h-full bg-tertiary transition-all duration-500" style="width: 0%"></div>
+</div>
+<div class="flex justify-between text-[10px] font-mono uppercase tracking-tighter">
+<span class="text-on-surface-variant/60">Geographic Exposure</span>
+<span id="geoRisk" class="text-[#81C784]">+0%</span>
+</div>
+<div class="w-full h-1 bg-surface-container-lowest rounded-full overflow-hidden">
+<div id="geoRiskBar" class="h-full bg-[#81C784] transition-all duration-500" style="width: 0%"></div>
+</div>
+</div>
+</div>
+<!-- Info Card -->
+<div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant/15 flex gap-4">
+<div class="flex-shrink-0">
+<span class="material-symbols-outlined text-primary text-3xl">info</span>
+</div>
+<div class="space-y-2">
+<h4 class="font-bold text-sm">Why this matters?</h4>
+<p class="text-xs text-on-surface-variant leading-relaxed">
+                            Quantum vulnerability is not uniform. Highly regulated financial entities require different cryptographic agility than agile tech startups. This profile ensures your report is audit-ready for your specific sector.
+                        </p>
+</div>
+</div>
+<!-- Abstract Visual -->
+<div class="h-48 rounded-xl overflow-hidden relative border border-outline-variant/10">
+<img alt="Abstract digital rendering of complex security nodes" class="w-full h-full object-cover grayscale opacity-30 hover:grayscale-0 hover:opacity-100 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDx51qzZS990sEiw6Ng-pYY7YWKHieSawxWlfpkYXs_U3LzUveLk9ueXJIrUNlFAwweTxrfuTrXoImOPcQBLw7xQR52zoQREByIub-DxttzgHkdPXv43XI5XniX2mdDOWI9ipxoIh-ZPiksSdYjRL2VqJ7aNW3KU4vwFZ7VzCRtpPVALSGJhnz0mVUoMg2vKySi9LWxGl07QSMJNSMwZ4rUAQoihJKutSHOEIbYfpWs1811dAN3FK7jAxp35wm1O_ajRNI9Mha8bI3n"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<span class="text-[10px] font-mono text-primary/60 px-2 py-1 border border-primary/20 rounded-full bg-primary/5">KINETIC_SHIELD_V2.0</span>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer Shell -->
+<footer class="w-full py-12 bg-[#0D1C32] border-t border-[#3C494E]/15 px-12 flex flex-col md:flex-row justify-between items-center">
+<span class="font-['JetBrains_Mono'] text-xs tracking-widest uppercase text-[#D6E3FF]/50 mb-4 md:mb-0">© 2026 PSB Hackathon — QuantumGuard by IravoVoid</span>
+<div class="flex gap-8">
+<a class="font-['JetBrains_Mono'] text-xs tracking-widest uppercase text-[#D6E3FF]/40 hover:text-[#A8E8FF] transition-colors" href="#">Privacy Policy</a>
+<a class="font-['JetBrains_Mono'] text-xs tracking-widest uppercase text-[#D6E3FF]/40 hover:text-[#A8E8FF] transition-colors" href="#">Terms of Service</a>
+<a class="font-['JetBrains_Mono'] text-xs tracking-widest uppercase text-[#D6E3FF]/40 hover:text-[#A8E8FF] transition-colors" href="#">Security Disclosure</a>
+</div>
+</footer>
+
+<script>
+// ═══════════════════════════════════════════════════
+// Populate form from QG.ORG_PROFILE data
+// ═══════════════════════════════════════════════════
+(function() {
+  const P = QG.ORG_PROFILE;
+  const RM = QG.RISK_MULTIPLIERS;
+
+  // Industry dropdown
+  const indSel = document.getElementById('industry');
+  P.industries.forEach(ind => {
+    const opt = document.createElement('option');
+    opt.value = ind;
+    opt.textContent = ind;
+    indSel.appendChild(opt);
+  });
+
+  // Org Size radio cards
+  const sizeLabels = {
+    'Fortune 500/Global Enterprise': { short: 'GLOBAL 500', range: '10k+' },
+    'Large Enterprise (1000+ employees)': { short: 'ENTERPRISE', range: '1k-10k' },
+    'Mid-Market (100-999 employees)': { short: 'MID-MARKET', range: '100-999' },
+    'Small Business (<100 employees)': { short: 'STARTUP', range: '1-99' }
+  };
+  const sizeContainer = document.getElementById('orgSizeContainer');
+  P.orgSizes.forEach((size, i) => {
+    const lbl = sizeLabels[size] || { short: size, range: '' };
+    const html = `
+      <label class="cursor-pointer group">
+        <input class="hidden peer" name="org-size" type="radio" value="${size}" ${i === 0 ? '' : ''}>
+        <div class="p-4 rounded-lg bg-surface-container-low border border-outline-variant/15 peer-checked:border-primary peer-checked:bg-primary/10 transition-all text-center group-hover:bg-surface-container-high">
+          <span class="block text-xs font-label text-on-surface-variant peer-checked:text-primary">${lbl.short}</span>
+          <span class="block font-bold text-sm">${lbl.range}</span>
+        </div>
+      </label>`;
+    sizeContainer.insertAdjacentHTML('beforeend', html);
+  });
+
+  // Geographic Scope radio cards
+  const geoLabels = {
+    'Global (10+ countries)': { short: 'GLOBAL', icon: 'public' },
+    'Multi-region (3-9 countries)': { short: 'MULTI-REGION', icon: 'language' },
+    'Regional (2 countries)': { short: 'REGIONAL', icon: 'map' },
+    'Single Country': { short: 'SINGLE', icon: 'location_on' }
+  };
+  const geoContainer = document.getElementById('geoScopeContainer');
+  P.geoScope.forEach(geo => {
+    const lbl = geoLabels[geo] || { short: geo, icon: 'public' };
+    const html = `
+      <label class="cursor-pointer group">
+        <input class="hidden peer" name="geo-scope" type="radio" value="${geo}">
+        <div class="p-4 rounded-lg bg-surface-container-low border border-outline-variant/15 peer-checked:border-primary peer-checked:bg-primary/10 transition-all text-center group-hover:bg-surface-container-high">
+          <span class="material-symbols-outlined text-on-surface-variant text-lg block mb-1">${lbl.icon}</span>
+          <span class="block text-xs font-label text-on-surface-variant peer-checked:text-primary">${lbl.short}</span>
+        </div>
+      </label>`;
+    geoContainer.insertAdjacentHTML('beforeend', html);
+  });
+
+  // Data Sensitivity radios
+  const sensContainer = document.getElementById('sensitivityContainer');
+  P.dataSensitivity.forEach(sens => {
+    const mult = RM.dataSensitivity.values[sens] || 1.0;
+    const pct = Math.round((mult - 1) * 100);
+    const html = `
+      <label class="flex items-center justify-between p-3 rounded-lg hover:bg-surface-container-high transition-colors group cursor-pointer">
+        <div class="flex items-center gap-3">
+          <input class="w-4 h-4 text-primary bg-surface border-outline-variant focus:ring-primary/40" name="sensitivity" type="radio" value="${sens}">
+          <span class="text-sm">${sens}</span>
+        </div>
+        <span class="text-[10px] font-mono ${pct > 0 ? 'text-primary' : 'opacity-40'}">${mult.toFixed(1)}x</span>
+      </label>`;
+    sensContainer.insertAdjacentHTML('beforeend', html);
+  });
+
+  // Regulatory radios
+  const regContainer = document.getElementById('regulatoryContainer');
+  P.regulatoryReqs.forEach(reg => {
+    const mult = RM.regulatoryReqs.values[reg] || 1.0;
+    const pct = Math.round((mult - 1) * 100);
+    const html = `
+      <label class="flex items-center justify-between p-3 rounded-lg hover:bg-surface-container-high transition-colors group cursor-pointer">
+        <div class="flex items-center gap-3">
+          <input class="w-4 h-4 text-primary bg-surface border-outline-variant focus:ring-primary/40" name="regulatory" type="radio" value="${reg}">
+          <span class="text-sm">${reg}</span>
+        </div>
+        <span class="text-[10px] font-mono ${pct > 0 ? 'text-primary' : 'opacity-40'}">${mult.toFixed(1)}x</span>
+      </label>`;
+    regContainer.insertAdjacentHTML('beforeend', html);
+  });
+
+  // ═══════════════════════════════════════════════════
+  // Live risk multiplier calculation
+  // ═══════════════════════════════════════════════════
+  function getProfile() {
+    return {
+      orgName: document.getElementById('orgName').value,
+      industry: indSel.value,
+      orgSize: document.querySelector('input[name="org-size"]:checked')?.value || '',
+      geoScope: document.querySelector('input[name="geo-scope"]:checked')?.value || '',
+      dataSensitivity: document.querySelector('input[name="sensitivity"]:checked')?.value || '',
+      regulatoryReqs: document.querySelector('input[name="regulatory"]:checked')?.value || ''
+    };
+  }
+
+  function updateMultiplier() {
+    const profile = getProfile();
+    const mult = Engine.calculateRiskMultiplier(profile);
+
+    // Update main display
+    const el = document.getElementById('multiplierValue');
+    el.innerHTML = mult.toFixed(2) + '<span class="text-xl text-primary">x</span>';
+
+    // Update meter circle (max multiplier is 1.5, map to 0-100%)
+    const pct = Math.min(((mult - 1.0) / 0.5) * 100, 100);
+    const circle = document.getElementById('meterCircle');
+    const circumference = 552.9;
+    circle.setAttribute('stroke-dashoffset', circumference - (circumference * pct / 100));
+
+    // Update label
+    const label = document.getElementById('multiplierLabel');
+    label.textContent = mult > 1.0 ? 'CALIBRATED' : 'CONFIGURE PROFILE';
+
+    // Update description
+    const desc = document.getElementById('multiplierDesc');
+    if (mult >= 1.4) {
+      desc.innerHTML = 'Your organization has a <span class="text-[#FF5252] font-bold">HIGH</span> risk profile. Assessment scrutiny enhanced to maximum.';
+    } else if (mult >= 1.2) {
+      desc.innerHTML = 'Based on your industry and data sensitivity, your assessment logic is enhanced to <span class="text-primary font-bold">ELEVATED</span> scrutiny.';
+    } else if (mult > 1.0) {
+      desc.innerHTML = 'Your risk profile indicates <span class="text-primary font-bold">MODERATE</span> exposure to quantum threats.';
+    } else {
+      desc.textContent = 'Select your organization details to calculate your personalized risk multiplier.';
+    }
+
+    // Update individual risk bars
+    const indMult = RM.industry.values[profile.industry] || 1.0;
+    const dataMult = RM.dataSensitivity.values[profile.dataSensitivity] || 1.0;
+    const regMult = RM.regulatoryReqs.values[profile.regulatoryReqs] || 1.0;
+    const geoMult = RM.geoScope.values[profile.geoScope] || 1.0;
+
+    document.getElementById('indRisk').textContent = '+' + Math.round((indMult - 1) * 100) + '%';
+    document.getElementById('indRiskBar').style.width = Math.round((indMult - 1) * 200) + '%';
+    document.getElementById('dataRisk').textContent = '+' + Math.round((dataMult - 1) * 100) + '%';
+    document.getElementById('dataRiskBar').style.width = Math.round((dataMult - 1) * 200) + '%';
+    document.getElementById('regRisk').textContent = '+' + Math.round((regMult - 1) * 100) + '%';
+    document.getElementById('regRiskBar').style.width = Math.round((regMult - 1) * 200) + '%';
+    document.getElementById('geoRisk').textContent = '+' + Math.round((geoMult - 1) * 100) + '%';
+    document.getElementById('geoRiskBar').style.width = Math.round((geoMult - 1) * 200) + '%';
+  }
+
+  // Listen for changes
+  document.getElementById('profileForm').addEventListener('change', updateMultiplier);
+
+  // ═══════════════════════════════════════════════════
+  // Proceed button — save and navigate
+  // ═══════════════════════════════════════════════════
+  document.getElementById('proceedBtn').addEventListener('click', function() {
+    const profile = getProfile();
+    if (!profile.orgName.trim()) {
+      document.getElementById('statusMsg').textContent = '⚠ Please enter your organization name';
+      document.getElementById('statusMsg').classList.add('text-error');
+      return;
+    }
+    Engine.saveOrgProfile(profile);
+    document.getElementById('statusMsg').textContent = '✓ Profile saved';
+    document.getElementById('statusMsg').classList.remove('text-error');
+    document.getElementById('statusMsg').classList.add('text-primary');
+    setTimeout(function() {
+      window.location.href = 'quick-assessment.html';
+    }, 500);
+  });
+
+  // ═══════════════════════════════════════════════════
+  // Restore saved profile on load
+  // ═══════════════════════════════════════════════════
+  const saved = Engine.getOrgProfile();
+  if (saved && saved.orgName) {
+    document.getElementById('orgName').value = saved.orgName || '';
+    if (saved.industry) indSel.value = saved.industry;
+    if (saved.orgSize) {
+      const r = document.querySelector(`input[name="org-size"][value="${saved.orgSize}"]`);
+      if (r) r.checked = true;
+    }
+    if (saved.geoScope) {
+      const r = document.querySelector(`input[name="geo-scope"][value="${saved.geoScope}"]`);
+      if (r) r.checked = true;
+    }
+    if (saved.dataSensitivity) {
+      const r = document.querySelector(`input[name="sensitivity"][value="${saved.dataSensitivity}"]`);
+      if (r) r.checked = true;
+    }
+    if (saved.regulatoryReqs) {
+      const r = document.querySelector(`input[name="regulatory"][value="${saved.regulatoryReqs}"]`);
+      if (r) r.checked = true;
+    }
+    updateMultiplier();
+  }
+})();
+</script>
+</body></html>

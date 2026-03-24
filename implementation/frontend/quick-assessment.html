@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QuantumGuard | Quick Assessment</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&amp;family=JetBrains+Mono:wght@400;700&amp;family=Space+Grotesk:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="shared.css" rel="stylesheet"/>
+<script src="data.js"></script>
+<script src="engine.js"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary-fixed": "#25005a", "on-error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#5a00c6", "tertiary-fixed-dim": "#ffba3d",
+                        "surface-tint": "#3cd7ff", "error": "#ffb4ab",
+                        "inverse-on-surface": "#233148", "on-surface": "#d6e3ff",
+                        "surface-bright": "#2c3951", "secondary-container": "#6001d1",
+                        "tertiary-fixed": "#ffdeae", "surface-variant": "#27354c",
+                        "on-surface-variant": "#bbc9cf", "secondary-fixed": "#eaddff",
+                        "surface-container-high": "#1c2a41", "on-tertiary": "#432c00",
+                        "on-primary-fixed": "#001f27", "on-primary-container": "#00586b",
+                        "surface-container-lowest": "#010e24", "on-tertiary-container": "#6c4900",
+                        "on-tertiary-fixed": "#281900", "surface-dim": "#041329",
+                        "secondary-fixed-dim": "#d2bbff", "on-secondary": "#3f008e",
+                        "surface": "#041329", "inverse-surface": "#d6e3ff",
+                        "background": "#041329", "on-background": "#d6e3ff",
+                        "tertiary": "#ffd9a1", "on-secondary-container": "#c9aeff",
+                        "primary-container": "#00d4ff", "tertiary-container": "#feb528",
+                        "on-error": "#690005", "on-primary": "#003642",
+                        "secondary": "#d2bbff", "primary": "#a8e8ff",
+                        "surface-container": "#112036", "outline": "#859398",
+                        "primary-fixed-dim": "#3cd7ff", "primary-fixed": "#b4ebff",
+                        "on-tertiary-fixed-variant": "#604100", "surface-container-highest": "#27354c",
+                        "outline-variant": "#3c494e", "on-primary-fixed-variant": "#004e5f",
+                        "inverse-primary": "#00677e", "error-container": "#93000a",
+                        "surface-container-low": "#0d1c32"
+                    },
+                    fontFamily: { "headline": ["Inter"], "body": ["Inter"], "label": ["Space Grotesk"] },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-card { background: rgba(39, 53, 76, 0.6); backdrop-filter: blur(20px); }
+        .custom-radio:checked + label { background-color: #1c2a41; border-color: #00d4ff; box-shadow: 0 0 15px rgba(0, 212, 255, 0.2); }
+        .q-fade-in { animation: fadeSlideUp 0.4s ease-out; }
+        @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#041329]/60 backdrop-blur-xl border-b border-[#3C494E]/15 shadow-[0_8px_32px_0_rgba(0,212,255,0.08)] flex justify-between items-center px-8 h-20 max-w-none">
+<div class="flex items-center gap-8">
+<a href="index.html" class="text-2xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-[#A8E8FF] to-[#00D4FF] font-headline">QuantumGuard</a>
+<div class="hidden md:flex gap-6 font-['Inter'] tracking-tight text-[#D6E3FF]">
+<a class="text-[#00D4FF] border-b-2 border-[#00D4FF] pb-1 font-bold font-['Inter'] tracking-tight" href="quick-assessment.html">Assessment</a>
+<a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors duration-300 font-['Inter'] tracking-tight" href="results.html">Results</a>
+<a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors duration-300 font-['Inter'] tracking-tight" href="compliance.html">Compliance</a>
+<a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors duration-300 font-['Inter'] tracking-tight" href="tools.html">Tools</a>
+<a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors duration-300 font-['Inter'] tracking-tight" href="docs.html">Docs</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-[#27354C]/50 transition-all duration-200 rounded-full">
+<span class="material-symbols-outlined text-[#D6E3FF]">notifications</span>
+</button>
+<button class="p-2 hover:bg-[#27354C]/50 transition-all duration-200 rounded-full border border-outline-variant/15">
+<span class="material-symbols-outlined text-[#00D4FF]">account_circle</span>
+</button>
+</div>
+</nav>
+<main class="pt-32 pb-20 px-4 md:px-8 max-w-5xl mx-auto min-h-screen">
+<!-- Progress Stepper -->
+<div class="mb-12">
+<div class="flex justify-between items-center mb-6 px-2">
+<div class="flex flex-col">
+<span class="font-label text-xs uppercase tracking-[0.2em] text-on-surface-variant">Current Dimension</span>
+<h2 id="dimTitle" class="text-2xl font-black text-primary tracking-tight">Cryptographic Visibility & Inventory (CVI)</h2>
+</div>
+<div class="text-right">
+<span class="font-label text-xs uppercase tracking-[0.2em] text-on-surface-variant">Overall Progress</span>
+<div class="flex items-center gap-2">
+<span id="qCurrent" class="font-['JetBrains_Mono'] text-xl font-bold text-[#00D4FF]">01</span>
+<span class="text-on-surface-variant">/</span>
+<span class="font-['JetBrains_Mono'] text-xl text-on-surface-variant">12</span>
+</div>
+</div>
+</div>
+<div id="progressBars" class="grid grid-cols-4 gap-4">
+<!-- Filled by JS -->
+</div>
+</div>
+<!-- Question Card -->
+<div id="questionCard" class="glass-card rounded-xl p-8 md:p-12 shadow-2xl relative overflow-hidden group q-fade-in">
+<!-- Decorative Accent -->
+<div id="accentBar" class="absolute top-0 left-0 w-1.5 h-full bg-primary-container"></div>
+<div class="flex flex-col gap-8">
+<div class="space-y-4">
+<div class="inline-flex items-center px-3 py-1 rounded-full bg-primary-container/10 border border-primary-container/20">
+<span id="practiceLabel" class="font-label text-xs font-bold text-primary tracking-wider uppercase">Practice 1.1</span>
+</div>
+<h1 id="questionText" class="text-3xl md:text-4xl font-black text-on-surface tracking-tight leading-tight">
+                        Loading...
+                    </h1>
+</div>
+<div id="optionsContainer" class="grid grid-cols-1 gap-4">
+<!-- Options filled by JS -->
+</div>
+<!-- Navigation -->
+<div class="flex items-center justify-between pt-8 mt-4 border-t border-outline-variant/10">
+<button id="prevBtn" class="flex items-center gap-2 px-6 py-3 rounded-full border border-outline-variant/20 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined">arrow_back</span>
+<span class="font-label text-sm uppercase tracking-widest">Previous</span>
+</button>
+<button id="nextBtn" class="flex items-center gap-2 px-8 py-3 rounded-full bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold shadow-lg shadow-primary-container/20 hover:scale-105 active:scale-95 transition-all">
+<span id="nextLabel" class="font-label text-sm uppercase tracking-widest">Next Question</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Visual Context Card -->
+<div class="mt-8 grid md:grid-cols-3 gap-6">
+<div class="md:col-span-2 glass-card rounded-xl p-6 flex items-center gap-6">
+<div id="contextIcon" class="w-16 h-16 rounded-full bg-primary-container/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary-container text-3xl">psychology</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface">Why this matters?</h4>
+<p id="contextText" class="text-sm text-on-surface-variant mt-1">This question evaluates your organization's foundational capabilities for identifying and managing cryptographic assets.</p>
+</div>
+</div>
+<div class="relative overflow-hidden rounded-xl h-full min-h-[120px]">
+<img alt="Security assessment graphic" class="absolute inset-0 w-full h-full object-cover opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTuTUbpjYNfmOwz2qNUoPj1fX-g1NaGYBaxuaPa3eBYI66QQQJt1NOj8mjh7dz3I4WOTwSiRBJosyyz8RhRzHcMO609Ih_Hd5bKLtlBFB1z95uOYlE233gfztC0oa_HLhgsNsrqU4Adr6yK35xLW8xq6IjjLdxq2TjquLX2D6_fR5o98JW8jAdw-24vmX16LaftY1c5TR5sPVN0TebfrWMDXfHDh7us-5W5uDce940PJYJIJ-P9QVrWIHOD8fcVNHKK_9dMNNk7YGP"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<span class="text-[10px] font-label uppercase tracking-widest text-primary font-bold">QuantumShield Analytics</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-[#0D1C32] border-t border-[#3C494E]/15 w-full py-12 flex flex-col md:flex-row justify-between items-center px-12 gap-6">
+<span class="font-['JetBrains_Mono'] text-xs tracking-widest uppercase text-[#D6E3FF]/50">© 2026 PSB Hackathon — QuantumGuard by IravoVoid</span>
+<div class="flex gap-8">
+<a class="font-['JetBrains_Mono'] text-xs tracking-widest uppercase text-[#D6E3FF]/40 hover:text-[#A8E8FF] transition-colors" href="#">Privacy Policy</a>
+<a class="font-['JetBrains_Mono'] text-xs tracking-widest uppercase text-[#D6E3FF]/40 hover:text-[#A8E8FF] transition-colors" href="#">Terms of Service</a>
+<a class="font-['JetBrains_Mono'] text-xs tracking-widest uppercase text-[#D6E3FF]/40 hover:text-[#A8E8FF] transition-colors" href="#">Security Disclosure</a>
+</div>
+</footer>
+
+<script>
+(function() {
+  const questions = QG.QUICK_QUESTIONS;
+  const answers = Engine.getAnswers('quick') || {};
+  let currentIdx = 0;
+
+  const dimColors = { CVI: '#00D4FF', SGRM: '#D2BBFF', DPE: '#FFD9A1', ITR: '#FF8A65' };
+  const dimNames = {
+    CVI: 'Cryptographic Visibility & Inventory (CVI)',
+    SGRM: 'Strategic Governance & Risk Management (SGRM)',
+    DPE: 'Data Protection Engineering (DPE)',
+    ITR: 'Implementation & Technical Readiness (ITR)'
+  };
+  const contextTexts = {
+    CVI: 'This question evaluates your organization\'s ability to identify, classify, and track cryptographic assets and vulnerabilities.',
+    SGRM: 'This question assesses executive leadership, policy frameworks, and risk management integration for quantum threats.',
+    DPE: 'This question examines your data protection practices including encryption, key management, and secure protocols.',
+    ITR: 'This question measures your infrastructure readiness, implementation capabilities, and testing rigor for post-quantum migration.'
+  };
+
+  // Build progress bars
+  function buildProgressBars() {
+    const container = document.getElementById('progressBars');
+    container.innerHTML = '';
+    const dims = ['CVI', 'SGRM', 'DPE', 'ITR'];
+    dims.forEach(dim => {
+      const dimQs = questions.filter(q => q.dimension === dim);
+      const answered = dimQs.filter(q => answers[q.id] > 0).length;
+      const pct = (answered / dimQs.length) * 100;
+      const isActive = questions[currentIdx].dimension === dim;
+      const color = dimColors[dim];
+      container.innerHTML += `
+        <div class="space-y-2">
+          <div class="h-1.5 w-full rounded-full overflow-hidden" style="background: ${color}20">
+            <div class="h-full transition-all duration-500" style="width: ${pct}%; background: ${color}; ${pct > 0 ? 'box-shadow: 0 0 8px ' + color + '99' : ''}"></div>
+          </div>
+          <span class="block font-label text-[10px] uppercase tracking-widest" style="color: ${isActive ? color : color + '66'}">${dim}</span>
+        </div>`;
+    });
+  }
+
+  function renderQuestion() {
+    const q = questions[currentIdx];
+    const dim = q.dimension;
+    const practice = QG.PRACTICES.find(p => p.id === q.practice);
+
+    // Update dimension title
+    document.getElementById('dimTitle').textContent = dimNames[dim];
+    document.getElementById('dimTitle').style.color = dimColors[dim];
+
+    // Update counter
+    document.getElementById('qCurrent').textContent = String(currentIdx + 1).padStart(2, '0');
+
+    // Update accent bar color
+    document.getElementById('accentBar').style.background = dimColors[dim];
+
+    // Update practice label
+    document.getElementById('practiceLabel').textContent = practice ? practice.name : 'Practice ' + q.practice;
+
+    // Update question text with animation
+    const card = document.getElementById('questionCard');
+    card.classList.remove('q-fade-in');
+    void card.offsetWidth; // force reflow
+    card.classList.add('q-fade-in');
+    document.getElementById('questionText').textContent = q.question;
+
+    // Update options
+    const optContainer = document.getElementById('optionsContainer');
+    optContainer.innerHTML = '';
+    q.options.forEach((opt, i) => {
+      const isSelected = answers[q.id] === opt.score;
+      optContainer.innerHTML += `
+        <div class="relative">
+          <input ${isSelected ? 'checked' : ''} class="hidden custom-radio peer" id="opt${i}" name="q${q.id}" type="radio" value="${opt.score}">
+          <label class="flex items-center p-6 rounded-lg border border-outline-variant/15 hover:border-primary-container/40 transition-all cursor-pointer bg-surface-container-low group/label" for="opt${i}">
+            <span class="font-['JetBrains_Mono'] font-bold mr-6 text-xl" style="color: ${isSelected ? dimColors[dim] : '#bbc9cf'}">${String(i + 1).padStart(2, '0')}</span>
+            <div class="flex flex-col">
+              <span class="text-xs font-label uppercase tracking-wider mb-1" style="color: ${dimColors[dim]}80">${opt.label}</span>
+              <span class="text-lg text-on-surface/90">${opt.text}</span>
+            </div>
+            <div class="ml-auto opacity-0 group-hover/label:opacity-100 transition-opacity">
+              <span class="material-symbols-outlined" style="color: ${dimColors[dim]}">radio_button_unchecked</span>
+            </div>
+          </label>
+        </div>`;
+    });
+
+    // Attach listeners to new radios
+    optContainer.querySelectorAll('input[type="radio"]').forEach(radio => {
+      radio.addEventListener('change', function() {
+        answers[q.id] = parseInt(this.value);
+        Engine.saveAnswers(answers, 'quick');
+        buildProgressBars();
+        // Auto-advance after 600ms
+        setTimeout(() => { if (currentIdx < questions.length - 1) goNext(); }, 600);
+      });
+    });
+
+    // Update context text
+    document.getElementById('contextText').textContent = contextTexts[dim];
+
+    // Update navigation
+    document.getElementById('prevBtn').style.visibility = currentIdx === 0 ? 'hidden' : 'visible';
+    const isLast = currentIdx === questions.length - 1;
+    document.getElementById('nextLabel').textContent = isLast ? 'View Results' : 'Next Question';
+
+    buildProgressBars();
+  }
+
+  function goNext() {
+    if (currentIdx < questions.length - 1) {
+      currentIdx++;
+      renderQuestion();
+    } else {
+      // All done — go to results
+      window.location.href = 'results.html?source=quick';
+    }
+  }
+
+  function goPrev() {
+    if (currentIdx > 0) {
+      currentIdx--;
+      renderQuestion();
+    }
+  }
+
+  document.getElementById('nextBtn').addEventListener('click', goNext);
+  document.getElementById('prevBtn').addEventListener('click', goPrev);
+
+  // Keyboard navigation
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === 'Enter') goNext();
+    if (e.key === 'ArrowLeft') goPrev();
+    if (e.key >= '1' && e.key <= '4') {
+      const radio = document.getElementById('opt' + (parseInt(e.key) - 1));
+      if (radio) { radio.checked = true; radio.dispatchEvent(new Event('change')); }
+    }
+  });
+
+  // Initial render
+  renderQuestion();
+})();
+</script>
+</body></html>

@@ -1,4 +1,4 @@
-# QRAMM Evidence Collection Template
+﻿# QuantumGuard Evidence Collection Template
 
 **Purpose**: This template helps organizations systematically collect and document evidence to support their quantum readiness assessment responses and demonstrate maturity progression.
 

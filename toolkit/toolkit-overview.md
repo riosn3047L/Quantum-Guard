@@ -1,11 +1,11 @@
-# Our Mission
-Our mission is to provide organizations with an effective and measurable way to evaluate and enhance their quantum resilience and cryptographic readiness for the post-quantum era. Developed under the CyberSecurity NonProfit (CSNP), QRAMM aims to enable organizations to confidently assess, plan, and implement quantum-safe security measures through a comprehensive self-assessment model that drives continuous improvement.
+﻿# Our Mission
+Our mission is to provide organizations with an effective and measurable way to evaluate and enhance their quantum resilience and cryptographic readiness for the post-quantum era. Developed under the CyberSecurity NonProfit (CSNP), QuantumGuard aims to enable organizations to confidently assess, plan, and implement quantum-safe security measures through a comprehensive self-assessment model that drives continuous improvement.
 
 ## Overview
-The Quantum Readiness Assurance Maturity Model (QRAMM) is a framework designed to help organizations measure and improve their quantum readiness and cryptographic security capabilities. As quantum computing advances threaten current encryption standards, this toolkit provides a structured approach to assess your organization's current maturity level and identify critical areas requiring quantum-safe transformation.
+The Quantum Readiness Assurance Maturity Model (QuantumGuard) is a framework designed to help organizations measure and improve their quantum readiness and cryptographic security capabilities. As quantum computing advances threaten current encryption standards, this toolkit provides a structured approach to assess your organization's current maturity level and identify critical areas requiring quantum-safe transformation.
 
 ## Framework Structure
-QRAMM evaluates four critical dimensions:
+QuantumGuard evaluates four critical dimensions:
 
 1. **Cryptographic Visibility & Inventory (CVI)**
 2. **Strategic Governance & Risk Management (SGRM)**
@@ -18,7 +18,7 @@ Each dimension contains 3 specialized practices, totaling 12 core practices. Eac
 - **Stream B (Advanced)**: Advanced capabilities and optimization opportunities (40% weight)
 
 ## Scoring System
-The QRAMM toolkit uses a comprehensive scoring system that calculates both raw and weighted scores:
+The QuantumGuard toolkit uses a comprehensive scoring system that calculates both raw and weighted scores:
 
 ### Raw Scores
 - **1.0-1.5**: Basic - Initial awareness and ad-hoc practices
@@ -48,7 +48,7 @@ Note - Optional questions are included for comprehensive assessment and 'N/A' re
 The Scorecard tab provides a comprehensive view of your quantum readiness assessment results:
 
 ### Overall Results
-- **Overall QRAMM Score**: Combined score across all four dimensions
+- **Overall QuantumGuard Score**: Combined score across all four dimensions
 - **Overall Maturity Level**: Your current quantum readiness maturity level
 - **Assessment Completion Status**: Progress tracking across all 120 questions
 - **Quantum Risk Timeline**: Estimated timeline for quantum threat relevance to your organization
@@ -76,7 +76,7 @@ The Scorecard provides comprehensive visual insights including:
 - **Practice-Level Insights**: Detailed breakdown showing individual practice scores and maturity levels
 
 ## Assessment Approach
-QRAMM provides two assessment entry points:
+QuantumGuard provides two assessment entry points:
 
 ### Quick Assessment (12 Questions)
 - **Time Investment**: 5-10 minutes
@@ -91,7 +91,7 @@ QRAMM provides two assessment entry points:
 - **Output**: Detailed scorecards, gap analysis, compliance mapping, and implementation roadmap
 
 ## Compliance Mapping
-QRAMM maps to 8 major frameworks and standards:
+QuantumGuard maps to 8 major frameworks and standards:
 
 1. **NIST Post-Quantum Cryptography Standards**: Alignment with NIST's quantum-safe algorithms
 2. **NSM 10 Requirements**: U.S. National Security Memorandum quantum readiness mandates
@@ -116,7 +116,7 @@ QRAMM maps to 8 major frameworks and standards:
 - **Innovation Platform**: Foundation for quantum-safe business capabilities
 
 ## Getting Started
-1. **Download the QRAMM Toolkit**: Access the Excel-based assessment tool
+1. **Download the QuantumGuard Toolkit**: Access the Excel-based assessment tool
 2. **Complete Organization Profile**: Define your organizational context
 3. **Conduct Assessment**: Start with Quick Assessment or go directly to Comprehensive
 4. **Review Results**: Analyze scorecard and identify priorities
@@ -125,7 +125,7 @@ QRAMM maps to 8 major frameworks and standards:
 
 ## Support and Resources
 - **Framework Documentation**: Comprehensive guides and implementation resources
-- **Community Support**: Access to QRAMM user community and forums
+- **Community Support**: Access to QuantumGuard user community and forums
 - **Professional Services**: Expert facilitation and consulting available
 - **Training Programs**: Quantum readiness education and certification
 
@@ -134,16 +134,16 @@ QRAMM maps to 8 major frameworks and standards:
 - Emily (Stamm) Fane - Strategic Planning & Executive Engagement
 - Abdel Sy Fane - Technical Implementation & Risk Assessment
 
-**General Inquiries:** qramm@csnp.org
+**General Inquiries:** QuantumGuard@csnp.org
 
 **Community Resources:**
-- GitHub Repository: https://github.com/csnp/qramm
+- GitHub Repository: https://github.com/csnp/QuantumGuard
 - Discussion Forums: GitHub Discussions
 - Issue Tracking: GitHub Issues
 
 ---
 
-**QRAMM Version**: 1.1
+**QuantumGuard Version**: 1.1
 **Last Updated**: December 2025
 **Developed by**: CyberSecurity NonProfit (CSNP)
-**Website**: [https://qramm.org](https://qramm.org)
+**Website**: [https://QuantumGuard.org](https://QuantumGuard.org)

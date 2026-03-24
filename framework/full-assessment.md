@@ -1,9 +1,9 @@
-# QRAMM Full Assessment Framework
+﻿# QuantumGuard Full Assessment Framework
 **Quantum Readiness Assurance Maturity Model - Complete 120-Question Evaluation**
 
 ## Overview
 
-The QRAMM Full Assessment is a comprehensive evaluation framework designed to measure organizational readiness for quantum computing threats across four critical dimensions. This assessment provides detailed insights into your organization's current capabilities and guides strategic planning for quantum-safe transformation.
+The QuantumGuard Full Assessment is a comprehensive evaluation framework designed to measure organizational readiness for quantum computing threats across four critical dimensions. This assessment provides detailed insights into your organization's current capabilities and guides strategic planning for quantum-safe transformation.
 
 **Assessment Structure:**
 - **4 Dimensions:** CVI, SGRM, DPE, ITR
@@ -3789,16 +3789,16 @@ Testing methodologies for cryptographic transitions
 
 ## Scoring Methodology
 
-The QRAMM assessment uses a 5-point scale where:
+The QuantumGuard assessment uses a 5-point scale where:
 - Each question is scored from 1-5 based on the selected maturity level
 - Practice scores are calculated as the average of all questions within that practice
 - Dimension scores are calculated as the average of all practices within that dimension
-- Overall QRAMM score is calculated as the average of all four dimension scores
+- Overall QuantumGuard score is calculated as the average of all four dimension scores
 
 ## Assessment Completion
 
-This complete 120-question assessment provides comprehensive evaluation across all quantum readiness dimensions. For additional implementation guidance, please visit [https://qramm.org](https://qramm.org) or contact [qramm@csnp.org](mailto:qramm@csnp.org).
+This complete 120-question assessment provides comprehensive evaluation across all quantum readiness dimensions. For additional implementation guidance, please visit [https://QuantumGuard.org](https://QuantumGuard.org) or contact [QuantumGuard@csnp.org](mailto:QuantumGuard@csnp.org).
 
 ---
 
-*This assessment is part of the QRAMM (Quantum Readiness Assurance Maturity Model) framework. For more information, visit https://qramm.org*
+*This assessment is part of the QuantumGuard (Quantum Readiness Assurance Maturity Model) framework. For more information, visit https://QuantumGuard.org*

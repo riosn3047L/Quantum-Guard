@@ -1,9 +1,9 @@
-# Getting Started with QRAMM
+﻿# Getting Started with QuantumGuard
 **Implementation Guide for Quantum Readiness Assessment**
 
 ## Overview
 
-This guide provides step-by-step instructions for implementing the Quantum Readiness Assurance Maturity Model (QRAMM) in your organization. Whether you're beginning your quantum readiness journey or looking to formalize existing efforts, this guide will help you establish a foundation for systematic quantum preparedness.
+This guide provides step-by-step instructions for implementing the Quantum Readiness Assurance Maturity Model (QuantumGuard) in your organization. Whether you're beginning your quantum readiness journey or looking to formalize existing efforts, this guide will help you establish a foundation for systematic quantum preparedness.
 
 ## Quick Start Options
 
@@ -11,8 +11,8 @@ This guide provides step-by-step instructions for implementing the Quantum Readi
 **Time Required**: 5-10 minutes  
 **Purpose**: Quick organizational baseline and priority identification
 
-**Take the QRAMM Quick Assessment:**
-- Visit: [https://qramm.org](https://qramm.org)
+**Take the QuantumGuard Quick Assessment:**
+- Visit: [https://QuantumGuard.org](https://QuantumGuard.org)
 - Complete 12 questions covering all four dimensions
 - Receive immediate results with prioritized recommendations
 - Use results to plan comprehensive implementation
@@ -31,10 +31,10 @@ This guide provides step-by-step instructions for implementing the Quantum Readi
 **Time Required**: 4-8 weeks  
 **Purpose**: Expert-guided implementation with customization
 
-**Contact QRAMM Authors:**
+**Contact QuantumGuard Authors:**
 - **Emily (Stamm) Fane** - Strategic Planning: [LinkedIn](https://www.linkedin.com/in/emily-stamm/)
 - **Abdel Sy Fane** - Technical Implementation: [LinkedIn](https://www.linkedin.com/in/abdelsyfane/)
-- **General Inquiries**: qramm@csnp.org
+- **General Inquiries**: QuantumGuard@csnp.org
 
 ## Phase 1: Preparation and Planning
 
@@ -45,7 +45,7 @@ This guide provides step-by-step instructions for implementing the Quantum Readi
 **Key Activities:**
 1. **Leadership Briefing** (1-2 hours)
    - Present quantum threat overview and business implications
-   - Explain QRAMM framework value proposition
+   - Explain QuantumGuard framework value proposition
    - Discuss resource requirements and expected outcomes
    - Secure formal commitment and sponsorship
 
@@ -112,7 +112,7 @@ This guide provides step-by-step instructions for implementing the Quantum Readi
 - **Project Coordinator**: 20-40 hours for planning and coordination
 
 #### **Technology Requirements**
-- **Assessment Platform**: Access to QRAMM assessment tools
+- **Assessment Platform**: Access to QuantumGuard assessment tools
 - **Documentation Systems**: Centralized repository for evidence and findings
 - **Communication Tools**: Video conferencing and collaboration platforms
 - **Analysis Tools**: Spreadsheet or database software for data analysis
@@ -196,7 +196,7 @@ This guide provides step-by-step instructions for implementing the Quantum Readi
 
 ### Step 6: Assessment Question Completion
 
-**Objective**: Systematically evaluate organizational capabilities using QRAMM framework
+**Objective**: Systematically evaluate organizational capabilities using QuantumGuard framework
 
 **Assessment Process:**
 
@@ -228,7 +228,7 @@ This guide provides step-by-step instructions for implementing the Quantum Readi
 #### **Score Calculation**
 - **Practice Scores**: Calculate average scores for each practice
 - **Dimension Scores**: Apply minimum scoring across practices
-- **Overall QRAMM Score**: Average dimension scores for overall assessment
+- **Overall QuantumGuard Score**: Average dimension scores for overall assessment
 - **Maturity Level Determination**: Map scores to maturity levels
 
 #### **Gap Analysis**
@@ -371,14 +371,14 @@ This guide provides step-by-step instructions for implementing the Quantum Readi
 **Monitoring Framework:**
 
 #### **Key Performance Indicators (KPIs)**
-- **QRAMM Score Improvement**: Progress toward higher maturity levels
+- **QuantumGuard Score Improvement**: Progress toward higher maturity levels
 - **Implementation Milestones**: Achievement of planned objectives and timelines
 - **Risk Reduction Metrics**: Measurable decrease in quantum vulnerability
 - **Capability Development**: Growth in organizational quantum readiness capabilities
 
 #### **Regular Assessment Cycles**
 - **Quarterly Reviews**: Progress assessment and course correction
-- **Annual Reassessment**: Comprehensive evaluation using full QRAMM framework
+- **Annual Reassessment**: Comprehensive evaluation using full QuantumGuard framework
 - **Milestone Evaluations**: Assessment following major implementation activities
 - **Continuous Monitoring**: Real-time tracking of key quantum readiness metrics
 
@@ -389,7 +389,7 @@ This guide provides step-by-step instructions for implementing the Quantum Readi
 - **Technology Enhancement**: Ongoing improvement of quantum-safe technologies
 
 **Success Metrics:**
-- **Maturity Advancement**: Movement to higher QRAMM maturity levels
+- **Maturity Advancement**: Movement to higher QuantumGuard maturity levels
 - **Risk Mitigation**: Demonstrable reduction in quantum-related risks
 - **Capability Growth**: Enhanced organizational quantum readiness capabilities
 - **Business Value**: Measurable contribution to business objectives and outcomes
@@ -399,7 +399,7 @@ This guide provides step-by-step instructions for implementing the Quantum Readi
 ### Small to Medium Organizations
 
 **Simplified Approach:**
-- **Quick Assessment Focus**: Start with QRAMM Quick Assessment for immediate insights
+- **Quick Assessment Focus**: Start with QuantumGuard Quick Assessment for immediate insights
 - **Prioritized Implementation**: Focus on highest-impact improvements within resource constraints
 - **External Support**: Leverage community resources and shared expertise
 - **Phased Development**: Incremental capability building over extended timeline
@@ -413,7 +413,7 @@ This guide provides step-by-step instructions for implementing the Quantum Readi
 ### Large Enterprises
 
 **Comprehensive Approach:**
-- **Full QRAMM Assessment**: Complete 120-question evaluation across all dimensions
+- **Full QuantumGuard Assessment**: Complete 120-question evaluation across all dimensions
 - **Multi-Site Coordination**: Assessment across multiple locations and business units
 - **Dedicated Resources**: Full-time staff assigned to quantum readiness program
 - **Advanced Analytics**: Sophisticated analysis and predictive modeling
@@ -476,7 +476,7 @@ This guide provides step-by-step instructions for implementing the Quantum Readi
 
 **Systematic Approach:**
 - Evidence-based assessment using objective criteria and documentation
-- Comprehensive coverage of all QRAMM dimensions and practices
+- Comprehensive coverage of all QuantumGuard dimensions and practices
 - Regular monitoring and measurement of progress and outcomes
 - Continuous improvement based on experience and best practices
 
@@ -508,7 +508,7 @@ This guide provides step-by-step instructions for implementing the Quantum Readi
 
 ## Professional Support Options
 
-### QRAMM Framework Authors
+### QuantumGuard Framework Authors
 
 **Emily (Stamm) Fane - Strategic Planning & Executive Engagement**
 - Executive education and awareness programs
@@ -523,14 +523,14 @@ This guide provides step-by-step instructions for implementing the Quantum Readi
 - Implementation guidance and technical support
 
 **Contact Information:**
-- **Professional Inquiries**: qramm@csnp.org
+- **Professional Inquiries**: QuantumGuard@csnp.org
 - **Emily (Stamm) Fane LinkedIn**: [https://www.linkedin.com/in/emily-stamm/](https://www.linkedin.com/in/emily-stamm/)
 - **Abdel Sy Fane LinkedIn**: [https://www.linkedin.com/in/abdelsyfane/](https://www.linkedin.com/in/abdelsyfane/)
 
 ### Service Offerings
 
 **Assessment Facilitation:**
-- Expert-guided QRAMM assessment with validation and interpretation
+- Expert-guided QuantumGuard assessment with validation and interpretation
 - Stakeholder workshop facilitation and consensus building
 - Technical assessment support and validation
 - Results analysis and improvement planning
@@ -550,7 +550,7 @@ This guide provides step-by-step instructions for implementing the Quantum Readi
 ### Community Resources
 
 **Open Source Framework:**
-- Complete QRAMM framework documentation and assessment tools
+- Complete QuantumGuard framework documentation and assessment tools
 - Implementation templates and guidance materials
 - Community discussions and knowledge sharing
 - Regular updates and enhancements based on industry feedback
@@ -565,7 +565,7 @@ This guide provides step-by-step instructions for implementing the Quantum Readi
 
 ## Conclusion
 
-Implementing QRAMM provides organizations with a systematic approach to building quantum readiness capabilities. Through careful planning, comprehensive assessment, and strategic improvement implementation, organizations can develop the resilience necessary to thrive in the quantum era.
+Implementing QuantumGuard provides organizations with a systematic approach to building quantum readiness capabilities. Through careful planning, comprehensive assessment, and strategic improvement implementation, organizations can develop the resilience necessary to thrive in the quantum era.
 
 **Key Implementation Principles:**
 - **Start Where You Are**: Begin with current capabilities and build systematically
@@ -579,7 +579,7 @@ Implementing QRAMM provides organizations with a systematic approach to building
 - **Measurable Progress**: Systematic advancement toward quantum readiness goals
 - **Competitive Advantage**: Superior preparedness for quantum computing threats
 
-*QRAMM implementation transforms quantum readiness from abstract concern into concrete capabilities with measurable business value.*
+*QuantumGuard implementation transforms quantum readiness from abstract concern into concrete capabilities with measurable business value.*
 
 ---
 
@@ -587,4 +587,4 @@ Implementing QRAMM provides organizations with a systematic approach to building
 **Last Updated**: December 2025
 **Authors**: Emily (Stamm) Fane, Abdel Sy Fane
 **Organization**: CyberSecurity NonProfit (CSNP)
-**Website**: [https://qramm.org](https://qramm.org)
+**Website**: [https://QuantumGuard.org](https://QuantumGuard.org)

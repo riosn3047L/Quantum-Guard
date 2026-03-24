@@ -1,15 +1,15 @@
-# QRAMM: Quantum Readiness Assurance Maturity Model
+﻿# QuantumGuard: Quantum Readiness Assurance Maturity Model
 
 <div align="center">
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/csnp/qramm.svg)](https://github.com/csnp/qramm/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/csnp/QuantumGuard.svg)](https://github.com/csnp/QuantumGuard/stargazers)
 [![NIST Aligned](https://img.shields.io/badge/NIST-Aligned-green.svg)](https://csrc.nist.gov/projects/post-quantum-cryptography)
-[![Enterprise Ready](https://img.shields.io/badge/Enterprise-Ready-purple.svg)](https://qramm.org)
+[![Enterprise Ready](https://img.shields.io/badge/Enterprise-Ready-purple.svg)](https://QuantumGuard.org)
 
 **The Industry-Leading Open Source Framework for Organizational Quantum Readiness**
 
-[**Visit Website**](https://qramm.org) | [**Download Toolkit**](toolkit/QRAMM_Assessment_Toolkit.xlsx) | [**Sample Toolkit**](toolkit/Sample_Assessment.xlsx) | [**Toolkit Overview**](toolkit/toolkit-overview.md) | [**Framework Docs**](framework/qramm-overview.md)
+[**Visit Website**](https://QuantumGuard.org) | [**Download Toolkit**](toolkit/QuantumGuard_Assessment_Toolkit.xlsx) | [**Sample Toolkit**](toolkit/Sample_Assessment.xlsx) | [**Toolkit Overview**](toolkit/toolkit-overview.md) | [**Framework Docs**](framework/quantumguard-overview.md)
 
 </div>
 
@@ -17,21 +17,21 @@
 
 ## Open Source Tools
 
-QRAMM provides a suite of open source tools to support your quantum readiness journey:
+QuantumGuard provides a suite of open source tools to support your quantum readiness journey:
 
 | Tool | Description | Repository |
 |------|-------------|------------|
-| **CryptoScan** | Cryptographic discovery scanner - scans codebases for quantum-vulnerable algorithms with SARIF and CBOM output | [GitHub](https://github.com/csnp/qramm-cryptoscan) |
-| **TLS Analyzer** | TLS/SSL configuration analyzer - evaluates cipher suites and certificates with CNSA 2.0 compliance tracking | [GitHub](https://github.com/csnp/qramm-tls-analyzer) |
-| **CryptoDeps** | Dependency crypto analyzer - identifies quantum-vulnerable algorithms in your software supply chain | [GitHub](https://github.com/csnp/qramm-cryptodeps) |
+| **CryptoScan** | Cryptographic discovery scanner - scans codebases for quantum-vulnerable algorithms with SARIF and CBOM output | [GitHub](https://github.com/csnp/QuantumGuard-cryptoscan) |
+| **TLS Analyzer** | TLS/SSL configuration analyzer - evaluates cipher suites and certificates with CNSA 2.0 compliance tracking | [GitHub](https://github.com/csnp/QuantumGuard-tls-analyzer) |
+| **CryptoDeps** | Dependency crypto analyzer - identifies quantum-vulnerable algorithms in your software supply chain | [GitHub](https://github.com/csnp/QuantumGuard-cryptodeps) |
 
-These tools integrate with the QRAMM framework to provide automated discovery and assessment capabilities for Dimension 1 (Cryptographic Visibility & Inventory). See the [Open Source Tools page](https://qramm.org/open-source-tools.html) for detailed guides.
+These tools integrate with the QuantumGuard framework to provide automated discovery and assessment capabilities for Dimension 1 (Cryptographic Visibility & Inventory). See the [Open Source Tools page](https://QuantumGuard.org/open-source-tools.html) for detailed guides.
 
 ---
 
 ## Executive Summary
 
-The **Quantum Readiness Assurance Maturity Model (QRAMM)** is an evidence-based framework designed to help enterprises systematically prepare for the quantum computing threat to current cryptographic systems. Developed by cybersecurity experts at CyberSecurity NonProfit (CSNP), QRAMM provides the structured approach organizations need to:
+The **Quantum Readiness Assurance Maturity Model (QuantumGuard)** is an evidence-based framework designed to help enterprises systematically prepare for the quantum computing threat to current cryptographic systems. Developed by cybersecurity experts at CyberSecurity NonProfit (CSNP), QuantumGuard provides the structured approach organizations need to:
 
 - **Assess** current quantum vulnerability across all cryptographic assets
 - **Plan** strategic transition to quantum-safe cryptography
@@ -75,7 +75,7 @@ With quantum computers capable of breaking RSA-2048 encryption expected within 5
 
 </div>
 
-## QRAMM Framework Architecture
+## QuantumGuard Framework Architecture
 
 ### Four Integrated Dimensions
 
@@ -167,7 +167,7 @@ With quantum computers capable of breaking RSA-2048 encryption expected within 5
 ## Implementation Roadmap
 
 ### Phase 1: Discovery & Assessment (3-6 months)
-- Complete QRAMM assessment across all dimensions
+- Complete QuantumGuard assessment across all dimensions
 - Identify cryptographic assets and vulnerabilities
 - Establish baseline maturity levels
 - Develop executive briefing materials
@@ -201,7 +201,7 @@ With quantum computers capable of breaking RSA-2048 encryption expected within 5
 ### Scoring Calculation
 ```
 Dimension Score = Average of practice scores within dimension
-Overall QRAMM Score = Average of all dimension scores
+Overall QuantumGuard Score = Average of all dimension scores
 Maturity Level = Derived from overall score thresholds
 ```
 
@@ -212,9 +212,9 @@ Maturity Level = Derived from overall score thresholds
 - **Level 4 (Advanced)**: Score 3.6 - 3.9
 - **Level 5 (Optimizing)**: Score 4.0 (Perfect score demonstrating excellence)
 
-## QRAMM Assessment Toolkit Now Available
+## QuantumGuard Assessment Toolkit Now Available
 
-The comprehensive Excel-based QRAMM Assessment Toolkit is now available for download! This toolkit features:
+The comprehensive Excel-based QuantumGuard Assessment Toolkit is now available for download! This toolkit features:
 - **Automated Scoring**: Instant calculation of raw and weighted scores across all dimensions
 - **Dynamic Scorecards**: Professional visualizations including charts, graphs, and maturity distribution
 - **Organization Profile Multiplier**: Risk-adjusted scoring based on your industry and context
@@ -222,29 +222,29 @@ The comprehensive Excel-based QRAMM Assessment Toolkit is now available for down
 - **120 Assessment Questions**: Complete coverage across 4 dimensions and 12 practices
 - **Executive Reporting**: Board-ready dashboards with benchmarking and recommendations
 
-[**Download the Toolkit**](toolkit/QRAMM_Assessment_Toolkit.xlsx) | [**View Sample Assessment**](toolkit/Sample_Assessment.xlsx) | [**Read Toolkit Overview**](toolkit/toolkit-overview.md)
+[**Download the Toolkit**](toolkit/QuantumGuard_Assessment_Toolkit.xlsx) | [**View Sample Assessment**](toolkit/Sample_Assessment.xlsx) | [**Read Toolkit Overview**](toolkit/toolkit-overview.md)
 
 ## Toolkit Visual Examples
 
 ### Scorecard Dashboard
 <div align="center">
-  <img src="assets/toolkit-visuals/qramm-scorecard-dimension-summary.png" alt="QRAMM Scorecard Dimension Summary" width="800">
+  <img src="assets/toolkit-visuals/quantumguard-scorecard-dimension-summary.png" alt="QuantumGuard Scorecard Dimension Summary" width="800">
   <p><em>Comprehensive scorecard showing dimension scores, weighted adjustments, and maturity visualization</em></p>
 </div>
 
 <div align="center">
-  <img src="assets/toolkit-visuals/qramm-scorecard-practice-level-heatmap.png" alt="QRAMM Practice Level Heatmap" width="800">
+  <img src="assets/toolkit-visuals/quantumguard-scorecard-practice-level-heatmap.png" alt="QuantumGuard Practice Level Heatmap" width="800">
   <p><em>Detailed practice-level analysis with maturity distribution and improvement recommendations</em></p>
 </div>
 
 ### Compliance Mapping
 <div align="center">
-  <img src="assets/toolkit-visuals/qramm-compliance-mapping-nist-pqc.png" alt="NIST PQC Compliance Mapping" width="800">
+  <img src="assets/toolkit-visuals/quantumguard-compliance-mapping-nist-pqc.png" alt="NIST PQC Compliance Mapping" width="800">
   <p><em>NIST Post-Quantum Cryptography framework mapping with coverage analysis</em></p>
 </div>
 
 <div align="center">
-  <img src="assets/toolkit-visuals/qramm-compliance-mapping-fedramp.png" alt="FedRAMP Compliance Mapping" width="800">
+  <img src="assets/toolkit-visuals/quantumguard-compliance-mapping-fedramp.png" alt="FedRAMP Compliance Mapping" width="800">
   <p><em>FedRAMP compliance mapping showing 95% coverage across security controls</em></p>
 </div>
 
@@ -252,14 +252,14 @@ The comprehensive Excel-based QRAMM Assessment Toolkit is now available for down
 
 ### 1. Quick Assessment (Recommended First Step)
 **Time**: 5-10 minutes
-**Link**: [https://qramm.org](https://qramm.org)
+**Link**: [https://QuantumGuard.org](https://QuantumGuard.org)
 **Output**: Instant maturity score, radar charts, priority recommendations
 
 ### 2. Download Resources
-- [Executive Report Template](https://github.com/csnp/qramm/blob/main/templates/executive-report-template.md)
-- [Asset Inventory Template](https://github.com/csnp/qramm/blob/main/templates/asset-inventory-template.md)
-- [Vendor Assessment Questionnaire](https://github.com/csnp/qramm/blob/main/templates/vendor-questionnaire-template.md)
-- [Evidence Collection Template](https://github.com/csnp/qramm/blob/main/templates/evidence-collection-template.md)
+- [Executive Report Template](https://github.com/csnp/QuantumGuard/blob/main/templates/executive-report-template.md)
+- [Asset Inventory Template](https://github.com/csnp/QuantumGuard/blob/main/templates/asset-inventory-template.md)
+- [Vendor Assessment Questionnaire](https://github.com/csnp/QuantumGuard/blob/main/templates/vendor-questionnaire-template.md)
+- [Evidence Collection Template](https://github.com/csnp/QuantumGuard/blob/main/templates/evidence-collection-template.md)
 
 ### 3. Engage Stakeholders
 - Present assessment results to executive leadership
@@ -269,15 +269,15 @@ The comprehensive Excel-based QRAMM Assessment Toolkit is now available for down
 ## Repository Structure
 
 ```
-qramm/
+QuantumGuard/
 ├── framework/              # Framework documentation
-│   ├── qramm-overview.md       # Executive framework summary
+│   ├── quantumguard-overview.md       # Executive framework summary
 │   ├── maturity-levels.md      # 5-level maturity progression
 │   ├── scoring-methodology.md  # Scoring system details
 │   ├── compliance-mapping.md   # Standards alignment details
-│   └── Complete_QRAMM_Questions.md  # All 120 assessment questions
+│   └── Complete_QuantumGuard_Questions.md  # All 120 assessment questions
 ├── toolkit/                # Assessment tools
-│   ├── QRAMM_Assessment_Toolkit.xlsx  # Main Excel assessment tool
+│   ├── QuantumGuard_Assessment_Toolkit.xlsx  # Main Excel assessment tool
 │   ├── Sample_Assessment.xlsx         # Pre-filled example
 │   └── toolkit-overview.md            # Feature documentation
 ├── implementation/         # Implementation guidance
@@ -295,7 +295,7 @@ qramm/
 ## Regulatory Compliance & Standards
 
 ### Standards Alignment
-The QRAMM Toolkit maps to 8 major frameworks and standards:
+The QuantumGuard Toolkit maps to 8 major frameworks and standards:
 
 | Framework | Description |
 |-----------|-------------|
@@ -310,10 +310,10 @@ The QRAMM Toolkit maps to 8 major frameworks and standards:
 
 ## Support & Resources
 
-For questions about QRAMM implementation or framework guidance, contact: [qramm@csnp.org](mailto:qramm@csnp.org)
+For questions about QuantumGuard implementation or framework guidance, contact: [QuantumGuard@csnp.org](mailto:QuantumGuard@csnp.org)
 
 ### Community Resources
-- **GitHub Discussions**: [Join the conversation](https://github.com/csnp/qramm/discussions)
+- **GitHub Discussions**: [Join the conversation](https://github.com/csnp/QuantumGuard/discussions)
 
 ## Framework Development
 
@@ -330,7 +330,7 @@ Executive Director of CSNP
 **Organization**: [CyberSecurity NonProfit (CSNP)](https://csnp.org)
 
 ### Contributing
-QRAMM is an open-source initiative welcoming contributions from:
+QuantumGuard is an open-source initiative welcoming contributions from:
 - Security professionals
 - Quantum researchers
 - Enterprise architects
@@ -338,7 +338,7 @@ QRAMM is an open-source initiative welcoming contributions from:
 
 ## License & Usage
 
-QRAMM is released under the **MIT License**, providing:
+QuantumGuard is released under the **MIT License**, providing:
 - Commercial use
 - Modification
 - Distribution
@@ -347,28 +347,28 @@ QRAMM is released under the **MIT License**, providing:
 
 ### Citation
 ```bibtex
-@software{qramm2025,
-  title = {QRAMM: Quantum Readiness Assurance Maturity Model},
+@software{QuantumGuard2025,
+  title = {QuantumGuard: Quantum Readiness Assurance Maturity Model},
   author = {Fane, Emily and Fane, Abdel},
   organization = {CyberSecurity NonProfit (CSNP)},
   year = {2025},
-  url = {https://qramm.org}
+  url = {https://QuantumGuard.org}
 }
 ```
 
 ## Frequently Asked Questions
 
-### Q: How long does a QRAMM assessment take?
+### Q: How long does a QuantumGuard assessment take?
 **A**: Quick assessment: 5-10 minutes. Comprehensive assessment: 2-4 hours with stakeholder input and evidence gathering.
 
-### Q: Is QRAMM suitable for small organizations?
-**A**: Yes. QRAMM scales from small businesses to global enterprises with tailored implementation paths.
+### Q: Is QuantumGuard suitable for small organizations?
+**A**: Yes. QuantumGuard scales from small businesses to global enterprises with tailored implementation paths.
 
 ### Q: How often should we reassess?
 **A**: Quarterly for critical systems, annually for full organizational assessment.
 
 ### Q: Do we need quantum experts?
-**A**: No. QRAMM provides all necessary guidance. Expert consultation available for complex implementations.
+**A**: No. QuantumGuard provides all necessary guidance. Expert consultation available for complex implementations.
 
 ## Next Steps
 
@@ -376,14 +376,14 @@ QRAMM is released under the **MIT License**, providing:
 
 ### Start Your Quantum Readiness Journey Today
 
-1. **[Take the Assessment](https://qramm.org)** - Get your baseline score in minutes
-2. **[Download Templates](https://github.com/csnp/qramm/tree/main/templates)** - Accelerate implementation
+1. **[Take the Assessment](https://QuantumGuard.org)** - Get your baseline score in minutes
+2. **[Download Templates](https://github.com/csnp/QuantumGuard/tree/main/templates)** - Accelerate implementation
 
 **The quantum threat is approaching. Organizations that act now will thrive in the post-quantum era.**
 
 ---
 
-*QRAMM is a trademark of CyberSecurity NonProfit (CSNP)*  
+*QuantumGuard is a trademark of CyberSecurity NonProfit (CSNP)*  
 *© 2025 CSNP. All rights reserved.*
 
 </div>

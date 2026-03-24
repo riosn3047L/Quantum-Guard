@@ -1,14 +1,14 @@
-# QRAMM Excel Toolkit - Quick Start Guide
+﻿# QuantumGuard Excel Toolkit - Quick Start Guide
 
 ## What You're Building
 An Excel assessment tool that evaluates organizational quantum computing readiness across 120 questions, providing automated scoring, compliance mapping, and actionable insights.
 
 ## Essential Files
-1. **QRAMM_120_questions.xlsx** - Your source for all question content
-2. **1_QRAMM_Structure_and_Logic.md** - System architecture and scoring logic
-3. **2_QRAMM_Data_Tables_and_Values.md** - All reference data to copy
-4. **3_QRAMM_Key_Formulas_and_Calculations.md** - Every formula you need
-5. **4_QRAMM_Compliance_Mapping_Details.md** - Detailed framework mappings for all 120 questions
+1. **QuantumGuard_120_questions.xlsx** - Your source for all question content
+2. **1_QuantumGuard_Structure_and_Logic.md** - System architecture and scoring logic
+3. **2_QuantumGuard_Data_Tables_and_Values.md** - All reference data to copy
+4. **3_QuantumGuard_Key_Formulas_and_Calculations.md** - Every formula you need
+5. **4_QuantumGuard_Compliance_Mapping_Details.md** - Detailed framework mappings for all 120 questions
 
 ## Build Order
 
@@ -26,7 +26,7 @@ An Excel assessment tool that evaluates organizational quantum computing readine
 
 ### Phase 3: Assessment Tabs (3 hours)
 1. Build template for one dimension tab
-2. Copy questions from QRAMM_120_questions.xlsx
+2. Copy questions from QuantumGuard_120_questions.xlsx
 3. Implement scoring formulas from doc #3
 4. Replicate for all 4 dimensions
 5. Test scoring aggregation
@@ -103,8 +103,8 @@ Before delivery, verify:
 - Danger: #DC3545 (red)
 
 ## Delivery Format
-1. QRAMM_Toolkit_v1.0.xlsx (protected version)
-2. QRAMM_Toolkit_Unlocked.xlsx (for review)
+1. QuantumGuard_Toolkit_v1.0.xlsx (protected version)
+2. QuantumGuard_Toolkit_Unlocked.xlsx (for review)
 3. Brief technical notes on any deviations
 
 ## Remember

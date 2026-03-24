@@ -1,4 +1,4 @@
-# QRAMM Compliance Category Mappings - Response for Contractor
+﻿# QuantumGuard Compliance Category Mappings - Response for Contractor
 
 ## Question 1: Category Coverage - Individual Category Names and Mappings
 

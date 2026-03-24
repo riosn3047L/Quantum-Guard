@@ -1,0 +1,187 @@
+P0: Date:
+P2: Software Requirement Specification (SRS)
+P4: PSB Hackathon 2026
+P15: Software Requirement Specification
+P16: Version 1
+P22: Project Name: Quantum-Proof Systems Scanner
+P23: Team Name: Institute Name:
+P25: Revision History
+P27: Version No
+P28: Date
+P29: Prepared by/Modified by
+P30: Significant Changes
+P31: Draft V1.0
+P42: Declaration
+P45: The purpose of this Software Requirements Specification (SRS) document is to identify and document the user requirements for the &lt;project Name&gt; The end deliverable software that will be supplied by &lt;team name&gt; will comprise of all the requirements documented in the current document and will be operated in the manner specified in the document. The Source code will be developed subsequently based on these requirements and will formally go through code review during testing process.
+P47: Mentor Details (if any):
+P48: (Institute Name)
+P49: Signature: Date:
+P50: Name &amp; Title
+P51: Assistant Professor/Associate/Professor
+P52: Team Member Details:
+P55: Member 1
+P57: (Institute Name)
+P58: Member 2
+P60: (Institute Name)
+P61: Member 3
+P63: (Institute Name)
+P64: Signature:
+P67: Date:
+P68: Signature:
+P71: Date:
+P72: Signature:
+P75: Date:
+P76: Name &amp; Title
+P82: Team Lead
+P83: Name &amp; Title
+P89: Developer
+P90: Name &amp; Title
+P96: Tester
+P98: Table of Content
+P99: Introduction
+P100: Purpose
+P101: Scope
+P102: Intendent Audience
+P103: Overall Description
+P104: Product Perspective
+P105: Product Functions
+P106: User Classes and Characteristics
+P107: Operating Environment
+P108: Design and Implementation Constraints
+P109: Assumptions and Dependencies
+P110: Specific Requirements
+P111: Functional Requirements
+P113: External Interface Requirements
+P115: User Interfaces
+P116: Hardware Interfaces
+P117: Software/ Communication Interfaces
+P118: System Features
+P119: Non-functional Requirements
+P120: Performance Requirements
+P121: Software Quality Attributes
+P122: Other Non-functional Requirements
+P124: Technological Requirements
+P125: Technologies used in development of the web application
+P127: I.D.E. (Integrated Development Environment)
+P129: Database Management Software
+P131: Security Requirements
+P135: Software Requirement Specification (SRS)
+P137: Introduction
+P140: Purpose
+P141: The purpose of this Software Requirements Specification (SRS) document is to identify and document the user requirement for &lt;project Name&gt;. This document is prepared with the following objectives:
+P142: To provide behaviour of the system
+P143: To provide Process Flow charts
+P145: Scope
+P147: Discover cryptographic inventory (TLS certificates, VPN endpoints, APIs).
+P148: Identify cryptographic controls (cipher suites, key exchange mechanisms, TLS versions).
+P149: Validate whether deployed algorithms are quantum-safe.
+P150: Generate actionable recommendations for non-PQC ready assets.
+P151: Issue digital labels: Quantum-Safe, PQC Ready, or Fully Quantum Safe.
+P152: Enterprise wide console for Central management: A GUI console to display status of scanned systems (public facing applications) covering details mentioned in Appendix-A (Cert-In CBOM Elements). As per the variation of score (like High, Medium, Low rating etc) for any public applications, dashboard should display that change as well.
+P155: Intended Audience
+P156: The intended audience of this document is business and technical users from PNB.
+P159: Overall Description
+P161: Product Perspective
+P163: Product Functions
+P167: User Classes and Characteristics Examples:
+P168: Primary Users: Bank cybersecurity teams, IT administrators.
+P169: Secondary Users: Compliance auditors, risk managers. Users are expected to have technical knowledge of cryptography and networking.
+P171: User at
+P172: User Type
+P173: Menus for User
+P174: PNB/IIT
+P175: Kanpur officials
+P176: Admin User
+P178: PNB
+P179: Checker
+P183: Operating Environment
+P185: The operating environment for the ‘&lt;project name&gt;’ as listed below.
+P186: Server system
+P187: Operating system:
+P188: Database:
+P189: Platform:
+P190: Technology:
+P191: API:
+P194: Design and Implementation Constraints
+P196: Technical Constraints: - (For Deployment)
+P197: Network Configuration: e.g. The application must support private (intranet) IP addressing. Appropriate firewalls and routing rules must be configured.
+P198: Hosting Environment: e.g. Should deploy in intranet i.e. for intranet access.
+P200: Security Constraints
+P201: Access Control: e.g. (RBAC)
+P202: Data Encryption: e.g. all data transmitted over the internet must be used by HTTPS.
+P205: Performance Constraints
+P206: Failover Mechanisms: e.g. Ensure redundancy and failover mechanisms are in place for both environments to maintain availability.
+P209: User Interface Constraints
+P210: User Experience Consistency: e.g. Maintain consistent design and navigation elements across both environments to minimize confusion for users switching between them.
+P212: Examples:
+P214: Must comply with NIST PQC standards.
+P215: Must operate only on public-facing applications.
+P216: Must not disrupt live banking services.
+P217: Must generate reports in machine-readable formats (JSON, XML, CSV).
+P220: Assumptions and Dependencies
+P222: Assumptions:
+P224: Standard Browser Support- e.g. It is assumed that end users will be accessing the application using HTML5-compliant browser such as Google Chrome.
+P226: Dependencies:
+P228: Database System-e.g. The application is dependent on Oracle database for data storage. Any maintenance, downtime, or performance issues with the database will directly impact on the application's functionality.
+P230: Examples:
+P232: Assumes TLS-based communication is used in all public-facing applications.
+P233: Depends on NIST PQC algorithms being standardized and available.
+P234: Assumes internet connectivity for scanning endpoints.
+P238: Specific Requirements
+P240: Functional Requirements
+P244: External Interface Requirements
+P246: User Interfaces
+P248: e.g. The application shall provide a web-based user interface accessible via a web browser - Google Chrome.
+P251: System Features
+P254: Non-functional Requirements
+P256: Performance Requirements
+P259: Software Quality Attributes
+P263: 3.4.3 Other Non-functional Requirements
+P267: Technological Requirements
+P269: Technologies used in development of the web application: e.g. Java, JSP, Servlet or other
+P271: I.D.E. (Integrated Development Environment): e.g. Eclipse or other.
+P273: Database Management Software: e.g. Oracle SQL or other.
+P274: .
+P275: Security Requirements
+P277: The following points shall be considered at a minimum while preparing the security requirements for the system or system application:
+P279: Compatibility of the proposed system with current IT set up. Impact on existing systems should be estimated
+P280: e.g. Existing system would not be affected.
+P283: Audit Trails for all important events capturing details like user ID, time and date, event etc.
+P284: e.g. All the responses received from API are logged in DB
+P286: Control Access to Information and computing facilities based on principals like ‘segregation of duty’, ‘need-to-know’, etc
+P287: e.g. Only Admin user will be able to schedule the application
+P290: Recoverability of Application in case of Failure
+P291: e.g. Will be recovered from DR
+P294: Compliance with any legal, statutory and contractual obligations
+P298: Security vulnerabilities involved when connecting with other systems and applications
+P300: e.g. Will be found during Audit
+P302: Operating environment security
+P304: e.g. TLS 1.2
+P306: Cost of providing security to the system over its life cycle (includes hardware, software, personnel and training).
+P307: Annexure-A (CERT-IN CBOM elements)
+
+=== TABLES (5) ===
+
+Table 0 (3 rows):
+  Row 0: Version  No | Date | Prepared  by/Modified   by | Significant   Changes
+  Row 1: Draft   V1.0 |  |  | 
+  Row 2:  |  |  | 
+
+Table 1 (3 rows):
+  Row 0: (Institute   Name)
+  Row 1: Signature: Date:
+  Row 2: Name   &amp;   Title Assistant   Professor/Associate/Professor
+
+Table 2 (3 rows):
+  Row 0: Member   1 (Institute   Name) | Member   2 (Institute   Name) | Member   3 (Institute   Name)
+  Row 1: Signature: Date: | Signature: Date: | Signature: Date:
+  Row 2: Name   &amp;   Title Team   Lead | Name   &amp;   Title Developer | Name   &amp;   Title Tester
+
+Table 3 (3 rows):
+  Row 0: User   at | User   Type | Menus   for   User
+  Row 1: PNB / IIT Kanpur officials | Admin  User | 
+  Row 2: PNB | Checker | 
+
+Table 4 (2 rows):
+  Row 0: Audit   Trails   for   all   important   events   capturing   details   like   user   ID,   time   and   date, event etc. e.g.   All   the   responses   received   from   API   are   logged   in   DB Control   Access   to   Information   and   computing   facilities   based   on   principals   like ‘segregation of duty’, ‘need-to-know’,  etc e.g.   Only   Admin   user   will   be   able   to schedule   the   application Recoverability   of   Application   in   case   of   Failure e.g.   Will   be   recovered   from  DR Compliance   with any   legal,   statutory   and contractual   obligations Security   vulnerabilities   involved   when   connecting   with   other   systems   and  applications e.g.   Will   be   found during  Audit Operating   environment   security e.g.   TLS   1.2 Cost of providing security   to the system over its life cycle (includes hardware, software, personnel and training).
+  Row 1: Annexure-A   (CERT-IN CBOM  elements)

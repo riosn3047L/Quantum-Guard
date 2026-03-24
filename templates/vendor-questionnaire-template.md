@@ -1,6 +1,6 @@
-# QRAMM Vendor Assessment Questionnaire Template
+﻿# QuantumGuard Vendor Assessment Questionnaire Template
 
-**Purpose**: This comprehensive questionnaire template helps organizations evaluate vendor quantum readiness capabilities and roadmaps across all QRAMM dimensions.
+**Purpose**: This comprehensive questionnaire template helps organizations evaluate vendor quantum readiness capabilities and roadmaps across all QuantumGuard dimensions.
 
 ## Vendor Information
 
@@ -243,4 +243,4 @@ _________________________________________________
 
 ---
 
-*This template is part of the QRAMM (Quantum Readiness Assurance Maturity Model) framework. For more information, visit https://qramm.org*
+*This template is part of the QuantumGuard (Quantum Readiness Assurance Maturity Model) framework. For more information, visit https://QuantumGuard.org*

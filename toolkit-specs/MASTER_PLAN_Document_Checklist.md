@@ -1,4 +1,4 @@
-# QRAMM Toolkit - Master Documentation Plan
+﻿# QuantumGuard Toolkit - Master Documentation Plan
 *Ensuring the freelancer has EVERYTHING needed for success*
 
 ## What the Freelancer Needs to Build
@@ -122,13 +122,13 @@
 ```
 toolkit-specs/
 ├── 0_Quick_Start_Guide.md (Overview and approach)
-├── 1_QRAMM_Structure_and_Logic.md (What to build)
-├── 2_QRAMM_Data_Tables_and_Values.md (Reference data)
-├── 3_QRAMM_Key_Formulas_and_Calculations.md (Calculations)
-├── 4_QRAMM_Compliance_Mapping_Details.md (Framework mappings)
-├── 5_QRAMM_Dynamic_Insights_Mapping.md (Content mappings)
-├── 6_QRAMM_Visual_Design_Implementation.md (Design specs)
-├── QRAMM_120_questions.xlsx (Source questions)
+├── 1_QuantumGuard_Structure_and_Logic.md (What to build)
+├── 2_QuantumGuard_Data_Tables_and_Values.md (Reference data)
+├── 3_QuantumGuard_Key_Formulas_and_Calculations.md (Calculations)
+├── 4_QuantumGuard_Compliance_Mapping_Details.md (Framework mappings)
+├── 5_QuantumGuard_Dynamic_Insights_Mapping.md (Content mappings)
+├── 6_QuantumGuard_Visual_Design_Implementation.md (Design specs)
+├── QuantumGuard_120_questions.xlsx (Source questions)
 └── README.md (Package overview)
 ```
 

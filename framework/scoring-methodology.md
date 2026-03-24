@@ -1,9 +1,9 @@
-# QRAMM Scoring Methodology
+﻿# QuantumGuard Scoring Methodology
 **Comprehensive Evaluation and Interpretation Framework**
 
 ## Overview
 
-The QRAMM scoring methodology provides a systematic approach to evaluating organizational quantum readiness across all four dimensions. This document outlines the scoring calculations, interpretation guidelines, and analysis frameworks that enable organizations to understand their current capabilities and prioritize improvement efforts.
+The QuantumGuard scoring methodology provides a systematic approach to evaluating organizational quantum readiness across all four dimensions. This document outlines the scoring calculations, interpretation guidelines, and analysis frameworks that enable organizations to understand their current capabilities and prioritize improvement efforts.
 
 ## Scoring Structure
 
@@ -51,11 +51,11 @@ Dimension Score = MIN(Practice 1 Score, Practice 2 Score, Practice 3 Score)
 - Practice 1.3 Score: 3.5
 - Dimension 1 Score = MIN(3.2, 2.8, 3.5) = 2.8
 
-### Overall QRAMM Score
+### Overall QuantumGuard Score
 
 The overall organizational score represents the average across all four dimensions.
 
-**Overall QRAMM Score Calculation:**
+**Overall QuantumGuard Score Calculation:**
 ```
 Overall Score = (Dimension 1 + Dimension 2 + Dimension 3 + Dimension 4) ÷ 4
 ```
@@ -65,7 +65,7 @@ Overall Score = (Dimension 1 + Dimension 2 + Dimension 3 + Dimension 4) ÷ 4
 - Dimension 2 (SGRM): 3.1
 - Dimension 3 (DPE): 2.5
 - Dimension 4 (ITR): 2.9
-- Overall QRAMM Score = (2.8 + 3.1 + 2.5 + 2.9) ÷ 4 = 2.8
+- Overall QuantumGuard Score = (2.8 + 3.1 + 2.5 + 2.9) ÷ 4 = 2.8
 
 ## Maturity Level Interpretation
 
@@ -203,7 +203,7 @@ Overall Score = (Dimension 1 + Dimension 2 + Dimension 3 + Dimension 4) ÷ 4
 ### Progress Monitoring
 
 **Key Performance Indicators (KPIs):**
-- **Overall QRAMM Score**: Organizational quantum readiness level
+- **Overall QuantumGuard Score**: Organizational quantum readiness level
 - **Dimension Scores**: Capability development across core areas
 - **Practice Improvement Rate**: Speed of capability advancement
 - **Gap Closure Progress**: Reduction in identified capability deficiencies
@@ -245,7 +245,7 @@ Overall Score = (Dimension 1 + Dimension 2 + Dimension 3 + Dimension 4) ÷ 4
 ### Executive Reporting Guidelines
 
 **Executive Summary Structure:**
-1. **Overall QRAMM Score and Maturity Level**
+1. **Overall QuantumGuard Score and Maturity Level**
 2. **Key Strengths and Competitive Advantages**
 3. **Critical Gaps and Risk Exposures**
 4. **Recommended Priority Actions**
@@ -353,7 +353,7 @@ Overall Score = (Dimension 1 + Dimension 2 + Dimension 3 + Dimension 4) ÷ 4
 
 ## Conclusion
 
-The QRAMM scoring methodology provides a comprehensive framework for evaluating and improving organizational quantum readiness. Through systematic scoring, analysis, and improvement planning, organizations can develop the capabilities necessary to thrive in the quantum era.
+The QuantumGuard scoring methodology provides a comprehensive framework for evaluating and improving organizational quantum readiness. Through systematic scoring, analysis, and improvement planning, organizations can develop the capabilities necessary to thrive in the quantum era.
 
 **Key Success Factors:**
 - **Honest Assessment**: Accurate evaluation of current capabilities
@@ -375,4 +375,4 @@ The QRAMM scoring methodology provides a comprehensive framework for evaluating 
 **Last Updated**: May 30, 2025  
 **Authors**: Emily (Stamm) Fane, Abdel Sy Fane  
 **Organization**: CyberSecurity NonProfit (CSNP)  
-**Framework**: Quantum Readiness Assurance Maturity Model (QRAMM)
+**Framework**: Quantum Readiness Assurance Maturity Model (QuantumGuard)

@@ -1,4 +1,4 @@
-# QRAMM Cryptographic Asset Inventory Worksheet
+﻿# QuantumGuard Cryptographic Asset Inventory Worksheet
 
 **Purpose**: This worksheet provides a structured template for conducting comprehensive cryptographic asset discovery and risk assessment across your organization.
 
@@ -236,4 +236,4 @@
 
 ---
 
-*This worksheet is part of the QRAMM (Quantum Readiness Assurance Maturity Model) framework. For more information, visit https://qramm.org*
+*This worksheet is part of the QuantumGuard (Quantum Readiness Assurance Maturity Model) framework. For more information, visit https://QuantumGuard.org*

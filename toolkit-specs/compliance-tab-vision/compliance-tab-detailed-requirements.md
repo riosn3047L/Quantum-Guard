@@ -1,12 +1,12 @@
-# QRAMM Compliance Tab - Detailed Vision & Requirements
+﻿# QuantumGuard Compliance Tab - Detailed Vision & Requirements
 
 ## Overview
-The Compliance tab is designed to bridge the gap between QRAMM assessments and industry compliance frameworks. It helps organizations understand how their quantum readiness maturity translates to compliance with existing frameworks like NIST CSF, ISO 27001, SOC 2, etc.
+The Compliance tab is designed to bridge the gap between QuantumGuard assessments and industry compliance frameworks. It helps organizations understand how their quantum readiness maturity translates to compliance with existing frameworks like NIST CSF, ISO 27001, SOC 2, etc.
 
 ## Core Functionality
 
 ### 1. Framework Selection
-- **Purpose**: Allow users to select which compliance framework they want to map their QRAMM results against
+- **Purpose**: Allow users to select which compliance framework they want to map their QuantumGuard results against
 - **Frameworks to Include**:
   - NIST CSF 2.0
   - ISO 27001:2022
@@ -16,16 +16,16 @@ The Compliance tab is designed to bridge the gap between QRAMM assessments and i
   - Custom (user-defined)
 
 ### 2. Mapping Engine
-The heart of the compliance tab is the mapping between QRAMM practices and framework controls.
+The heart of the compliance tab is the mapping between QuantumGuard practices and framework controls.
 
 #### How It Works:
-1. **Pre-built Mappings**: Each QRAMM practice (120 questions across 12 practices) has pre-defined mappings to framework controls
-2. **Weighted Scoring**: Each mapping has a weight (0-100%) indicating how much the QRAMM practice contributes to that framework control
+1. **Pre-built Mappings**: Each QuantumGuard practice (120 questions across 12 practices) has pre-defined mappings to framework controls
+2. **Weighted Scoring**: Each mapping has a weight (0-100%) indicating how much the QuantumGuard practice contributes to that framework control
 3. **Confidence Levels**: Each mapping has a confidence indicator (High/Medium/Low) showing how direct the relationship is
 
 #### Example Mapping:
 ```
-QRAMM Practice: CVI.1.1 (Cryptographic Discovery & Inventory)
+QuantumGuard Practice: CVI.1.1 (Cryptographic Discovery & Inventory)
 Maps to:
 - NIST CSF ID.AM-2 (85% weight, High confidence)
 - ISO 27001 A.8.1 (80% weight, High confidence)
@@ -35,16 +35,16 @@ Maps to:
 ### 3. Scoring Calculation
 
 The compliance score is calculated as:
-1. For each framework control, sum the weighted contributions from all mapped QRAMM practices
-2. If a control has multiple QRAMM mappings, the total cannot exceed 100%
+1. For each framework control, sum the weighted contributions from all mapped QuantumGuard practices
+2. If a control has multiple QuantumGuard mappings, the total cannot exceed 100%
 3. Overall compliance = (Sum of all control scores) / (Total number of controls)
 
 ### 4. Gap Analysis
 
 The gap analysis shows:
-- **Covered Controls**: Framework controls with adequate QRAMM coverage (>70% default threshold)
+- **Covered Controls**: Framework controls with adequate QuantumGuard coverage (>70% default threshold)
 - **Partial Controls**: Controls with some coverage (30-70%)
-- **Gap Controls**: Controls with little/no QRAMM coverage (<30%)
+- **Gap Controls**: Controls with little/no QuantumGuard coverage (<30%)
 
 ### 5. User Adjustments
 
@@ -58,7 +58,7 @@ Users should be able to:
 
 ### Mapping Table Structure:
 ```
-| QRAMM_Practice_ID | Framework_ID | Control_ID | Weight | Confidence | Notes |
+| QuantumGuard_Practice_ID | Framework_ID | Control_ID | Weight | Confidence | Notes |
 |-------------------|--------------|------------|--------|------------|-------|
 | CVI.1.1          | NIST_CSF_2.0 | ID.AM-2    | 85     | High       | ...   |
 | CVI.1.1          | ISO_27001    | A.8.1      | 80     | High       | ...   |
@@ -80,13 +80,13 @@ Users should be able to:
 - Compliance trend over time
 
 ### 2. Detailed Mapping View
-- See exactly which QRAMM practices map to which controls
+- See exactly which QuantumGuard practices map to which controls
 - Understand the rationale behind mappings
 - Adjust mappings based on organizational context
 
 ### 3. Gap Remediation
-- For each gap, show which QRAMM practices need improvement
-- Provide guidance on how improving QRAMM scores will impact compliance
+- For each gap, show which QuantumGuard practices need improvement
+- Provide guidance on how improving QuantumGuard scores will impact compliance
 - Priority ranking of gaps based on risk/importance
 
 ### 4. Reporting
@@ -104,7 +104,7 @@ Users should be able to:
 
 ## User Workflow
 
-1. Complete QRAMM assessment
+1. Complete QuantumGuard assessment
 2. Navigate to Compliance tab
 3. Select target framework(s)
 4. Review automated mapping and scores
@@ -118,7 +118,7 @@ Users should be able to:
 This tab answers critical questions:
 - "How does our quantum readiness translate to traditional compliance?"
 - "Which compliance gaps are addressed by improving quantum readiness?"
-- "Where do we need additional controls beyond QRAMM?"
+- "Where do we need additional controls beyond QuantumGuard?"
 - "How can we demonstrate quantum preparedness to auditors?"
 
-The Compliance tab transforms QRAMM from a specialized assessment into a bridge to existing compliance programs, making quantum readiness actionable within current governance structures.
+The Compliance tab transforms QuantumGuard from a specialized assessment into a bridge to existing compliance programs, making quantum readiness actionable within current governance structures.

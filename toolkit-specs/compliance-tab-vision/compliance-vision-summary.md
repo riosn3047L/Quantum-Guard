@@ -1,13 +1,13 @@
-# Compliance Tab Vision - Summary for Developer
+﻿# Compliance Tab Vision - Summary for Developer
 
 ## Core Purpose
-Transform the compliance mapping data from Document 4 (`4_QRAMM_Compliance_Mapping_Details.md`) into an interactive Excel interface that shows users how their QRAMM assessment scores translate to compliance with 8 federal/industry frameworks.
+Transform the compliance mapping data from Document 4 (`4_QuantumGuard_Compliance_Mapping_Details.md`) into an interactive Excel interface that shows users how their QuantumGuard assessment scores translate to compliance with 8 federal/industry frameworks.
 
 ## What We're Building (Using Existing Specs)
 
 ### 1. Data Source
 - **Already Provided**: Complete mapping table in Document 4
-- 120 QRAMM questions mapped to 8 frameworks
+- 120 QuantumGuard questions mapped to 8 frameworks
 - Weights from 0.0 to 1.0 for each mapping
 - All framework controls clearly identified
 
@@ -26,17 +26,17 @@ Transform the compliance mapping data from Document 4 (`4_QRAMM_Compliance_Mappi
 **What Users Need to See:**
 1. **Overall Compliance Score** - Single percentage for selected framework
 2. **Gap Analysis** - Which controls are not adequately covered
-3. **Improvement Roadmap** - Which QRAMM practices to improve for biggest compliance impact
+3. **Improvement Roadmap** - Which QuantumGuard practices to improve for biggest compliance impact
 4. **Coverage Visualization** - Progress bars or charts showing strength/weakness areas
 
 **How It Works:**
 ```
-User's QRAMM Score × Mapping Weight = Control Coverage
+User's QuantumGuard Score × Mapping Weight = Control Coverage
 Sum of all Control Coverages / Total Possible = Compliance %
 ```
 
 ### 4. User Workflow
-1. Complete QRAMM assessment (120 questions)
+1. Complete QuantumGuard assessment (120 questions)
 2. Go to Compliance tab
 3. Select a framework from dropdown
 4. View compliance score and gaps

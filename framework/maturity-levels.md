@@ -1,15 +1,15 @@
-# QRAMM Maturity Levels
+﻿# QuantumGuard Maturity Levels
 **Progressive Framework for Quantum Readiness Development**
 
 ## Overview
 
-The QRAMM maturity model provides a structured progression pathway for organizations developing quantum readiness capabilities. This five-level framework enables organizations to understand their current state, benchmark against industry standards, and plan systematic advancement toward quantum resilience.
+The QuantumGuard maturity model provides a structured progression pathway for organizations developing quantum readiness capabilities. This five-level framework enables organizations to understand their current state, benchmark against industry standards, and plan systematic advancement toward quantum resilience.
 
 ## Maturity Model Structure
 
 ### Five-Level Progression Framework
 
-The QRAMM maturity model uses a five-level structure that provides clear progression milestones and achievement targets:
+The QuantumGuard maturity model uses a five-level structure that provides clear progression milestones and achievement targets:
 
 1. **Level 1: Basic** - Initial awareness and ad-hoc practices
 2. **Level 2: Developing** - Structured approaches beginning to emerge  
@@ -19,7 +19,7 @@ The QRAMM maturity model uses a five-level structure that provides clear progres
 
 ### Maturity Level Characteristics
 
-Each level is characterized by specific capabilities, organizational attributes, and typical achievements that distinguish it from other levels. Organizations progress through these levels by developing increasingly sophisticated capabilities across all four QRAMM dimensions.
+Each level is characterized by specific capabilities, organizational attributes, and typical achievements that distinguish it from other levels. Organizations progress through these levels by developing increasingly sophisticated capabilities across all four QuantumGuard dimensions.
 
 ## Level 1: Basic (Score 1.0 - 1.4)
 
@@ -480,7 +480,7 @@ Each level is characterized by specific capabilities, organizational attributes,
 
 ## Conclusion
 
-The QRAMM maturity levels provide a structured framework for understanding and planning quantum readiness development. Through systematic progression from Basic to Optimizing levels, organizations can build the comprehensive capabilities necessary for quantum resilience while establishing competitive advantages in the quantum era.
+The QuantumGuard maturity levels provide a structured framework for understanding and planning quantum readiness development. Through systematic progression from Basic to Optimizing levels, organizations can build the comprehensive capabilities necessary for quantum resilience while establishing competitive advantages in the quantum era.
 
 **Key Success Principles:**
 - **Balanced Development**: Attention to all dimensions and practices
@@ -494,7 +494,7 @@ The QRAMM maturity levels provide a structured framework for understanding and p
 - **Risk Mitigation**: Reduced vulnerability to quantum computing threats
 - **Strategic Positioning**: Leadership position in quantum-safe transformation
 
-*The QRAMM maturity model transforms quantum readiness from an abstract goal into a concrete development program with clear milestones and measurable outcomes.*
+*The QuantumGuard maturity model transforms quantum readiness from an abstract goal into a concrete development program with clear milestones and measurable outcomes.*
 
 ---
 
@@ -502,4 +502,4 @@ The QRAMM maturity levels provide a structured framework for understanding and p
 **Last Updated**: May 30, 2025  
 **Authors**: Emily (Stamm) Fane, Abdel Sy Fane  
 **Organization**: CyberSecurity NonProfit (CSNP)  
-**Framework**: Quantum Readiness Assurance Maturity Model (QRAMM)
+**Framework**: Quantum Readiness Assurance Maturity Model (QuantumGuard)

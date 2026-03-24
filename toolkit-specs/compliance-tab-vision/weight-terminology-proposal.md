@@ -1,4 +1,4 @@
-# Compliance Mapping Terminology Improvement
+﻿# Compliance Mapping Terminology Improvement
 
 ## Problem
 "Weight" doesn't communicate what the number actually means - users won't understand that 0.8 means "strong alignment" vs 1.0 meaning "direct requirement"
@@ -6,15 +6,15 @@
 ## Proposed Alternative Terms
 
 ### Option 1: "Relevance Score"
-- More intuitive - immediately suggests "how relevant is this QRAMM practice to this control?"
+- More intuitive - immediately suggests "how relevant is this QuantumGuard practice to this control?"
 - Allows for the 0.0-1.0 scale to make sense
 
 ### Option 2: "Coverage Level"
-- Indicates how much the QRAMM practice "covers" the framework requirement
+- Indicates how much the QuantumGuard practice "covers" the framework requirement
 - Natural to understand that 1.0 = full coverage
 
 ### Option 3: "Alignment Rating"
-- Shows how well aligned the QRAMM practice is with the control
+- Shows how well aligned the QuantumGuard practice is with the control
 - Professional terminology that compliance officers understand
 
 ## Recommended Implementation
@@ -33,11 +33,11 @@ Include a visible legend on the Compliance tab:
 ```
 RELEVANCE SCORING KEY:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-1.0 = Direct Match     QRAMM practice directly satisfies this control
-0.8 = Strong Match     QRAMM practice substantially covers this control  
-0.6 = Moderate Match   QRAMM practice partially addresses this control
-0.4 = Related          QRAMM practice has indirect relevance
-0.2 = Minimal          QRAMM practice has slight connection
+1.0 = Direct Match     QuantumGuard practice directly satisfies this control
+0.8 = Strong Match     QuantumGuard practice substantially covers this control  
+0.6 = Moderate Match   QuantumGuard practice partially addresses this control
+0.4 = Related          QuantumGuard practice has indirect relevance
+0.2 = Minimal          QuantumGuard practice has slight connection
 0.0 = Not Applicable   No relationship between practice and control
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
@@ -54,15 +54,15 @@ Add visual cues alongside the numbers:
 When hovering over a relevance score, show examples:
 
 **1.0 Direct Match Example:**
-"Cryptographic Discovery (QRAMM) → Asset Inventory (NIST CSF)
+"Cryptographic Discovery (QuantumGuard) → Asset Inventory (NIST CSF)
 Both require identifying and cataloging cryptographic assets"
 
 **0.8 Strong Match Example:**
-"Cryptographic Discovery (QRAMM) → Access Control (CMMC)
+"Cryptographic Discovery (QuantumGuard) → Access Control (CMMC)
 Access control needs asset information, though it's not the primary focus"
 
 **0.6 Moderate Match Example:**
-"Quantum Threat Assessment (QRAMM) → Vulnerability Management (ISO)
+"Quantum Threat Assessment (QuantumGuard) → Vulnerability Management (ISO)
 ISO addresses vulnerabilities but doesn't specifically mention quantum threats"
 
 ## Benefits of This Approach
