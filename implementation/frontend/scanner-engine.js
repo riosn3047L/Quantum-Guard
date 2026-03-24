@@ -189,26 +189,8 @@ const Scanner = (function() {
   };
 
   // ═══════════════════════════════════════════════════════
-  // TLS CIPHER SUITE DATABASE
+  // CNSA 2.0 REQUIREMENTS
   // ═══════════════════════════════════════════════════════
-  const TLS_CIPHERS = {
-    // TLS 1.3 cipher suites (generally safe, key exchange is separate)
-    'TLS_AES_256_GCM_SHA384': { safe: true, pqc: false, strength: 'strong' },
-    'TLS_AES_128_GCM_SHA256': { safe: true, pqc: false, strength: 'acceptable' },
-    'TLS_CHACHA20_POLY1305_SHA256': { safe: true, pqc: false, strength: 'strong' },
-    // TLS 1.2 cipher suites with RSA/ECDHE (quantum-vulnerable key exchange)
-    'TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384': { safe: false, pqc: false, strength: 'acceptable', issue: 'ECDHE+RSA vulnerable to quantum' },
-    'TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256': { safe: false, pqc: false, strength: 'weak', issue: 'ECDHE+RSA vulnerable, AES-128 weak vs Grover' },
-    'TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384': { safe: false, pqc: false, strength: 'acceptable', issue: 'ECDHE+ECDSA vulnerable to quantum' },
-    'TLS_RSA_WITH_AES_256_GCM_SHA384': { safe: false, pqc: false, strength: 'weak', issue: 'RSA key exchange, no forward secrecy' },
-    'TLS_RSA_WITH_AES_128_CBC_SHA256': { safe: false, pqc: false, strength: 'weak', issue: 'RSA+CBC, multiple weaknesses' },
-    'TLS_RSA_WITH_3DES_EDE_CBC_SHA': { safe: false, pqc: false, strength: 'critical', issue: '3DES+RSA, Sweet32+quantum vulnerable' },
-    'TLS_RSA_WITH_RC4_128_SHA': { safe: false, pqc: false, strength: 'critical', issue: 'RC4 broken, must disable immediately' },
-    // PQC-hybrid suites
-    'TLS_KYBER768_AES_256_GCM_SHA384': { safe: true, pqc: true, strength: 'quantum-safe' },
-    'TLS_X25519_KYBER768_AES_256_GCM': { safe: true, pqc: true, strength: 'quantum-safe' },
-  };
-
   const CNSA2_REQUIREMENTS = {
     keyExchange: ['ML-KEM-768', 'ML-KEM-1024', 'Kyber-768', 'Kyber-1024'],
     signatures: ['ML-DSA-65', 'ML-DSA-87', 'SLH-DSA-SHA2-128s', 'SLH-DSA-SHA2-192s'],
@@ -217,6 +199,9 @@ const Scanner = (function() {
     tlsVersion: ['TLSv1.3'],
     forbidden: ['RSA', 'ECDSA', 'ECDH', 'DH', 'DSA', 'MD5', 'SHA-1', '3DES', 'RC4', 'DES']
   };
+
+  // SSLyze API backend URL (configurable)
+  const SSLYZE_API_URL = 'http://localhost:5000';
 
   // ═══════════════════════════════════════════════════════
   // 1. CRYPTOSCAN — Source Code Analysis
@@ -305,243 +290,140 @@ const Scanner = (function() {
   }
 
   // ═══════════════════════════════════════════════════════
-  // 2. TLS ANALYZER — Endpoint Inspection
+  // 2. TLS SCANNER — SSLyze-Powered Deep Analysis
   // ═══════════════════════════════════════════════════════
-  async function analyzeTLS(hostname) {
-    const results = {
-      hostname,
-      timestamp: new Date().toISOString(),
-      reachable: false,
-      https: false,
-      headers: {},
-      tlsInfo: null,
-      cipherFindings: [],
-      cnsa2Compliant: false,
-      score: 0,
-      recommendations: []
-    };
 
-    try {
-      // Normalize hostname
-      let url = hostname.trim();
-      if (!url.startsWith('http')) url = 'https://' + url;
-      const parsedUrl = new URL(url);
+  /**
+   * Run an SSLyze scan via the Python backend API.
+   * @param {string} hostname - Target hostname
+   * @param {number} port - Target port (default 443)
+   * @returns {Promise<object>} Parsed SSLyze results
+   */
+  async function scanWithSSLyze(hostname, port = 443) {
+    // Normalize hostname
+    let host = hostname.trim();
+    ['https://', 'http://'].forEach(prefix => {
+      if (host.startsWith(prefix)) host = host.slice(prefix.length);
+    });
+    host = host.split('/')[0];
 
-      const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), 10000);
+    const response = await fetch(`${SSLYZE_API_URL}/scan`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ hostname: host, port }),
+    });
 
-      let response = null;
-      let headersReadable = false;
-
-      // Try cors mode first to read security headers
-      try {
-        response = await fetch(url, {
-          method: 'GET',
-          mode: 'cors',
-          signal: controller.signal,
-          redirect: 'follow'
-        });
-        headersReadable = true;
-        results.reachable = true;
-        results.https = parsedUrl.protocol === 'https:';
-      } catch (corsErr) {
-        // CORS blocked — fallback to no-cors (opaque response)
-        try {
-          response = await fetch(url, {
-            method: 'HEAD',
-            mode: 'no-cors',
-            signal: controller.signal
-          });
-          results.reachable = true;
-          results.https = parsedUrl.protocol === 'https:';
-        } catch (noCorsErr) {
-          if (noCorsErr.name === 'AbortError') {
-            results.recommendations.push('❌ Connection timed out. Ensure the host is reachable.');
-          } else {
-            // Even failed no-cors fetches to HTTPS endpoints indicate reachability
-            results.reachable = true;
-            results.https = parsedUrl.protocol === 'https:';
-          }
-        }
-      }
-
-      clearTimeout(timeout);
-
-      // Read security headers if accessible
-      if (response && headersReadable) {
-        const secHeaders = ['strict-transport-security', 'content-security-policy',
-          'x-content-type-options', 'x-frame-options', 'x-xss-protection',
-          'referrer-policy', 'permissions-policy'];
-        secHeaders.forEach(h => {
-          const val = response.headers.get(h);
-          if (val) results.headers[h] = val;
-        });
-      }
-
-      // ── Score calculation ──
-      let score = 0;
-
-      // HTTPS check (30 points)
-      if (results.https) {
-        score += 30;
-        results.recommendations.push('✅ HTTPS enabled — encrypted connection established');
-      } else {
-        results.recommendations.push('❌ CRITICAL: No HTTPS. All traffic is in plaintext.');
-      }
-
-      // TLS version inference (20 points if HTTPS)
-      if (results.https && results.reachable) {
-        score += 20;
-        results.recommendations.push('✅ TLS 1.2+ active (inferred from successful HTTPS connection)');
-      }
-
-      // Security headers scoring
-      if (results.headers['strict-transport-security']) {
-        score += 15;
-        const maxAge = results.headers['strict-transport-security'].match(/max-age=(\d+)/);
-        const preload = results.headers['strict-transport-security'].includes('preload');
-        results.recommendations.push(`✅ HSTS enabled${maxAge ? ' (max-age=' + maxAge[1] + ')' : ''}${preload ? ' with preload' : ''}`);
-      } else if (headersReadable) {
-        results.recommendations.push('⚠️ Missing HSTS header. Add Strict-Transport-Security to enforce HTTPS.');
-      } else {
-        results.recommendations.push('⚠️ Cannot verify HSTS header (CORS restricted). Use OpenSSL paste for full analysis.');
-      }
-
-      if (results.headers['content-security-policy']) {
-        score += 10;
-        results.recommendations.push('✅ Content Security Policy configured');
-      } else if (headersReadable) {
-        results.recommendations.push('⚠️ Missing Content-Security-Policy header.');
-      }
-
-      if (results.headers['x-content-type-options']) {
-        score += 5;
-        results.recommendations.push('✅ X-Content-Type-Options: nosniff');
-      } else if (headersReadable) {
-        results.recommendations.push('⚠️ Missing X-Content-Type-Options header.');
-      }
-
-      if (results.headers['x-frame-options']) {
-        score += 5;
-        results.recommendations.push('✅ X-Frame-Options configured (clickjacking protection)');
-      } else if (headersReadable) {
-        results.recommendations.push('⚠️ Missing X-Frame-Options header.');
-      }
-
-      if (results.headers['referrer-policy']) {
-        score += 5;
-        results.recommendations.push('✅ Referrer-Policy configured');
-      }
-
-      if (results.headers['permissions-policy']) {
-        score += 5;
-        results.recommendations.push('✅ Permissions-Policy configured');
-      }
-
-      // If headers weren't readable, note the limitation
-      if (!headersReadable && results.reachable) {
-        results.recommendations.push('⚠️ Browser CORS policy prevented reading security headers. Paste OpenSSL output below for full cipher suite analysis.');
-      }
-
-      // Quantum-readiness assessment
-      results.recommendations.push('⚠️ Key exchange likely uses ECDHE (quantum-vulnerable). Verify with OpenSSL output or request ML-KEM hybrid support.');
-
-      results.tlsInfo = {
-        note: headersReadable ? 'Headers read via CORS. For full cipher analysis, paste openssl output.' : 'Browser-based scan: Limited to observable properties. Paste openssl output for full cipher suite analysis.',
-        protocol: results.https ? 'TLS 1.2+ (inferred)' : 'None',
-        headersReadable: headersReadable
-      };
-
-      results.score = Math.min(score, 100);
-
-    } catch (err) {
-      results.recommendations.push('❌ Error: ' + err.message);
+    if (!response.ok) {
+      const errData = await response.json().catch(() => ({}));
+      throw new Error(errData.error || `API error: ${response.status}`);
     }
 
-    return results;
+    return await response.json();
   }
 
-  // Parse openssl s_client output for detailed TLS analysis
-  function parseOpenSSLOutput(rawOutput) {
-    const findings = [];
-    const info = {
-      protocol: null,
-      cipher: null,
-      keyExchange: null,
-      certAlgorithm: null,
-      certKeySize: null,
+  /**
+   * Parse SSLyze results into a normalized structure for CBOM integration.
+   * @param {object} sslyzeData - Raw SSLyze API response
+   * @returns {object} Normalized TLS findings
+   */
+  function parseSSLyzeResults(sslyzeData) {
+    const parsed = {
+      hostname: sslyzeData.hostname,
+      port: sslyzeData.port,
+      timestamp: sslyzeData.timestamp,
+      score: sslyzeData.quantum_score || 0,
+      status: sslyzeData.status,
+      connectivity: sslyzeData.connectivity,
+      ip_address: sslyzeData.ip_address,
+      scan_duration: sslyzeData.scan_duration,
+
+      // Protocol support summary
+      protocols: {},
+      // All accepted cipher suites (flat list)
       cipherSuites: [],
-      issues: [],
-      safe: [],
-      score: 0,
-      cnsa2: { compliant: false, issues: [] }
+      // Certificate details
+      certificate: null,
+      // Vulnerabilities
+      vulnerabilities: sslyzeData.vulnerabilities || {},
+      // Elliptic curves
+      ellipticCurves: sslyzeData.elliptic_curves || {},
+      // Mozilla compliance
+      mozillaCompliance: sslyzeData.mozilla_compliance || null,
+      // Quantum assessment breakdown
+      quantumAssessment: sslyzeData.quantum_assessment || {},
+      // Recommendations
+      recommendations: sslyzeData.recommendations || [],
+      // Errors
+      errors: sslyzeData.errors || [],
     };
 
-    if (!rawOutput || rawOutput.trim().length < 10) return info;
+    // Flatten protocol support
+    const protoSupport = sslyzeData.protocol_support || {};
+    const protoNames = {
+      ssl_2_0: 'SSL 2.0', ssl_3_0: 'SSL 3.0',
+      tls_1_0: 'TLS 1.0', tls_1_1: 'TLS 1.1',
+      tls_1_2: 'TLS 1.2', tls_1_3: 'TLS 1.3',
+    };
 
-    // Extract protocol version
-    const protoMatch = rawOutput.match(/(?:Protocol\s*:\s*|New,\s*)(TLSv[\d.]+|SSLv[\d.]+)/i);
-    if (protoMatch) {
-      info.protocol = protoMatch[1];
-      if (info.protocol === 'TLSv1.3') {
-        info.score += 25;
-        info.safe.push('TLS 1.3 — best available protocol');
-      } else if (info.protocol === 'TLSv1.2') {
-        info.score += 15;
-        info.issues.push('TLS 1.2 — acceptable but TLS 1.3 preferred for PQC readiness');
-      } else {
-        info.issues.push(`${info.protocol} — OBSOLETE. Must upgrade to TLS 1.3`);
-      }
+    Object.entries(protoSupport).forEach(([key, data]) => {
+      parsed.protocols[protoNames[key] || key] = {
+        supported: data.supported,
+        cipherCount: (data.cipher_suites || []).length,
+        totalAttempted: data.total_attempted || 0,
+      };
+
+      // Collect cipher suites
+      (data.cipher_suites || []).forEach(cs => {
+        parsed.cipherSuites.push({
+          name: cs.name,
+          keySize: cs.key_size,
+          protocol: protoNames[key] || key,
+          keyExchange: cs.key_exchange || null,
+          // Determine quantum vulnerability
+          quantumVulnerable: _isCipherQuantumVulnerable(cs),
+        });
+      });
+    });
+
+    // Certificate
+    const certs = sslyzeData.certificate_info || [];
+    if (certs.length > 0) {
+      const cert = certs[0];
+      parsed.certificate = {
+        subject: cert.subject,
+        issuer: cert.issuer,
+        keyType: cert.key_type,
+        keySize: cert.key_size,
+        signatureAlgorithm: cert.signature_algorithm,
+        notBefore: cert.not_before,
+        notAfter: cert.not_after,
+        sanDnsNames: cert.san_dns_names || [],
+        chain: cert.chain || [],
+        trustStores: cert.trust_stores || {},
+        ocspStapling: cert.ocsp_stapling,
+        ocspMustStaple: cert.ocsp_must_staple,
+        quantumVulnerable: /RSA|EC|DSA/.test(cert.key_type || ''),
+      };
     }
 
-    // Extract cipher
-    const cipherMatch = rawOutput.match(/Cipher\s*(?::|is)\s*(\S+)/i);
-    if (cipherMatch) {
-      info.cipher = cipherMatch[1];
-      const known = TLS_CIPHERS[info.cipher];
-      if (known) {
-        if (known.pqc) { info.score += 30; info.safe.push(`${info.cipher} — PQC-hybrid cipher suite`); }
-        else if (known.safe) { info.score += 20; info.safe.push(`${info.cipher} — strong symmetric cipher`); }
-        else { info.issues.push(`${info.cipher} — ${known.issue}`); }
-      }
+    return parsed;
+  }
+
+  /**
+   * Determine if a cipher suite uses quantum-vulnerable key exchange.
+   */
+  function _isCipherQuantumVulnerable(cs) {
+    const name = (cs.name || '').toUpperCase();
+    // TLS 1.3 ciphers don't embed key exchange — inherits from handshake
+    if (name.startsWith('TLS_AES') || name.startsWith('TLS_CHACHA20')) {
+      // TLS 1.3 — key exchange is separate, typically ECDHE (quantum-vulnerable)
+      return true; // conservative: assume ECDHE unless ML-KEM detected
     }
-
-    // Extract key exchange
-    const kexMatch = rawOutput.match(/Server Temp Key:\s*(.+)/i);
-    if (kexMatch) {
-      info.keyExchange = kexMatch[1].trim();
-      if (/ECDH|X25519|P-256|P-384/i.test(info.keyExchange)) {
-        info.issues.push(`Key Exchange: ${info.keyExchange} — QUANTUM VULNERABLE. Migrate to ML-KEM`);
-        info.cnsa2.issues.push('Key exchange uses ECC — not CNSA 2.0 compliant');
-      } else if (/Kyber|ML-KEM/i.test(info.keyExchange)) {
-        info.score += 25;
-        info.safe.push(`Key Exchange: ${info.keyExchange} — QUANTUM SAFE`);
-      }
-    }
-
-    // Extract certificate info
-    const certMatch = rawOutput.match(/Peer signing digest:\s*(\S+)/i);
-    if (certMatch) info.certAlgorithm = certMatch[1];
-
-    const keySizeMatch = rawOutput.match(/Server public key is\s*(\d+)\s*bit/i);
-    if (keySizeMatch) {
-      info.certKeySize = parseInt(keySizeMatch[1]);
-      if (info.certKeySize < 2048) info.issues.push(`Certificate key size ${info.certKeySize} bits — TOO WEAK`);
-    }
-
-    // Parse cipher suite list
-    const suiteMatches = rawOutput.match(/(?:0x[0-9A-F,]+\s*-\s*)?(TLS_\S+)/gi);
-    if (suiteMatches) {
-      info.cipherSuites = [...new Set(suiteMatches.map(s => s.replace(/0x[0-9A-F,]+\s*-\s*/i, '').trim()))];
-    }
-
-    // CNSA 2.0 compliance check
-    info.cnsa2.compliant = info.score >= 60 && info.cnsa2.issues.length === 0;
-
-    // Ensure minimum score
-    info.score = Math.min(Math.max(info.score, 0), 100);
-
-    return info;
+    // Explicit quantum-vulnerable key exchange in cipher name
+    if (/ECDHE|ECDH|RSA|DHE|DH/.test(name)) return true;
+    // PQC key exchange
+    if (/KYBER|ML.KEM/.test(name)) return false;
+    return true; // default conservative
   }
 
   // ═══════════════════════════════════════════════════════
@@ -689,19 +571,41 @@ const Scanner = (function() {
       });
     }
 
-    // Add TLS findings
+    // Add TLS findings from SSLyze scan
     if (tlsResults && tlsResults.hostname) {
-      cbom.assets.push({
-        type: 'tls-endpoint',
-        location: tlsResults.hostname,
-        algorithm: tlsResults.tlsInfo?.cipher || 'Unknown',
-        algorithmType: 'protocol',
-        keySize: null,
-        quantumSafe: tlsResults.score >= 70,
-        severity: tlsResults.score >= 70 ? 'safe' : tlsResults.score >= 40 ? 'warning' : 'critical',
-        recommendation: tlsResults.recommendations?.join('; ') || '',
-        pqcAlternative: 'TLS 1.3 with ML-KEM hybrid key exchange'
-      });
+      // Add each cipher suite as a CBOM asset
+      const cipherSuites = tlsResults.cipherSuites || [];
+      if (cipherSuites.length > 0) {
+        cipherSuites.forEach(cs => {
+          cbom.assets.push({
+            type: 'tls-cipher',
+            location: `${tlsResults.hostname}:${tlsResults.port || 443} (${cs.protocol})`,
+            algorithm: cs.name,
+            algorithmType: 'cipher-suite',
+            keySize: cs.keySize,
+            quantumSafe: !cs.quantumVulnerable,
+            severity: cs.quantumVulnerable ? 'warning' : 'safe',
+            recommendation: cs.quantumVulnerable ? 'Migrate to PQC-hybrid cipher suite' : 'Quantum-safe cipher',
+            pqcAlternative: cs.quantumVulnerable ? 'TLS 1.3 with ML-KEM hybrid key exchange' : 'N/A'
+          });
+        });
+      }
+
+      // Add certificate as CBOM asset
+      if (tlsResults.certificate) {
+        const cert = tlsResults.certificate;
+        cbom.assets.push({
+          type: 'tls-certificate',
+          location: `${tlsResults.hostname}:${tlsResults.port || 443}`,
+          algorithm: `${cert.keyType} (${cert.keySize || '?'}-bit)`,
+          algorithmType: 'certificate',
+          keySize: cert.keySize,
+          quantumSafe: !cert.quantumVulnerable,
+          severity: cert.quantumVulnerable ? 'critical' : 'safe',
+          recommendation: cert.quantumVulnerable ? `${cert.keyType} certificate is quantum-vulnerable` : 'PQC certificate',
+          pqcAlternative: cert.quantumVulnerable ? 'ML-DSA (FIPS 204) / SLH-DSA (FIPS 205)' : 'N/A'
+        });
+      }
     }
 
     // Add dependency findings
@@ -767,10 +671,10 @@ const Scanner = (function() {
     VULN_PATTERNS,
     SAFE_PATTERNS,
 
-    // TLS Analyzer
-    analyzeTLS,
-    parseOpenSSLOutput,
-    TLS_CIPHERS,
+    // TLS Scanner (SSLyze)
+    scanWithSSLyze,
+    parseSSLyzeResults,
+    SSLYZE_API_URL,
     CNSA2_REQUIREMENTS,
 
     // CryptoDeps
