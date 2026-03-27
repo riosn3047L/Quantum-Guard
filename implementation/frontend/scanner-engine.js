@@ -200,8 +200,8 @@ const Scanner = (function() {
     forbidden: ['RSA', 'ECDSA', 'ECDH', 'DH', 'DSA', 'MD5', 'SHA-1', '3DES', 'RC4', 'DES']
   };
 
-  // SSLyze API backend URL (configurable)
-  const SSLYZE_API_URL = 'http://localhost:5000';
+  // SSLyze API backend URL — Firebase Hosting rewrites /api/** to the Cloud Function
+  const SSLYZE_API_URL = window.location.origin + '/api';
 
   // ═══════════════════════════════════════════════════════
   // 1. CRYPTOSCAN — Source Code Analysis
@@ -685,6 +685,32 @@ const Scanner = (function() {
     generateCBOM,
     getPQCLabel,
     getPQCLabelDetails,
+
+    // AI Advisor
+    async callChatAdvisor(message, reportContext, history, onChunk) {
+      try {
+        const response = await fetch(`${SSLYZE_API_URL}/chat`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message, reportContext, history })
+        });
+
+        if (!response.ok) throw new Error('Failed to connect to AI Advisor');
+
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder();
+        let done = false;
+
+        while (!done) {
+          const { value, done: readerDone } = await reader.read();
+          done = readerDone;
+          const chunk = decoder.decode(value, { stream: true });
+          if (chunk) onChunk(chunk);
+        }
+      } catch (err) {
+        onChunk(`\n\n**Error:** ${err.message}`);
+      }
+    }
   };
 })();
 

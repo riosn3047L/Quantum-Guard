@@ -60,7 +60,7 @@ def call_gemini_stream(payload):
         yield "[ERROR] GEMINI_API_KEY environment variable is not set on the server."
         return
 
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse&key={api_key}"
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:streamGenerateContent?alt=sse&key={api_key}"
     headers = {'Content-Type': 'application/json'}
 
     print(f"[ChatAdvisor] Calling Gemini API...")
@@ -106,8 +106,14 @@ def call_gemini_stream(payload):
         yield "\n\n**Error:** The AI took too long to respond. Please try a shorter question."
     except requests.exceptions.HTTPError as e:
         error_body = e.response.text if e.response else "No response body"
-        print(f"[ChatAdvisor] HTTP ERROR {e.response.status_code}: {error_body[:500]}")
-        yield f"\n\n**API Error ({e.response.status_code}):** {error_body[:200]}"
+        print(f"[ChatAdvisor] HTTP ERROR {e.response.status_code}: {error_body}")
+        # Try to parse the error message if it's JSON
+        try:
+            err_json = e.response.json()
+            err_msg = err_json.get('error', {}).get('message', error_body)
+            yield f"\n\n**API Error ({e.response.status_code}):** {err_msg[:500]}"
+        except:
+            yield f"\n\n**API Error ({e.response.status_code}):** {error_body[:200]}"
     except requests.exceptions.ConnectionError:
         print("[ChatAdvisor] ERROR: Could not connect to Gemini API.")
         yield "\n\n**Error:** Could not connect to the AI service. Check your internet connection."

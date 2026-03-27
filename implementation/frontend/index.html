@@ -89,6 +89,7 @@
 <a class="text-[#D6E3FF]/70 hover:text-[#D6E3FF] transition-colors" href="results.html">Results</a>
 <a class="text-[#D6E3FF]/70 hover:text-[#D6E3FF] transition-colors" href="compliance.html">Compliance</a>
 <a class="text-[#D6E3FF]/70 hover:text-[#D6E3FF] transition-colors" href="tools.html">Tools</a>
+<a class="text-[#D6E3FF]/70 hover:text-[#D6E3FF] transition-colors" href="leaderboard.html">Leaderboard</a>
 <a class="text-[#D6E3FF]/70 hover:text-[#D6E3FF] transition-colors" href="docs.html">Docs</a>
 </div>
 <div class="flex items-center gap-4">
@@ -132,6 +133,13 @@
 <a href="comprehensive-assessment.html" class="px-8 py-4 glass-card border border-outline-variant/20 text-on-surface font-bold text-lg rounded-xl transition-all hover:bg-surface-container-highest active:scale-95">
                         Start Comprehensive Assessment
                     </a>
+</div>
+<div id="resumeBanner" class="hidden mb-12 p-4 rounded-xl bg-primary-container/10 border border-primary-container/20 text-center">
+<p class="text-sm text-on-surface mb-2">You have saved assessment progress.</p>
+<div class="flex gap-4 justify-center">
+<a href="quick-assessment.html" class="text-sm font-bold text-primary hover:underline">Resume Assessment</a>
+<button onclick="startFresh()" class="text-sm font-bold text-error hover:underline">Start Fresh</button>
+</div>
 </div>
 <!-- Quantum Threat Timeline -->
 <div class="w-full max-w-4xl mx-auto">
@@ -339,4 +347,21 @@
             </div>
 </div>
 </footer>
+<script>
+// Check for saved assessment progress
+(function() {
+  try {
+    var quickAnswers = JSON.parse(localStorage.getItem('qg_quick_answers') || '{}');
+    var compAnswers = JSON.parse(localStorage.getItem('qg_comprehensive_answers') || '{}');
+    if (Object.keys(quickAnswers).length > 0 || Object.keys(compAnswers).length > 0) {
+      document.getElementById('resumeBanner').classList.remove('hidden');
+    }
+  } catch(e) {}
+})();
+
+function startFresh() {
+  Object.keys(localStorage).filter(function(k) { return k.startsWith('qg_'); }).forEach(function(k) { localStorage.removeItem(k); });
+  window.location.href = 'quick-assessment.html';
+}
+</script>
 </body></html>

@@ -1,4 +1,4 @@
-// QuantumGuard Data Layer — Auto-generated from framework/full-assessment.md
+﻿// QuantumGuard Data Layer — Auto-generated from framework/full-assessment.md
 // Contains all 120 assessment questions, dimensions, practices, org profile fields, and compliance mappings.
 
 const QG = {};
@@ -689,7 +689,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Novel approaches to quantum vendor risk management are developed, shared, and adopted across industries or standards bodies" }
     ]
   },
-  { id: 61, dimension: 'DPE', practice: '2.3', stream: 'B',
+  { id: 61, dimension: 'DPE', practice: '3.1', stream: 'B',
     question: "How does your organization identify data requiring quantum-resistant protection?",
     options: [
     { score: 1, label: 'Basic', text: "No data identification process exists" },
@@ -698,7 +698,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Automated discovery and classification with integrated quantum risk scoring" }
     ]
   },
-  { id: 62, dimension: 'DPE', practice: '2.3', stream: 'B',
+  { id: 62, dimension: 'DPE', practice: '3.1', stream: 'B',
     question: "How does your organization classify data based on quantum risk?",
     options: [
     { score: 1, label: 'Basic', text: "No classification system exists" },
@@ -707,7 +707,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Automated classification system with integrated quantum risk scoring and exposure modeling" }
     ]
   },
-  { id: 63, dimension: 'DPE', practice: '2.3', stream: 'B',
+  { id: 63, dimension: 'DPE', practice: '3.1', stream: 'B',
     question: "How does your organization implement quantum-resistant controls?",
     options: [
     { score: 1, label: 'Basic', text: "No specific controls implemented" },
@@ -716,7 +716,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Automated enforcement of quantum-resistant controls across all data states with continuous validation" }
     ]
   },
-  { id: 64, dimension: 'DPE', practice: '2.3', stream: 'B',
+  { id: 64, dimension: 'DPE', practice: '3.1', stream: 'B',
     question: "How does your organization validate protection controls?",
     options: [
     { score: 1, label: 'Basic', text: "No validation process exists" },
@@ -725,7 +725,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Continuous automated validation integrated with control monitoring and quantum-aware threat modeling" }
     ]
   },
-  { id: 65, dimension: 'DPE', practice: '2.3', stream: 'B',
+  { id: 65, dimension: 'DPE', practice: '3.1', stream: 'B',
     question: "How does your organization tailor data protection requirements for constrained or specialized environments?",
     options: [
     { score: 1, label: 'Basic', text: "No distinction is made for environment-specific protection needs" },
@@ -734,7 +734,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Centralized policy engine that enforces environment-aware protection requirements and supports automated updates" }
     ]
   },
-  { id: 66, dimension: 'DPE', practice: '2.3', stream: 'B',
+  { id: 66, dimension: 'DPE', practice: '3.1', stream: 'B',
     question: "How does your organization define protection strategies based on data lifecycle and retention needs?",
     options: [
     { score: 1, label: 'Basic', text: "No strategy exists to align protection with data lifecycle or retention needs" },
@@ -743,7 +743,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Lifecycle-driven protection strategies with automated tagging, enforcement, and retirement policies" }
     ]
   },
-  { id: 67, dimension: 'DPE', practice: '2.3', stream: 'B',
+  { id: 67, dimension: 'DPE', practice: '3.1', stream: 'B',
     question: "How does your organization define protection strategies for unstructured or semi-structured data?",
     options: [
     { score: 1, label: 'Basic', text: "No strategy exists for protecting unstructured or semi-structured data" },
@@ -752,7 +752,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Quantum-risk-aware tools and policies are applied to unstructured data discovery, tagging, and control enforcement" }
     ]
   },
-  { id: 68, dimension: 'DPE', practice: '2.3', stream: 'B',
+  { id: 68, dimension: 'DPE', practice: '3.1', stream: 'B',
     question: "How does your organization measure the effectiveness of data protection controls?",
     options: [
     { score: 1, label: 'Basic', text: "No measurement process exists for protection control effectiveness" },
@@ -761,7 +761,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Automated effectiveness monitoring with analytics to identify protection gaps, misalignments, and future risks" }
     ]
   },
-  { id: 69, dimension: 'DPE', practice: '2.3', stream: 'B',
+  { id: 69, dimension: 'DPE', practice: '3.1', stream: 'B',
     question: "How does your organization identify opportunities to improve data protection controls?",
     options: [
     { score: 1, label: 'Basic', text: "No process exists for identifying improvements to protection controls" },
@@ -770,7 +770,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Automated tools and analytics continuously identify protection improvement opportunities based on risk, performance, and cryptographic readiness" }
     ]
   },
-  { id: 70, dimension: 'DPE', practice: '2.3', stream: 'B',
+  { id: 70, dimension: 'DPE', practice: '3.1', stream: 'B',
     question: "How does your organization assess the performance of data protection controls?",
     options: [
     { score: 1, label: 'Basic', text: "No performance testing or monitoring of data protection controls exists" },
@@ -779,7 +779,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Ongoing performance monitoring and benchmarking inform protection control tuning, design decisions, and trade-offs" }
     ]
   },
-  { id: 71, dimension: 'DPE', practice: '2.3', stream: 'B',
+  { id: 71, dimension: 'DPE', practice: '3.2', stream: 'B',
     question: "How does your organization ensure that symmetric encryption for sensitive stored data is secure against quantum algorithms?",
     options: [
     { score: 1, label: 'Basic', text: "No symmetric encryption controls are implemented for stored data" },
@@ -788,7 +788,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Symmetric encryption controls are enforced through automated policies with built-in cryptographic agility for key size updates and algorithm evolution" }
     ]
   },
-  { id: 72, dimension: 'DPE', practice: '2.3', stream: 'B',
+  { id: 72, dimension: 'DPE', practice: '3.2', stream: 'B',
     question: "How does your organization manage encryption keys for stored data in an agile manner?",
     options: [
     { score: 1, label: 'Basic', text: "No formal key management process exists for stored data" },
@@ -797,7 +797,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Automated key lifecycle management is implemented with cryptographic agility for key formats, wrapping, and dynamic upgrades" }
     ]
   },
-  { id: 73, dimension: 'DPE', practice: '2.3', stream: 'B',
+  { id: 73, dimension: 'DPE', practice: '3.2', stream: 'B',
     question: "How does your organization ensure strong, adaptable protection and recoverability for backup and archived data?",
     options: [
     { score: 1, label: 'Basic', text: "No cryptographic protections are applied to backup or archived data" },
@@ -806,7 +806,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Backup systems enforce encryption and key lifecycle policies that support long-term recoverability and cryptographic adaptability" }
     ]
   },
-  { id: 74, dimension: 'DPE', practice: '2.3', stream: 'B',
+  { id: 74, dimension: 'DPE', practice: '3.2', stream: 'B',
     question: "How does your organization ensure long-term cryptographic integrity of stored and archived data?",
     options: [
     { score: 1, label: 'Basic', text: "No integrity protections are applied to stored or archived data" },
@@ -815,7 +815,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Integrity mechanisms are paired with time-stamping or re-signing strategies and support upgrades as cryptographic standards evolve" }
     ]
   },
-  { id: 75, dimension: 'DPE', practice: '2.3', stream: 'B',
+  { id: 75, dimension: 'DPE', practice: '3.2', stream: 'B',
     question: "How does your organization test whether storage encryption and key management controls are strong enough for long-term resilience, including future quantum threats?",
     options: [
     { score: 1, label: 'Basic', text: "No validation process exists for storage cryptographic protections" },
@@ -824,7 +824,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Automated validation processes continuously assess storage protections and flag deviations from quantum-resilient standards" }
     ]
   },
-  { id: 76, dimension: 'DPE', practice: '2.3', stream: 'B',
+  { id: 76, dimension: 'DPE', practice: '3.2', stream: 'B',
     question: "How is your organization’s storage security strategy designed to support long-term data protection and resilience?",
     options: [
     { score: 1, label: 'Basic', text: "No strategic storage protection planning is in place" },
@@ -833,7 +833,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Storage protection strategy integrates retention-aware encryption, cryptographic lifecycle planning, and agility across storage environments" }
     ]
   },
-  { id: 77, dimension: 'DPE', practice: '2.3', stream: 'B',
+  { id: 77, dimension: 'DPE', practice: '3.2', stream: 'B',
     question: "How does your organization assess the upgrade and cryptographic support constraints of storage systems?",
     options: [
     { score: 1, label: 'Basic', text: "No assessment of storage system compatibility with encryption requirements exists" },
@@ -842,7 +842,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Cryptographic support and upgrade limitations are routinely evaluated and integrated into refresh planning, procurement, and protection strategies" }
     ]
   },
-  { id: 78, dimension: 'DPE', practice: '2.3', stream: 'B',
+  { id: 78, dimension: 'DPE', practice: '3.2', stream: 'B',
     question: "How does your organization measure the effectiveness of encryption and key management controls used to protect stored data?",
     options: [
     { score: 1, label: 'Basic', text: "No measurement process exists for evaluating storage security controls" },
@@ -851,7 +851,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Effectiveness metrics are integrated into ongoing review processes and used to adjust protections based on control performance, risk, and cryptographic evolution" }
     ]
   },
-  { id: 79, dimension: 'DPE', practice: '2.3', stream: 'B',
+  { id: 79, dimension: 'DPE', practice: '3.2', stream: 'B',
     question: "How does your organization identify opportunities to improve the security of encryption and key management for stored data?",
     options: [
     { score: 1, label: 'Basic', text: "No process exists for identifying improvements to storage encryption or key management" },
@@ -860,7 +860,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Improvement opportunities are identified based on control validation results, monitoring data, and anticipated shifts in cryptographic or operational requirements" }
     ]
   },
-  { id: 80, dimension: 'DPE', practice: '2.3', stream: 'B',
+  { id: 80, dimension: 'DPE', practice: '3.2', stream: 'B',
     question: "How does your organization enhance its storage encryption and key management capabilities over time?",
     options: [
     { score: 1, label: 'Basic', text: "No structured enhancement of storage security capabilities is performed" },
@@ -869,7 +869,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Storage security capabilities are continuously improved through structured planning, periodic reviews, and targeted adoption of features aligned with evolving data protection needs" }
     ]
   },
-  { id: 81, dimension: 'DPE', practice: '2.3', stream: 'B',
+  { id: 81, dimension: 'DPE', practice: '3.3', stream: 'B',
     question: "How does your organization implement cryptographic protections within data-in-transit protocols?",
     options: [
     { score: 1, label: 'Basic', text: "No cryptographic protections are applied to data in transit" },
@@ -878,7 +878,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Cryptographic protections are consistently applied and validated across protocols, with automated configuration enforcement and cryptographic agility support" }
     ]
   },
-  { id: 82, dimension: 'DPE', practice: '2.3', stream: 'B',
+  { id: 82, dimension: 'DPE', practice: '3.3', stream: 'B',
     question: "How does your organization manage secure communication protocols?",
     options: [
     { score: 1, label: 'Basic', text: "No protocol management exists" },
@@ -887,7 +887,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Protocol configurations are centrally managed and continuously enforced using automation and monitoring tools" }
     ]
   },
-  { id: 83, dimension: 'DPE', practice: '2.3', stream: 'B',
+  { id: 83, dimension: 'DPE', practice: '3.3', stream: 'B',
     question: "How does your organization ensure trusted identity and authentication in secure network communications?",
     options: [
     { score: 1, label: 'Basic', text: "No authentication or identity validation is used in network communications" },
@@ -896,7 +896,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Authentication and trust models are centrally managed with automated issuance, validation, and revocation across the network environment" }
     ]
   },
-  { id: 84, dimension: 'DPE', practice: '2.3', stream: 'B',
+  { id: 84, dimension: 'DPE', practice: '3.3', stream: 'B',
     question: "How does your organization enforce minimum cryptographic standards to prevent downgrade attacks in data-in-transit protocols?",
     options: [
     { score: 1, label: 'Basic', text: "No controls exist to prevent the use of insecure or deprecated protocols" },
@@ -905,7 +905,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Centralized controls and monitoring systems detect and block protocol downgrade behavior with real-time enforcement and analytics" }
     ]
   },
-  { id: 85, dimension: 'DPE', practice: '2.3', stream: 'B',
+  { id: 85, dimension: 'DPE', practice: '3.3', stream: 'B',
     question: "How does your organization validate the effectiveness of cryptographic protections used in transit protocols?",
     options: [
     { score: 1, label: 'Basic', text: "No validation process exists for cryptographic protections in transit protocols" },
@@ -914,7 +914,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Transit security validations are automated, integrated into system testing, and continuously updated to reflect evolving cryptographic requirements" }
     ]
   },
-  { id: 86, dimension: 'DPE', practice: '2.3', stream: 'B',
+  { id: 86, dimension: 'DPE', practice: '3.3', stream: 'B',
     question: "How does your organization define its approach to protecting data in transit?",
     options: [
     { score: 1, label: 'Basic', text: "No defined approach or documentation exists for securing data in transit" },
@@ -923,7 +923,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "The transit security approach is updated based on evolving requirements, technical assessments, and integration with broader security planning" }
     ]
   },
-  { id: 87, dimension: 'DPE', practice: '2.3', stream: 'B',
+  { id: 87, dimension: 'DPE', practice: '3.3', stream: 'B',
     question: "How does your organization prioritize communication channels for enhanced cryptographic protection?",
     options: [
     { score: 1, label: 'Basic', text: "No prioritization process exists for securing communication channels" },
@@ -932,7 +932,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Multi-factor prioritization model is used to guide deployment of transit protections based on real-time risk, value, and system context" }
     ]
   },
-  { id: 88, dimension: 'DPE', practice: '2.3', stream: 'B',
+  { id: 88, dimension: 'DPE', practice: '3.3', stream: 'B',
     question: "How does your organization manage and validate trust anchors for secure communication protocols?",
     options: [
     { score: 1, label: 'Basic', text: "Trust anchors and certificate validation are not actively managed" },
@@ -941,7 +941,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Certificate and trust anchor management is automated, regularly audited, and integrated with real-time revocation and alerting mechanisms" }
     ]
   },
-  { id: 89, dimension: 'DPE', practice: '2.3', stream: 'B',
+  { id: 89, dimension: 'DPE', practice: '3.3', stream: 'B',
     question: "How does your organization assess and enforce cryptographic protections in third-party or externally managed communication channels?",
     options: [
     { score: 1, label: 'Basic', text: "No visibility or validation of cryptographic protections for third-party or vendor-managed communication paths" },
@@ -950,7 +950,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "External communication protections are continuously monitored, tested, and governed through security SLAs, audits, and automated trust enforcement" }
     ]
   },
-  { id: 90, dimension: 'DPE', practice: '2.3', stream: 'B',
+  { id: 90, dimension: 'DPE', practice: '3.3', stream: 'B',
     question: "How does your organization plan for interoperability and backward compatibility during cryptographic transitions in transit protocols?",
     options: [
     { score: 1, label: 'Basic', text: "No consideration is given to interoperability during cryptographic upgrades" },
@@ -959,7 +959,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Cryptographic transitions are guided by interoperability testing, staged rollouts, and automated fallback strategies" }
     ]
   },
-  { id: 91, dimension: 'ITR', practice: '2.3', stream: 'B',
+  { id: 91, dimension: 'ITR', practice: '4.1', stream: 'B',
     question: "How does your organization assess the cryptographic agility and quantum readiness of its technical infrastructure?",
     options: [
     { score: 1, label: 'Basic', text: "No infrastructure assessment is performed for cryptographic agility or quantum readiness" },
@@ -968,7 +968,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Continuously updated assessment program identifies cryptographic limitations and supports agile, standards-aligned transition planning" }
     ]
   },
-  { id: 92, dimension: 'ITR', practice: '2.3', stream: 'B',
+  { id: 92, dimension: 'ITR', practice: '4.1', stream: 'B',
     question: "How does your organization plan infrastructure upgrades to support cryptographic agility and quantum readiness?",
     options: [
     { score: 1, label: 'Basic', text: "No planning exists to support cryptographic upgrades or agility" },
@@ -977,7 +977,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Comprehensive infrastructure upgrade program incorporates algorithm agility, resource alignment, and coordinated rollout scenarios" }
     ]
   },
-  { id: 93, dimension: 'ITR', practice: '2.3', stream: 'B',
+  { id: 93, dimension: 'ITR', practice: '4.1', stream: 'B',
     question: "How does your organization evaluate cryptographic hardware readiness for quantum-era requirements?",
     options: [
     { score: 1, label: 'Basic', text: "No evaluation of cryptographic hardware readiness is performed" },
@@ -986,7 +986,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Comprehensive evaluation integrates vendor capability tracking, firmware upgrade planning, and fallback scenarios into system architecture and procurement" }
     ]
   },
-  { id: 94, dimension: 'ITR', practice: '2.3', stream: 'B',
+  { id: 94, dimension: 'ITR', practice: '4.1', stream: 'B',
     question: "How does your organization identify and address cryptographic upgrade blockers in legacy or third-party systems?",
     options: [
     { score: 1, label: 'Basic', text: "No process exists to identify or manage upgrade blockers across systems" },
@@ -995,7 +995,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Upgrade blockers are continuously monitored and integrated into system lifecycle management, procurement, and roadmap planning" }
     ]
   },
-  { id: 95, dimension: 'ITR', practice: '2.3', stream: 'B',
+  { id: 95, dimension: 'ITR', practice: '4.1', stream: 'B',
     question: "How does your organization incorporate cryptographic agility requirements into system and software design processes?",
     options: [
     { score: 1, label: 'Basic', text: "Cryptographic design flexibility is not considered in system or software planning" },
@@ -1004,7 +1004,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Cryptographic agility requirements are embedded into architecture templates, design reviews, and development frameworks across all systems" }
     ]
   },
-  { id: 96, dimension: 'ITR', practice: '2.3', stream: 'B',
+  { id: 96, dimension: 'ITR', practice: '4.1', stream: 'B',
     question: "How does your organization plan for cryptographic upgrade sequencing and dependency management?",
     options: [
     { score: 1, label: 'Basic', text: "No planning is done to manage dependencies or sequence cryptographic upgrades" },
@@ -1013,7 +1013,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Cryptographic upgrade sequencing is driven by modeling tools, dependency maps, and coordination with internal and external stakeholders" }
     ]
   },
-  { id: 97, dimension: 'ITR', practice: '2.3', stream: 'B',
+  { id: 97, dimension: 'ITR', practice: '4.1', stream: 'B',
     question: "How does your organization provide technical environments and tooling to support cryptographic transition planning and implementation?",
     options: [
     { score: 1, label: 'Basic', text: "No dedicated environments or tools exist for cryptographic testing or transition simulation" },
@@ -1022,7 +1022,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Standardized cryptographic test environments are available on demand, with automated test harnesses, toolchains, and CI/CD integrations for crypto transitions" }
     ]
   },
-  { id: 98, dimension: 'ITR', practice: '2.3', stream: 'B',
+  { id: 98, dimension: 'ITR', practice: '4.1', stream: 'B',
     question: "How does your organization embed cryptographic agility into system architecture design?",
     options: [
     { score: 1, label: 'Basic', text: "Cryptographic flexibility is not considered in architectural design decisions" },
@@ -1031,7 +1031,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Cryptographic agility is a core architectural principle, enforced through design reviews, templates, and automated architecture validation" }
     ]
   },
-  { id: 99, dimension: 'ITR', practice: '2.3', stream: 'B',
+  { id: 99, dimension: 'ITR', practice: '4.1', stream: 'B',
     question: "How does your organization define and measure technical milestones for cryptographic transitions?",
     options: [
     { score: 1, label: 'Basic', text: "No technical milestones are defined for cryptographic transition" },
@@ -1040,7 +1040,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Cryptographic transition milestones are managed through integrated dashboards with risk-weighted timelines and system-level dependencies" }
     ]
   },
-  { id: 100, dimension: 'ITR', practice: '2.3', stream: 'B',
+  { id: 100, dimension: 'ITR', practice: '4.1', stream: 'B',
     question: "How does your organization contribute to the development and advancement of technical standards for cryptographic agility and quantum-resistant implementations?",
     options: [
     { score: 1, label: 'Basic', text: "No engagement with cryptographic standards related to agility or quantum resistance" },
@@ -1049,7 +1049,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Leadership role in shaping cryptographic agility or PQC transition standards, including development of reference implementations, testing frameworks, or interoperability models" }
     ]
   },
-  { id: 101, dimension: 'ITR', practice: '2.3', stream: 'B',
+  { id: 101, dimension: 'ITR', practice: '4.2', stream: 'B',
     question: "How does your organization define the technical capabilities required to support quantum-resistant implementation?",
     options: [
     { score: 1, label: 'Basic', text: "No capability requirements have been defined for quantum or cryptographic transitions" },
@@ -1058,7 +1058,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Capability requirements are embedded into workforce development, procurement, and delivery planning, with ongoing tracking and refinement" }
     ]
   },
-  { id: 102, dimension: 'ITR', practice: '2.3', stream: 'B',
+  { id: 102, dimension: 'ITR', practice: '4.2', stream: 'B',
     question: "How does your organization allocate and protect specialized resources for cryptographic implementation and transition efforts?",
     options: [
     { score: 1, label: 'Basic', text: "No specific resources are allocated for cryptographic implementation or agility-related work" },
@@ -1067,7 +1067,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Resource prioritization for cryptographic implementation is embedded in strategic planning, with protected capacity across teams, secure environments, and dedicated tooling" }
     ]
   },
-  { id: 103, dimension: 'ITR', practice: '2.3', stream: 'B',
+  { id: 103, dimension: 'ITR', practice: '4.2', stream: 'B',
     question: "How does your organization ensure the quality and correctness of cryptographic implementations?",
     options: [
     { score: 1, label: 'Basic', text: "No quality assurance processes are applied to cryptographic implementations" },
@@ -1076,7 +1076,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Cryptographic quality is continuously monitored and verified through automated analysis, misuse detection, and secure implementation tooling" }
     ]
   },
-  { id: 104, dimension: 'ITR', practice: '2.3', stream: 'B',
+  { id: 104, dimension: 'ITR', practice: '4.2', stream: 'B',
     question: "How does your organization monitor the operational impact of cryptographic implementations after deployment?",
     options: [
     { score: 1, label: 'Basic', text: "No monitoring is performed after cryptographic changes are deployed" },
@@ -1085,7 +1085,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Cryptographic implementation impact is continuously tracked using telemetry, with proactive tuning and adaptive rollout strategies" }
     ]
   },
-  { id: 105, dimension: 'ITR', practice: '2.3', stream: 'B',
+  { id: 105, dimension: 'ITR', practice: '4.2', stream: 'B',
     question: "How does your organization ensure cryptographic implementation libraries, patterns, and tools remain up to date with evolving standards?",
     options: [
     { score: 1, label: 'Basic', text: "No process exists to update cryptographic implementation tools or patterns" },
@@ -1094,7 +1094,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Cryptographic libraries, patterns, and tooling are continuously monitored, tested, and updated through automated or lifecycle-integrated processes" }
     ]
   },
-  { id: 106, dimension: 'ITR', practice: '2.3', stream: 'B',
+  { id: 106, dimension: 'ITR', practice: '4.2', stream: 'B',
     question: "How structured is your delivery process for implementing cryptographic changes?",
     options: [
     { score: 1, label: 'Basic', text: "No defined delivery process exists to support cryptographic transitions" },
@@ -1103,8 +1103,8 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Cryptographic transition delivery is supported by a formal, integrated framework designed to accommodate algorithm agility, hybrid models, and PQC migration scenarios" }
     ]
   },
-  { id: 107, dimension: 'ITR', practice: '2.3', stream: 'B',
-    question: "How does your organization ensure consistent implementation of cryptographic practices across systems",
+  { id: 107, dimension: 'ITR', practice: '4.2', stream: 'B',
+    question: "How does your organization ensure consistent implementation of cryptographic practices across systems?",
     options: [
     { score: 1, label: 'Basic', text: "No measures are in place to promote consistency in cryptographic implementation" },
     { score: 2, label: 'Developing', text: "Basic guidance or templates exist, but usage is informal and not systematically verified" },
@@ -1112,7 +1112,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Cryptographic consistency is continuously maintained through automated validation, shared modules, and conformance monitoring across the environment" }
     ]
   },
-  { id: 108, dimension: 'ITR', practice: '2.3', stream: 'B',
+  { id: 108, dimension: 'ITR', practice: '4.2', stream: 'B',
     question: "How does your organization identify and manage risks associated with cryptographic transitions?",
     options: [
     { score: 1, label: 'Basic', text: "No risk management activities are in place for cryptographic transitions" },
@@ -1121,7 +1121,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Cryptographic risk management is integrated with project delivery, including automated tracking, proactive mitigation, and crypto-specific impact modeling" }
     ]
   },
-  { id: 109, dimension: 'ITR', practice: '2.3', stream: 'B',
+  { id: 109, dimension: 'ITR', practice: '4.2', stream: 'B',
     question: "How does your organization track and benchmark cryptographic delivery outcomes across implementation projects?",
     options: [
     { score: 1, label: 'Basic', text: "No tracking or benchmarking is performed for cryptographic implementation outcomes" },
@@ -1130,7 +1130,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Cryptographic delivery metrics are continuously tracked, benchmarked, and used to optimize implementation planning, tooling, and rollout strategies" }
     ]
   },
-  { id: 110, dimension: 'ITR', practice: '2.3', stream: 'B',
+  { id: 110, dimension: 'ITR', practice: '4.2', stream: 'B',
     question: "How does your organization enforce cryptographic change readiness and agility through its CI/CD and software delivery pipelines?",
     options: [
     { score: 1, label: 'Basic', text: "No governance or verification in delivery workflows for cryptographic changes" },
@@ -1139,7 +1139,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Cryptographic readiness is fully integrated into CI/CD with automated policy enforcement, rollback testing, hybrid readiness checks, and agility-aware gating" }
     ]
   },
-  { id: 111, dimension: 'ITR', practice: '2.3', stream: 'B',
+  { id: 111, dimension: 'ITR', practice: '4.3', stream: 'B',
     question: "How comprehensive is your testing strategy for cryptographic transitions and quantum-resistant implementations?",
     options: [
     { score: 1, label: 'Basic', text: "No testing strategy exists for cryptographic transitions or quantum-resistant implementations" },
@@ -1148,7 +1148,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Standards-aligned testing strategy exists that covers quantum-resistant and hybrid implementations, with continuous updates based on emerging requirements and automated testing capabilities" }
     ]
   },
-  { id: 112, dimension: 'ITR', practice: '2.3', stream: 'B',
+  { id: 112, dimension: 'ITR', practice: '4.3', stream: 'B',
     question: "How does your organization validate cryptographic fallback mechanisms and recovery readiness during transition testing?",
     options: [
     { score: 1, label: 'Basic', text: "No validation of fallback or cryptographic recovery behavior is performed" },
@@ -1157,7 +1157,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Cryptographic transitions are tested using failure injection, downgrade simulation, and automated validation of rollback paths and hybrid interoperability" }
     ]
   },
-  { id: 113, dimension: 'ITR', practice: '2.3', stream: 'B',
+  { id: 113, dimension: 'ITR', practice: '4.3', stream: 'B',
     question: "How does your organization test the performance and scalability of cryptographic implementations under realistic and constrained conditions?",
     options: [
     { score: 1, label: 'Basic', text: "No performance testing is performed on cryptographic implementations" },
@@ -1166,7 +1166,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Comprehensive performance testing simulates quantum-era conditions across environments, with automated stress testing, telemetry integration, and continuous profiling" }
     ]
   },
-  { id: 114, dimension: 'ITR', practice: '2.3', stream: 'B',
+  { id: 114, dimension: 'ITR', practice: '4.3', stream: 'B',
     question: "How does your organization generate and manage assurance evidence from cryptographic testing activities?",
     options: [
     { score: 1, label: 'Basic', text: "No structured outputs are generated from cryptographic testing" },
@@ -1175,7 +1175,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Cryptographic test results are systematically captured, reviewed, and used to generate assurance evidence for internal governance, audits, or external certification" }
     ]
   },
-  { id: 115, dimension: 'ITR', practice: '2.3', stream: 'B',
+  { id: 115, dimension: 'ITR', practice: '4.3', stream: 'B',
     question: "How does your organization adapt cryptographic testing practices in response to evolving threats, implementation risks, and post-quantum developments?",
     options: [
     { score: 1, label: 'Basic', text: "Testing practices are static and updated only during major reviews" },
@@ -1184,7 +1184,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Testing is proactively updated in response to cryptographic lifecycle changes, vulnerability disclosures, and PQC-related protocol shifts, with formal integration into test maintenance cycles" }
     ]
   },
-  { id: 116, dimension: 'ITR', practice: '2.3', stream: 'B',
+  { id: 116, dimension: 'ITR', practice: '4.3', stream: 'B',
     question: "How structured is your validation process for cryptographic transitions?",
     options: [
     { score: 1, label: 'Basic', text: "No validation process exists for cryptographic transitions" },
@@ -1193,7 +1193,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Cryptographic validation is integrated with deployment workflows, using tooling, traceability, and continuous refinement" }
     ]
   },
-  { id: 117, dimension: 'ITR', practice: '2.3', stream: 'B',
+  { id: 117, dimension: 'ITR', practice: '4.3', stream: 'B',
     question: "How does your organization ensure consistent validation practices across cryptographic transitions and systems?",
     options: [
     { score: 1, label: 'Basic', text: "No consistency measures exist for validation of cryptographic transitions" },
@@ -1202,7 +1202,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Validation processes are standardized and automatically applied across environments, with tooling to detect deviations and enforce conformance" }
     ]
   },
-  { id: 118, dimension: 'ITR', practice: '2.3', stream: 'B',
+  { id: 118, dimension: 'ITR', practice: '4.3', stream: 'B',
     question: "How does your organization ensure validation of cryptographic implementations aligns with regulatory, industry, and internal compliance requirements?",
     options: [
     { score: 1, label: 'Basic', text: "No compliance requirements are considered during cryptographic validation" },
@@ -1211,7 +1211,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Cryptographic validation is integrated with compliance management systems, with automated checks, evidence collection, and ongoing regulatory alignment" }
     ]
   },
-  { id: 119, dimension: 'ITR', practice: '2.3', stream: 'B',
+  { id: 119, dimension: 'ITR', practice: '4.3', stream: 'B',
     question: "How does your organization assess cryptographic weaknesses or downgrade risks in third-party and externally managed systems during implementation testing?",
     options: [
     { score: 1, label: 'Basic', text: "No validation is performed on the cryptographic behavior of third-party or externally managed systems" },
@@ -1220,7 +1220,7 @@ QG.QUESTIONS = [
     { score: 4, label: 'Advanced', text: "Cryptographic behavior of third-party systems is continuously tested and monitored using automated validation, downgrade probes, and integration testing frameworks" }
     ]
   },
-  { id: 120, dimension: 'ITR', practice: '2.3', stream: 'B',
+  { id: 120, dimension: 'ITR', practice: '4.3', stream: 'B',
     question: "How does your organization contribute to industry standards or best practices for validating cryptographic implementations?",
     options: [
     { score: 1, label: 'Basic', text: "No participation in cryptographic validation standards or best practices" },

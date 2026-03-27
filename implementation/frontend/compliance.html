@@ -63,6 +63,7 @@
 <a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors duration-300" href="results.html">Results</a>
 <a class="text-[#00D4FF] border-b-2 border-[#00D4FF] pb-1 font-bold" href="compliance.html">Compliance</a>
 <a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors duration-300" href="tools.html">Tools</a>
+<a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors duration-300" href="leaderboard.html">Leaderboard</a>
 <a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors duration-300" href="docs.html">Docs</a>
 </div>
 <div class="flex items-center gap-4">
@@ -171,8 +172,10 @@
 
 <script>
 (function() {
-  const answers = Engine.getAnswers('quick') || Engine.getAnswers('comprehensive') || {};
-  const questions = Object.keys(Engine.getAnswers('comprehensive') || {}).length > 0 ? QG.QUESTIONS : QG.QUICK_QUESTIONS;
+  const compAnswers = Engine.getAnswers('comprehensive') || {};
+  const quickAnswers = Engine.getAnswers('quick') || {};
+  const answers = Object.keys(compAnswers).length > 0 ? compAnswers : quickAnswers;
+  const questions = Object.keys(compAnswers).length > 0 ? QG.QUESTIONS : QG.QUICK_QUESTIONS;
   const hasAnswers = Object.keys(answers).length > 0;
 
   const dimColors = { CVI: '#00D4FF', SGRM: '#D2BBFF', DPE: '#FFD9A1', ITR: '#FF8A65' };
@@ -210,8 +213,10 @@
     const tbody = document.getElementById('mappingTable');
     tbody.innerHTML = '';
     const breakdown = hasAnswers ? Engine.getFullScoreBreakdown(answers, questions) : null;
+    const framework = QG.COMPLIANCE_FRAMEWORKS[activeFramework];
+    const filteredPractices = QG.PRACTICES.filter(p => framework.mappedPractices.includes(p.id));
 
-    QG.PRACTICES.forEach(p => {
+    filteredPractices.forEach(p => {
       const dim = QG.DIMENSIONS.find(d => d.id === p.dimension);
       const score = breakdown ? breakdown.dimensions[p.dimension].practices[p.id].score : 0;
       const scoreNorm = (score / 4).toFixed(2);

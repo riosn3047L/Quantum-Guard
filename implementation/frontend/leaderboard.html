@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>QuantumGuard | Global Readiness Leaderboard</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;700&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "surface-dim": "#041329",
+                "surface-container-highest": "#27354c",
+                "surface-container-high": "#1c2a41",
+                "secondary-fixed-dim": "#d2bbff",
+                "secondary": "#d2bbff",
+                "on-secondary-fixed": "#25005a",
+                "outline-variant": "#3c494e",
+                "on-primary-container": "#00586b",
+                "on-secondary": "#3f008e",
+                "tertiary": "#ffd9a1",
+                "tertiary-container": "#feb528",
+                "primary-fixed-dim": "#3cd7ff",
+                "surface-tint": "#3cd7ff",
+                "secondary-fixed": "#eaddff",
+                "on-primary-fixed-variant": "#004e5f",
+                "secondary-container": "#6001d1",
+                "inverse-primary": "#00677e",
+                "tertiary-fixed": "#ffdeae",
+                "background": "#041329",
+                "surface-container": "#112036",
+                "primary-container": "#00d4ff",
+                "primary-fixed": "#b4ebff",
+                "on-tertiary-container": "#6c4900",
+                "surface-container-lowest": "#010e24",
+                "outline": "#859398",
+                "surface-bright": "#2c3951",
+                "on-error": "#690005",
+                "on-error-container": "#ffdad6",
+                "surface-container-low": "#0d1c32",
+                "on-secondary-container": "#c9aeff",
+                "on-primary": "#003642",
+                "inverse-on-surface": "#233148",
+                "tertiary-fixed-dim": "#ffba3d",
+                "on-background": "#d6e3ff",
+                "inverse-surface": "#d6e3ff",
+                "on-tertiary": "#432c00",
+                "on-surface-variant": "#bbc9cf",
+                "on-secondary-fixed-variant": "#5a00c6",
+                "surface-variant": "#27354c",
+                "primary": "#a8e8ff",
+                "on-tertiary-fixed": "#281900",
+                "error": "#ffb4ab",
+                "error-container": "#93000a",
+                "on-tertiary-fixed-variant": "#604100",
+                "on-primary-fixed": "#001f27",
+                "surface": "#041329",
+                "on-surface": "#d6e3ff"
+              },
+              fontFamily: {
+                "headline": ["Inter"],
+                "body": ["Inter"],
+                "label": ["Space Grotesk"],
+                "mono": ["JetBrains Mono"]
+              },
+              borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+            },
+          },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(4, 19, 41, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(60, 73, 78, 0.15);
+        }
+        .kinetic-gradient {
+            background: linear-gradient(135deg, #a8e8ff 0%, #00d4ff 100%);
+        }
+        .b-tree-line {
+            background: linear-gradient(to bottom, #00d4ff 0%, transparent 100%);
+            width: 2px;
+        }
+        .horizontal-line {
+            background: linear-gradient(to right, #00d4ff 0%, transparent 100%);
+            height: 2px;
+        }
+        .b-tree-node {
+            animation: fadeInScale 0.5s ease-out forwards;
+        }
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.9) translateY(10px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary">
+    <!-- TopNavBar -->
+    <nav class="fixed top-0 w-full z-50 bg-[#041329]/60 backdrop-blur-xl border-b border-[#3C494E]/15 shadow-[0_8px_32px_0_rgba(0,212,255,0.05)] flex justify-between items-center px-8 h-16 w-full">
+        <div class="flex items-center gap-8">
+            <span class="text-xl font-black tracking-tighter text-[#00D4FF] uppercase font-headline">QuantumGuard</span>
+            <div class="hidden md:flex gap-6 items-center">
+                <a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors font-['Inter'] antialiased tracking-tight" href="index.html">Home</a>
+                <a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors font-['Inter'] antialiased tracking-tight" href="quick-assessment.html">Assessment</a>
+                <a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors font-['Inter'] antialiased tracking-tight" href="results.html">Results</a>
+                <a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors font-['Inter'] antialiased tracking-tight" href="compliance.html">Compliance</a>
+                <a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors font-['Inter'] antialiased tracking-tight" href="tools.html">Tools</a>
+                <a class="text-[#A8E8FF] border-b-2 border-[#00D4FF] pb-1 font-bold font-['Inter'] antialiased tracking-tight" href="leaderboard.html">Leaderboard</a>
+                <a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors font-['Inter'] antialiased tracking-tight" href="docs.html">Docs</a>
+            </div>
+        </div>
+        <div class="flex items-center gap-4">
+            <button class="material-symbols-outlined text-[#D6E3FF]/70 hover:text-[#00D4FF] active:scale-95 duration-200">notifications</button>
+            <button class="material-symbols-outlined text-[#D6E3FF]/70 hover:text-[#00D4FF] active:scale-95 duration-200">settings</button>
+        </div>
+    </nav>
+
+    <main class="pt-24 pb-16 px-4 md:px-8 max-w-7xl mx-auto space-y-12">
+        <!-- Header Section -->
+        <header class="space-y-4">
+            <div class="flex flex-wrap items-center gap-4">
+                <h1 class="text-4xl md:text-5xl font-black font-headline tracking-tighter uppercase text-on-surface">Global Readiness Leaderboard</h1>
+                <div id="liveIndicator" class="flex items-center gap-2 bg-primary-container/20 border border-primary-container/30 px-3 py-1 rounded-full">
+                    <span class="flex h-2 w-2 rounded-full bg-primary animate-pulse"></span>
+                    <span class="text-[10px] font-bold tracking-widest text-primary uppercase font-label">LIVE FIRESTORE STREAM</span>
+                </div>
+            </div>
+            <p class="text-lg text-on-surface-variant max-w-3xl font-medium leading-relaxed">
+                Visualizing the most quantum-secure web architectures in a B+ tree hierarchy. Scan your domain to claim your branch.
+            </p>
+        </header>
+
+        <!-- Main Bento Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <!-- Quantum Readiness Tree Card -->
+            <section class="lg:col-span-8 glass-panel rounded-xl p-8 relative overflow-hidden flex flex-col min-h-[600px]">
+                <div class="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none" style="background-image: radial-gradient(circle at 20% 30%, #00d4ff 0%, transparent 50%)"></div>
+                <div class="flex justify-between items-center mb-12">
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary">account_tree</span>
+                        <h2 class="font-headline font-bold text-xl uppercase tracking-widest text-primary">Ready Topology</h2>
+                    </div>
+                    <span class="bg-surface-container-highest px-3 py-1 rounded-lg border border-outline-variant/30 text-[10px] font-black font-mono text-primary-fixed">B+ TREE</span>
+                </div>
+
+                <!-- B+ Tree Visualization Area -->
+                <div id="bPlusTree" class="flex-grow flex flex-col items-center justify-start space-y-12 py-8 overflow-x-auto min-w-max">
+                    <!-- Root Node -->
+                    <div class="relative flex flex-col items-center">
+                        <div class="bg-primary-container/20 border-2 border-primary-container px-8 py-3 rounded-lg shadow-[0_0_20px_rgba(0,212,255,0.2)]">
+                            <span class="font-mono font-bold text-on-surface uppercase tracking-widest">Global Root</span>
+                        </div>
+                        <div class="b-tree-line h-12"></div>
+                    </div>
+
+                    <!-- Level 2: Categories -->
+                    <div class="relative flex justify-center w-full gap-8">
+                        <!-- Connecting Line Horizontal -->
+                        <div class="absolute top-0 h-[2px] bg-primary-container/30 left-[12.5%] right-[12.5%]"></div>
+                        
+                        <!-- Branches will be injected here -->
+                        <div id="treeBranches" class="flex justify-center w-full gap-8">
+                            <div class="text-on-surface-variant font-mono text-sm animate-pulse">Initializing quantum link...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 flex items-center justify-between text-xs font-mono text-outline italic">
+                    <span>* Hierarchy rebalancing in real-time</span>
+                    <span id="nodeCount">Nodes: 0</span>
+                </div>
+            </section>
+
+            <!-- Top Ranked Domains Card -->
+            <section class="lg:col-span-4 glass-panel rounded-xl overflow-hidden flex flex-col">
+                <div class="p-6 border-b border-outline-variant/15 flex justify-between items-center bg-surface-container-high/30">
+                    <h3 class="font-headline font-bold uppercase tracking-widest text-sm text-on-surface">Global Rankings</h3>
+                    <span class="material-symbols-outlined text-primary-fixed-dim">filter_list</span>
+                </div>
+                <div class="flex-grow overflow-auto max-h-[500px]">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-surface-container-lowest text-[10px] uppercase font-label tracking-widest text-outline">
+                                <th class="py-4 px-6 font-bold">Rank</th>
+                                <th class="py-4 px-6 font-bold">Domain</th>
+                                <th class="py-4 px-6 font-bold text-right">Score</th>
+                            </tr>
+                        </thead>
+                        <tbody id="rankingsTableBody" class="divide-y divide-outline-variant/10">
+                            <!-- Rankings will be injected here -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="p-6 bg-surface-container-high/10">
+                    <a href="tools.html" class="block w-full text-center kinetic-gradient py-3 rounded-lg font-headline font-black uppercase tracking-widest text-on-primary text-xs hover:shadow-[0_0_20px_rgba(0,212,255,0.4)] transition-all active:scale-[0.98]">
+                        Scan Domain to Compete
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="mt-auto border-t border-outline-variant/10 bg-surface-container-lowest py-10 px-8">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="space-y-2">
+                <p class="text-[10px] font-black font-label text-primary tracking-widest uppercase">Built by IravoVoid for PSB Hackathon 2026</p>
+                <p class="text-xs text-outline font-mono">Securing the future against quantum-decrypt attacks.</p>
+            </div>
+            <p class="text-[10px] text-outline font-mono">© 2026 QUANTUMGUARD PROTOCOL. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getFirestore, collection, onSnapshot, query, orderBy, limit } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+        // Firebase Config (Using reserved URLs for Hosting if possible, but defining it for robustness)
+        // Since we are on Firebase Hosting, it should automatically work with a simple config.
+        const firebaseConfig = {
+            projectId: "social-482013",
+            // Other fields are usually not strictly needed for basic Firestore read if we have the project ID and are on hosting.
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // State
+        let domains = [];
+
+        // UI Elements
+        const treeBranches = document.getElementById('treeBranches');
+        const rankingsTableBody = document.getElementById('rankingsTableBody');
+        const nodeCount = document.getElementById('nodeCount');
+
+        // Categories
+        const categories = [
+            { id: 'core', label: 'Quantum Core', range: [90, 100], color: '#A8E8FF' },
+            { id: 'pqc', label: 'PQC Ready', range: [70, 89], color: '#00D4FF' },
+            { id: 'transitioning', label: 'Transitioning', range: [50, 69], color: '#D2BBFF' },
+            { id: 'legacy', label: 'Legacy', range: [0, 49], color: '#BBC9CF' }
+        ];
+
+        // Listen for updates
+        const q = query(collection(db, "leaderboard"), orderBy("score", "desc"));
+        onSnapshot(q, (snapshot) => {
+            domains = [];
+            snapshot.forEach((doc) => {
+                domains.push(doc.data());
+            });
+            updateUI();
+        }, (error) => {
+            console.error("Firestore Error:", error);
+            treeBranches.innerHTML = `<div class="text-error font-mono text-sm">Error syncing with FireStore. Check console.</div>`;
+        });
+
+        function updateUI() {
+            renderRankings();
+            renderTree();
+            nodeCount.textContent = `Nodes: ${domains.length}`;
+        }
+
+        function renderRankings() {
+            rankingsTableBody.innerHTML = '';
+            domains.slice(0, 50).forEach((d, idx) => {
+                const rank = idx + 1;
+                let rankClass = "text-outline font-mono font-bold px-8";
+                let rankContent = rank < 10 ? `0${rank}` : rank;
+                
+                if (rank === 1) {
+                    rankContent = `<div class="h-8 w-8 rounded-full bg-gradient-to-tr from-yellow-600 to-yellow-200 flex items-center justify-center text-on-secondary font-black text-sm shadow-[0_0_10px_rgba(251,191,36,0.3)]">1</div>`;
+                    rankClass = "";
+                } else if (rank === 2) {
+                    rankContent = `<div class="h-8 w-8 rounded-full bg-gradient-to-tr from-slate-400 to-slate-100 flex items-center justify-center text-on-secondary font-black text-sm shadow-[0_0_10px_rgba(148,163,184,0.3)]">2</div>`;
+                    rankClass = "";
+                } else if (rank === 3) {
+                    rankContent = `<div class="h-8 w-8 rounded-full bg-gradient-to-tr from-amber-700 to-amber-400 flex items-center justify-center text-on-secondary font-black text-sm shadow-[0_0_10px_rgba(180,83,9,0.3)]">3</div>`;
+                    rankClass = "";
+                }
+
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-primary/5 transition-colors group";
+                tr.innerHTML = `
+                    <td class="py-5 px-6 ${rankClass}">${rankContent}</td>
+                    <td class="py-5 px-6">
+                        <div class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors text-sm">public</span>
+                            <span class="font-mono text-sm ${rank <= 3 ? 'text-on-surface' : 'text-on-surface-variant'}">${d.domain}</span>
+                        </div>
+                    </td>
+                    <td class="py-5 px-6 text-right font-mono font-bold text-primary">${d.score}</td>
+                `;
+                rankingsTableBody.appendChild(tr);
+            });
+        }
+
+        function renderTree() {
+            treeBranches.innerHTML = '';
+            
+            categories.forEach(cat => {
+                const catDomains = domains.filter(d => d.score >= cat.range[0] && d.score <= cat.range[1]);
+                const branch = document.createElement('div');
+                branch.className = "flex flex-col items-center b-tree-node";
+                
+                // Branch Header
+                branch.innerHTML = `
+                    <div class="bg-surface-container-high border border-outline-variant/40 px-6 py-2 rounded-lg mb-4" style="border-color: ${cat.color}44">
+                        <span class="font-mono text-[10px] font-bold" style="color: ${cat.color}">${cat.label} (${cat.range[0]}-${cat.range[1]})</span>
+                    </div>
+                    <div class="b-tree-line h-12 opacity-50"></div>
+                    <div class="flex gap-4">
+                        ${catDomains.length > 0 ? 
+                            catDomains.slice(0, 3).map(d => `
+                                <div class="bg-surface-container-lowest border border-outline-variant/20 p-3 rounded-lg flex flex-col items-center min-w-[120px] hover:translate-y-[-4px] transition-transform shadow-lg">
+                                    <span class="font-mono text-[10px] text-on-surface-variant truncate w-24 text-center">${d.domain}</span>
+                                    <span class="font-mono text-2xl font-bold" style="color: ${cat.color}">${d.score}</span>
+                                </div>
+                            `).join('') :
+                            `<div class="text-[10px] font-mono text-outline italic opacity-50">Empty branch</div>`
+                        }
+                        ${catDomains.length > 3 ? `<div class="flex items-center text-outline font-mono text-[10px]">+${catDomains.length - 3} more</div>` : ''}
+                    </div>
+                `;
+                treeBranches.appendChild(branch);
+            });
+        }
+    </script>
+</body>
+</html>

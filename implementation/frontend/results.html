@@ -62,6 +62,7 @@
 <a class="text-[#00D4FF] border-b-2 border-[#00D4FF] pb-1 font-bold" href="results.html">Results</a>
 <a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors duration-300" href="compliance.html">Compliance</a>
 <a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors duration-300" href="tools.html">Tools</a>
+<a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors duration-300" href="leaderboard.html">Leaderboard</a>
 <a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors duration-300" href="docs.html">Docs</a>
 </div>
 </div>
@@ -297,7 +298,7 @@
   Object.values(answers).forEach(score => {
     if (score === 1) levelCounts.Basic++;
     else if (score === 2) levelCounts.Developing++;
-    else if (score === 3) { levelCounts.Established++; levelCounts.Advanced++; }
+    else if (score === 3) levelCounts.Established++;
     else if (score === 4) levelCounts.Optimizing++;
   });
   const total = Object.values(levelCounts).reduce((s, v) => s + v, 0) || 1;

@@ -65,6 +65,7 @@
 <a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors duration-300 font-['Inter'] tracking-tight" href="results.html">Results</a>
 <a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors duration-300 font-['Inter'] tracking-tight" href="compliance.html">Compliance</a>
 <a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors duration-300 font-['Inter'] tracking-tight" href="tools.html">Tools</a>
+<a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors duration-300 font-['Inter'] tracking-tight" href="leaderboard.html">Leaderboard</a>
 <a class="text-[#D6E3FF]/70 hover:text-[#00D4FF] transition-colors duration-300 font-['Inter'] tracking-tight" href="docs.html">Docs</a>
 </div>
 </div>
@@ -177,6 +178,8 @@
     ITR: 'This question measures your infrastructure readiness, implementation capabilities, and testing rigor for post-quantum migration.'
   };
 
+  let isRestoring = false;
+
   // Build progress bars
   function buildProgressBars() {
     const container = document.getElementById('progressBars');
@@ -226,6 +229,7 @@
     // Update options
     const optContainer = document.getElementById('optionsContainer');
     optContainer.innerHTML = '';
+    isRestoring = true;
     q.options.forEach((opt, i) => {
       const isSelected = answers[q.id] === opt.score;
       optContainer.innerHTML += `
@@ -247,6 +251,7 @@
     // Attach listeners to new radios
     optContainer.querySelectorAll('input[type="radio"]').forEach(radio => {
       radio.addEventListener('change', function() {
+        if (isRestoring) return;
         answers[q.id] = parseInt(this.value);
         Engine.saveAnswers(answers, 'quick');
         buildProgressBars();
@@ -254,6 +259,7 @@
         setTimeout(() => { if (currentIdx < questions.length - 1) goNext(); }, 600);
       });
     });
+    isRestoring = false;
 
     // Update context text
     document.getElementById('contextText').textContent = contextTexts[dim];
