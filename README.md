@@ -193,4 +193,3 @@ As a Hackathon MVP, QuantumGuard is constantly evolving. Planned future features
 
 ---
 *Built to secure tomorrow, today. Prepare for the Quantum Era with QuantumGuard.*
-```
