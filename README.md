@@ -1,7 +1,7 @@
 # QuantumGuard
 A platform for quantum readiness assurance, vulnerability scanning, and compliance maturity.
 
-Live Preview : [https://social-482013.web.app](https://social-482013.web.app)
+Live Preview : [https://quantum-guard-kappa.vercel.app](https://quantum-guard-kappa.vercel.app)
 
 ## Table of Contents
 - [Key Features](#key-features)
