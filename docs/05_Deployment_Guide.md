@@ -122,43 +122,15 @@ sudo systemctl restart nginx
 
 ---
 
-## 5.3 Firebase Hosting & Cloud Functions Deployment
-QuantumGuard can be fully deployed using Google's Firebase infrastructure (as seen at `social-482013.web.app`).
+## 5.3 Vercel Deployment (Serverless Free Tier)
+QuantumGuard is fully configured to deploy out-of-the-box on Vercel's free tier, utilizing Edge Networks for static files and Serverless Functions for the API.
 
-1.  **Install Firebase CLI & Login**
-    ```bash
-    npm install -g firebase-tools
-    firebase login
-    ```
-2.  **Initialize Firebase in the Project Root**
-    ```bash
-    firebase init
-    ```
-    *   Select **Hosting** and (optionally) **Functions** if deploying the Express app via Cloud Functions.
-    *   Set the public directory to `public`.
-3.  **Configure `firebase.json` for Rewrites**
-    Ensure your `firebase.json` routes `/api/**` traffic to your deployed backend (e.g., a Google Cloud Run instance or Firebase Function), while catching all other traffic for the static `index.html`.
-    ```json
-    {
-      "hosting": {
-        "public": "public",
-        "rewrites": [
-          {
-            "source": "/api/**",
-            "run": {
-              "serviceId": "quantumguard-backend",
-              "region": "us-central1"
-            }
-          },
-          {
-            "source": "**",
-            "destination": "/index.html"
-          }
-        ]
-      }
-    }
-    ```
+1.  **Import to Vercel**
+    Connect your GitHub repository to Vercel and import the project.
+2.  **Configuration Detection**
+    Vercel will automatically detect the configuration. Leave all build settings as default. The custom `vercel.json` and `/api/index.js` wrapper securely route backend traffic to Vercel serverless functions without crashing.
+3.  **Environment Variables**
+    Before deploying, go to the **Environment Variables** section in your Vercel project settings and add:
+    *   `GEMINI_API_KEY`: Your Google Gemini API Key.
 4.  **Deploy**
-    ```bash
-    firebase deploy --only hosting
-    ```
+    Click deploy. Your static HTML/CSS/JS will be served instantly over Vercel's CDN, and requests to `/api/*` will spin up the Express app as a serverless function.

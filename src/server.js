@@ -128,7 +128,14 @@ app.post('/api/chat', async (req, res) => {
       return res.status(500).send("[ERROR] GEMINI_API_KEY environment variable is not set.");
     }
 
-    const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+    const ai = new GoogleGenAI({ 
+      apiKey: process.env.GEMINI_API_KEY,
+      httpOptions: {
+        headers: {
+          'User-Agent': 'aistudio-build',
+        }
+      }
+    });
 
     // Truncate report context
     let context_json = JSON.stringify(reportContext || {});
@@ -157,7 +164,7 @@ app.post('/api/chat', async (req, res) => {
     res.setHeader('Content-Type', 'text/plain');
 
     const responseStream = await ai.models.generateContentStream({
-      model: 'gemini-flash-latest',
+      model: 'gemini-3.1-flash-lite',
       contents: contents,
       config: {
         systemInstruction: SYSTEM_PROMPT
@@ -186,6 +193,10 @@ app.get('*all', (req, res) => {
 });
 
 const PORT = 3000;
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Server running on port ${PORT}`);
-});
+if (!process.env.VERCEL) {
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+}
+
+export default app;

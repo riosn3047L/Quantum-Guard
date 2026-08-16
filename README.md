@@ -13,10 +13,10 @@ Live Preview : [https://social-482013.web.app](https://social-482013.web.app)
 
 ## Key Features
 1. **Maturity Assessment Engine**: Quick (12 questions) and Comprehensive (120 questions) assessments.
-2. **Quantum Cryptography Scanners**: TLS Scanner, CryptoScan, and CryptoDeps for vulnerability analysis.
+2. **Quantum Cryptography Scanners**: TLS Scanner (optimized with parallel connection pooling for serverless architectures), CryptoScan, and CryptoDeps for vulnerability analysis.
 3. **CBOM Generator**: Generate Cryptographic Bills of Materials.
 4. **Results & Compliance Dashboard**: NIST PQC, CMMC 2.0, FedRAMP, and FISMA mappings.
-5. **AI Chat Advisor**: Integrated Gemini AI for cybersecurity advice.
+5. **AI Chat Advisor**: Integrated with `gemini-3.1-flash-lite` for high-speed, cost-effective cybersecurity advice.
 
 ## 3-Tier Architecture
 QuantumGuard employs a highly modular, decoupled 3-Tier Architecture designed for enterprise scalability and security:
@@ -60,11 +60,20 @@ flowchart TD
 > **Read more:** [Detailed System Requirements](docs/02_System_Requirements.md)
 
 ## Installation & Deployment
-QuantumGuard runs as a full-stack Node.js application. 
-```bash
-npm install
-npm run start
-```
+QuantumGuard runs as a full-stack Node.js application and is fully optimized for Vercel's serverless free tier.
+
+### Local Development
+1. Install dependencies: `npm install`
+2. Create environment variables: `cp .env.example .env` and add your `GEMINI_API_KEY`.
+3. Start the local server: `npm start`
+4. Access the app at `http://localhost:3000`
+
+### Vercel Deployment
+1. Import your GitHub repository into Vercel.
+2. Vercel will automatically detect the configuration via `vercel.json` and the `/api/index.js` serverless wrapper.
+3. Under **Environment Variables** in Vercel, add `GEMINI_API_KEY`.
+4. Deploy! The frontend is served via Vercel's Edge Network, and the API runs on serverless functions.
+
 > **Read more:** [Detailed Installation & Deployment Guide](docs/05_Deployment_Guide.md)
 
 ## Scoring Methodology

@@ -48,8 +48,10 @@ export async function runDetailedTLSScan(hostname, port = 443, deep = false) {
   // TLS 1.2
   if (deep) {
     let supported_12 = false;
-    for (const cipher of CIPHERS_1_2) {
-      const res = await probeProtocol(hostname, port, 'TLSv1.2', cipher);
+    const probePromises = CIPHERS_1_2.map(cipher => probeProtocol(hostname, port, 'TLSv1.2', cipher));
+    const results = await Promise.all(probePromises);
+    
+    for (const res of results) {
       if (res.supported) {
         supported_12 = true;
         if (res.cert && !bestCert) bestCert = res.cert;
